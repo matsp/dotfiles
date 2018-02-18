@@ -129,6 +129,8 @@ Plug 'Shougo/neosnippet-snippets'
 " dont forget to install ag --> pacman -S the_silver_searcher
 Plug 'Shougo/denite.nvim'
   nnoremap <silent> <c-p> :Denite buffer file_rec<CR> "references documentSymbol workspaceSymbol
+  nnoremap <silent> <c-g> :Denite grep<CR>
+  " common buffer tasks
   nnoremap <silent> <Leader>bb :bn<CR> "create (N)ew buffer
   nnoremap <silent> <Leader>bd :bdelete<CR> "(D)elete the current buffer
   nnoremap <silent> <Leader>bu :bunload<CR> "(U)nload the current buffer
@@ -217,6 +219,16 @@ call denite#custom#var('file_rec', 'command',
    \ ['ag', '--follow', '--nocolor', '--nogroup', '--ignore', 'node_modules', '-g', ''])
 "call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
 "call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
+
+call denite#custom#var('grep', 'command', ['ag'])
+"call denite#custom#var('grep', 'default_opts',
+    "\ ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'default_opts',
+    \ ['--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
 call denite#custom#map(
   \ 'insert',
   \ '<C-j>',
