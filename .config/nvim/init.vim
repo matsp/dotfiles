@@ -2,19 +2,43 @@
 
 " vim-plug
 if (!isdirectory(expand("~/.config/nvim/plugged")))
-  !curl -fLo ~/.config/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  !curl -fLo ~/.config/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync
 endif
 
 function! InstallFonts(info)
-  !git clone https://github.com/ryanoasis/nerd-fonts --depth 1
-  !./nerd-fonts/install.sh DroidSansMono
-  !rm -rf nerd-fonts
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !git clone https://github.com/ryanoasis/nerd-fonts --depth 1
+    !./nerd-fonts/install.sh DroidSansMono
+    !rm -rf nerd-fonts
+  endif
 endfunction
 
 function! InstallLSP(info)
-  !./install.sh
-  !sudo npm install -g javascript-typescript-langserver vue-language-server
+  if a:info.status == 'installed' || a:info.force
+    !./install.sh
+    !sudo npm install -g
+      \ javascript-typescript-langserver
+      \ flow-language-server
+      \ vue-language-server
+      \ vscode-css-languageserver-bin
+      \ vscode-html-languageserver-bin
+      \ vscode-json-languageserver-bin
+      \ dockerfile-language-server-nodejs
+  endif
+  !sudo npm update -g 
+    \ javascript-typescript-langserver
+    \ flow-language-server
+    \ vue-language-server
+    \ vscode-css-languageserver-bin
+    \ vscode-html-languageserver-bin
+    \ vscode-json-languageserver-bin
+    \ dockerfile-language-server-nodejs
 endfunction
 
 " plugins
@@ -97,6 +121,7 @@ Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
   autocmd FileType vue syntax sync fromstart
   let g:vue_disable_pre_processors = 1
+Plug 'ekalinin/dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
   "let g:deoplete#auto_complete_start_length = 1
@@ -107,22 +132,32 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#max_list = 1000
   set completeopt-=preview
   inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-  inoremap <expr><cr> pumvisible() ? "\<c-y>" : "\<cr>"
+  "inoremap <expr><cr> pumvisible() ? "\<c-y>" : "\<cr><cr>"
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': function('InstallLSP') }
   let g:LanguageClient_serverCommands = { 
-    \ 'vue': ['vls'],
+    \ 'vue': ['vls'],   
+    \ 'typescript': ['javascript-typescript-stdio'],
     \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio']
+    \ 'css': ['css-languageserver', '--stdio'],
+    \ 'scss': ['css-languageserver', '--stdio'],
+    \ 'less': ['css-languageserver', '--stdio'],
+    \ 'json': ['json-languageserver', '--stdio'],
+    \ 'html': ['html-languageserver', '--stdio'],
+    \ 'Dockerfile': ['docker-langserver', '--stdio']
     \ }
+    " \ 'javascript': ['flow-language-server', '--stdio'],
+
   augroup LanguageClient_config                                                                                                                                           
-    autocmd!                                                                                                                                                              
-    autocmd User LanguageClientStarted setlocal signcolumn=yes                                                                                                            
-    autocmd User LanguageClientStopped setlocal signcolumn=auto                                                                                                           
+    autocmd!
+    autocmd User LanguageClientStarted setlocal signcolumn=yes
+    autocmd User LanguageClientStopped setlocal signcolumn=auto 
   augroup END
   nnoremap <silent> <Leader>lh :call LanguageClient_textDocument_hover()<CR>
   nnoremap <silent> <Leader>ld :call LanguageClient_textDocument_definition()<CR>
   nnoremap <silent> <Leader>lr :call LanguageClient_textDocument_rename()<CR>
-  nnoremap <silent> <Leader>ls :call LanugageClient_textDocument_documentSymbol()<CR>
+  nnoremap <silent> <Leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+  nnoremap <silent> <Leader>lf :call LanguageClient_textDocument_formatting()<CR>
+  vnoremap <silent> <Leader>lf :call LanguageClient_textDocument_rangeFormatting()<CR>
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -184,6 +219,7 @@ set updatetime=100
 set hidden
 set shortmess+=c
 set noshowmode
+set noshowcmd
 set number
 set autoindent
 set tabstop=2
