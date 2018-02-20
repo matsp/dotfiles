@@ -46,18 +46,20 @@ call plug#begin('~/.config/nvim/plugged')
 
 " mappings
 let mapleader = ","
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+"nnoremap <A-j> :m .+1<CR>==
+"nnoremap <A-k> :m .-2<CR>==
+"inoremap <A-j> <Esc>:m .+1<CR>==gi
+"inoremap <A-k> <Esc>:m .-2<CR>==gi
+"vnoremap <A-j> :m '>+1<CR>gv=gv
+"vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " coming back from terminal mode with ESC
 tnoremap <Esc> <C-\><C-n>
 "tnoremap <M-[> <Esc>
 " send ESC to terminal command
 tnoremap <C-v><Esc> <Esc>
+" open terminal
+nnoremap <Leader>t :70VTerm<CR>
 
 " window switching btw. 'M' is meta key (ALT)
 " Terminal mode:
@@ -195,6 +197,7 @@ Plug 'neomake/neomake'
   "let g:neomake_open_list = 2
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'kassio/neoterm'
+Plug 'vimlab/split-term.vim'
   nnoremap <silent> <f10> :TREPLSendFile<cr>
   nnoremap <silent> <f9> :TREPLSendLine<cr>
   vnoremap <silent> <f9> :TREPLSendSelection<cr>
