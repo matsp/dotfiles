@@ -59,7 +59,7 @@ tnoremap <Esc> <C-\><C-n>
 " send ESC to terminal command
 tnoremap <C-v><Esc> <Esc>
 " open terminal
-nnoremap <Leader>t :70VTerm<CR>
+"nnoremap <Leader>t :70VTerm<CR>
 
 " window switching btw. 'M' is meta key (ALT)
 " Terminal mode:
@@ -165,7 +165,7 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 " dont forget to install ag --> pacman -S the_silver_searcher
 Plug 'Shougo/denite.nvim'
-  nnoremap <silent> <c-p> :Denite buffer file_rec<CR> "references documentSymbol workspaceSymbol
+  nnoremap <silent> <c-p> :Denite buffer file_rec<CR>
   nnoremap <silent> <c-g> :Denite grep<CR>
   " common buffer tasks
   nnoremap <silent> <Leader>bb :bn<CR> "create (N)ew buffer
@@ -196,14 +196,14 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'neomake/neomake'
   "let g:neomake_open_list = 2
 Plug 'benjie/neomake-local-eslint.vim'
-Plug 'kassio/neoterm'
-Plug 'vimlab/split-term.vim'
-  nnoremap <silent> <f10> :TREPLSendFile<cr>
-  nnoremap <silent> <f9> :TREPLSendLine<cr>
-  vnoremap <silent> <f9> :TREPLSendSelection<cr>
-  nnoremap <silent> ,th :call neoterm#close()<cr>
-  nnoremap <silent> ,tl :call neoterm#clear()<cr>
-  nnoremap <silent> ,tc :call neoterm#kill()<cr>
+"Plug 'kassio/neoterm'
+"Plug 'vimlab/split-term.vim'
+  "nnoremap <silent> <f10> :TREPLSendFile<cr>
+  "nnoremap <silent> <f9> :TREPLSendLine<cr>
+  "vnoremap <silent> <f9> :TREPLSendSelection<cr>
+  "nnoremap <silent> ,th :call neoterm#close()<cr>
+  "nnoremap <silent> ,tl :call neoterm#clear()<cr>
+  "nnoremap <silent> ,tc :call neoterm#kill()<cr>
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
