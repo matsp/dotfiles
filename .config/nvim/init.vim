@@ -108,7 +108,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
   let NERDTreeMinimalUI = 1
   let NERDTreeDirArrows = 1
   let NERDTreeAutoDeleteBuffer = 1
-  let NERDTreeQuitOnOpen = 1
+  "let NERDTreeQuitOnOpen = 1
   let NERDTreeShowHidden = 1
   map <Leader>n :NERDTreeToggle<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
