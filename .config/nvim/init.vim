@@ -96,7 +96,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-fugitive'
   nmap <silent> <leader>gs :Gstatus<cr>
   nmap <silent> <leader>gc :Gcommit<cr>
-  nmap <silent> <leader>ga :Gwrite<cr>
+  nmap <silent> <leader>gw :Gwrite<cr>
   nmap <silent> <leader>gd :Gvdiff<cr>
   nmap <leader>ge :Gedit<cr>
   nmap <silent><leader>gb :Gblame<cr>
