@@ -174,6 +174,8 @@ Plug 'Shougo/denite.nvim'
   nnoremap <silent> <Leader>bu :bunload<CR> "(U)nload the current buffer
   nnoremap <silent> <Leader>bl :setnomodifiable<CR> " (L)ock the current buffer"
 Plug 'scrooloose/nerdcommenter'
+  let g:NERDSpaceDelims = 1
+  let g:NERDCompactSexyComs = 1
   let g:ft = ''
   fu! NERDCommenter_before()
         if &ft == 'vue'
