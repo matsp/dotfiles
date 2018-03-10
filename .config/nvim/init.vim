@@ -258,7 +258,7 @@ call denite#custom#option('_', {
   \ 'reversed': 1,
   \})
 call denite#custom#var('file_rec', 'command',
-   \ ['ag', '--follow', '--nocolor', '--nogroup', '--ignore', 'node_modules', '-g', ''])
+   \ ['ag', '--hidden', '--follow', '--nocolor', '--nogroup', '--ignore', 'node_modules', '--ignore', '.git' ,'-g', ''])
 "call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
 "call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
 
