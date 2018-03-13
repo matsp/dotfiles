@@ -93,6 +93,7 @@ Plug 'vim-airline/vim-airline-themes'
 " themes
 Plug 'joshdick/onedark.vim'
 Plug 'lifepillar/vim-solarized8'
+Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
   nmap <silent> <leader>gs :Gstatus<cr>
   nmap <silent> <leader>gc :Gcommit<cr>
