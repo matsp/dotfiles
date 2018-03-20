@@ -119,6 +119,7 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vue'] }
 "Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', vue'] }
 Plug 'moll/vim-node', { 'for': ['javascript'] }
 Plug 'othree/html5.vim', { 'for': ['html', 'vue'] }
+Plug 'alvan/vim-closetag', { 'for': ['html', 'vue'] }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
