@@ -101,6 +101,8 @@ Plug 'tpope/vim-fugitive'
   nmap <silent> <leader>gd :Gvdiff<cr>
   nmap <leader>ge :Gedit<cr>
   nmap <silent><leader>gb :Gblame<cr>
+Plug 'junegunn/gv.vim'
+  nmap <silent> <leader>gv :GV<cr>
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
@@ -110,7 +112,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
   let NERDTreeMinimalUI = 1
   let NERDTreeDirArrows = 1
   let NERDTreeAutoDeleteBuffer = 1
-  "let NERDTreeQuitOnOpen = 1
+  let NERDTreeQuitOnOpen = 1
   let NERDTreeShowHidden = 1
   map <Leader>n :NERDTreeToggle<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
