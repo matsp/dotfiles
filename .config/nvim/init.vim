@@ -125,9 +125,9 @@ Plug 'alvan/vim-closetag', { 'for': ['html', 'vue'] }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
-Plug 'posva/vim-vue', { 'for': 'vue' }
-  autocmd FileType vue syntax sync fromstart
-  let g:vue_disable_pre_processors = 1
+"Plug 'posva/vim-vue', { 'for': 'vue' }
+"  autocmd FileType vue syntax sync fromstart
+"  let g:vue_disable_pre_processors = 1
 Plug 'ekalinin/dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
