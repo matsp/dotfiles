@@ -14,3 +14,5 @@ compinit
 powerline-daemon -q
 . /usr/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
 # End of lines added by compinstall
+
+export PATH=$PATH:~/git/flutter/bin:~/.pub-cache/bin
