@@ -6,8 +6,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'sheerun/vim-polyglot'
-
 Plug 'scrooloose/nerdtree'
 map <C-f> :NERDTreeToggle<CR>
 
@@ -20,6 +18,15 @@ let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
 
 Plug 'altercation/vim-colors-solarized'
+
+
+Plug 'natebosch/vim-lsc'
+let g:lsc_auto_map = v:true
+Plug 'natebosch/vim-lsc-dart'
+
+Plug 'sheerun/vim-polyglot'
+Plug 'dart-lang/dart-vim-plugin'
+
 
 call plug#end()
 
