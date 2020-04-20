@@ -35,4 +35,4 @@ set smartindent
 let mapleader = ','
 syntax enable
 set background=dark
-colorscheme solarized
+silent! colorscheme solarized
