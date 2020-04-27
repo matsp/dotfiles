@@ -15,4 +15,8 @@ powerline-daemon -q
 . /usr/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
 # End of lines added by compinstall
 
-export PATH=$PATH:~/git/flutter/bin:~/.pub-cache/bin:/opt/android-sdk/tools/bin
+export PATH=$PATH:~/git/flutter/bin:~/.pub-cache/bin:/opt/android-sdk/tools/bin:/opt/android-sdk/emulator
+
+export ANDROID_HOME=/opt/android-sdk
+
+alias pixel_9.0='emulator @pixel_9.0 -no-boot-anim -netdelay none -no-snapshot -wipe-data -skin 1080x1920 &'
