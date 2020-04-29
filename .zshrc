@@ -1,8 +1,4 @@
-# install oh-my-zsh if not yet done
-test ! -d ~/.oh-my-zsh && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-export ANDROID_HOME=/opt/android-sdk
-export PATH=$PATH:~/git/flutter/bin:~/.pub-cache/bin:$ANDROID_HOME/tools/bin:$ANDROID_HOME/emulator
+source ~/.zshrc.custom
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mp/.oh-my-zsh"
