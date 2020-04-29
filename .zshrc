@@ -1,5 +1,5 @@
 test ! -d $HOME/.oh-my-zsh \
-  && git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh \
+  && git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh \
   && exit 0
 
 export ANDROID_HOME=/opt/android-sdk
