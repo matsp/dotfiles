@@ -1,4 +1,9 @@
-source ~/.zshrc.custom
+test ! -d ~/.oh-my-zsh \
+  && git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh \
+  && exit 0
+
+export ANDROID_HOME=/opt/android-sdk
+export PATH=$PATH:~/git/flutter/bin:~/.pub-cache/bin:$ANDROID_HOME/tools/bin:$ANDROID_HOME/emulator
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mp/.oh-my-zsh"
