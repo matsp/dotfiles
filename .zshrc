@@ -1,12 +1,12 @@
-test ! -d ~/.oh-my-zsh \
-  && git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh \
+test ! -d $HOME/.oh-my-zsh \
+  && git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh \
   && exit 0
 
 export ANDROID_HOME=/opt/android-sdk
-export PATH=$PATH:~/git/flutter/bin:~/.pub-cache/bin:$ANDROID_HOME/tools/bin:$ANDROID_HOME/emulator
+export PATH=$PATH:$HOME/git/flutter/bin:$HOME/.pub-cache/bin:$ANDROID_HOME/tools/bin:$ANDROID_HOME/emulator
 
 # Path to your oh-my-zsh installation.
-export ZSH="~/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
