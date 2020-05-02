@@ -3,7 +3,7 @@ test ! -d $HOME/.oh-my-zsh \
   && exit 0
 
 export ANDROID_HOME=/opt/android-sdk
-export PATH=$PATH:$HOME/git/flutter/bin:$HOME/.pub-cache/bin:$ANDROID_HOME/tools/bin:$ANDROID_HOME/emulator
+export PATH=$PATH:$HOME/.pub-cache/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
