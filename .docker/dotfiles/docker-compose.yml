@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  dotfiles:
+  shell:
     env_file: ~/.docker/dotfiles/.env
     build:
       context: https://github.com/matsp/docker-dotfiles.git
@@ -15,7 +15,7 @@ services:
     tty: true
     container_name: dotfiles
     volumes:
-      - ~/.ssh
+      - ~/.ssh:/home/$USER/.ssh
       - projects-data:/projects
       - /var/run/docker.sock:/var/run/docker.sock
 
