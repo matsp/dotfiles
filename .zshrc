@@ -8,7 +8,7 @@ export PATH=$PATH:$HOME/.pub-cache/bin
 alias dotfiles-shell="docker exec -ti dotfiles zsh"
 alias dotfiles-up="cd ~/.docker/dotfiles && docker-compose up -d"
 alias dotfiles-down="cd ~/.docker/dotfiles && docker-compose down"
-alias dotfiles-rebuild="cd ~/.docker/dotfiles && docker-compose build --force-rm"
+alias dotfiles-rebuild="cd ~/.docker/dotfiles && docker-compose down && docker image rm dotfiles_shell && docker-compose build"
 alias flutter-shell="docker exec -ti flutter /bin/bash"
 
 # Path to your oh-my-zsh installation.
