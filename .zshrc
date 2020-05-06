@@ -5,11 +5,12 @@ test ! -d $HOME/.oh-my-zsh \
 export ANDROID_HOME=/opt/android-sdk
 export PATH=$PATH:$HOME/.pub-cache/bin
 
+# ~/.docker/dotfiles/docker-compse aliase
 alias dotfiles-shell="docker exec -ti dotfiles zsh"
 alias dotfiles-up="cd ~/.docker/dotfiles && docker-compose up -d"
 alias dotfiles-down="cd ~/.docker/dotfiles && docker-compose down"
 alias dotfiles-rebuild="cd ~/.docker/dotfiles && docker-compose down && docker image rm dotfiles_shell && docker-compose build"
-alias flutter-shell="docker exec -ti flutter /bin/bash"
+alias dotfiles-top="cd ~/.docker/dotfiles && docker-compose top"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
