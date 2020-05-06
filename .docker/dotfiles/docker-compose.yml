@@ -3,24 +3,21 @@ services:
   shell:
     env_file: ~/.docker/dotfiles/.env
     build:
-      context: https://github.com/matsp/docker-dotfiles.git
+      context: ${DOCKERFILE_GIT}
       args:
-        USER: 'mats'
-        DOTFILES_GIT_URL: 'https://github.com/matsp/dotfiles.git'
-        GIT_USER: 'Mats Pfeiffer'
-        GIT_EMAIL: 'mats.pfeiffer@googlemail.com'
+        USER: ${USER_NAME}
+        DOTFILES_GIT_URL: ${DOTFILES_GIT_URL}
+        GIT_USER: ${GIT_USER}
+        GIT_EMAIL: ${GIT_EMAIL}
         USER_ID: ${USER_ID}
         GROUP_ID: ${GROUP_ID}
         DOCKER_GROUP_ID: ${DOCKER_GROUP_ID}
     tty: true
     container_name: dotfiles
     volumes:
-      - ~/.ssh:/home/$USER/.ssh
+      - ~/.ssh:${CONTAINER_SSH_DIR}
       - projects-data:/projects
       - /var/run/docker.sock:/var/run/docker.sock
-
-        #  flutter:
-        #build: https://github.com/matsp/docker-flutter.git
 
 volumes:
   projects-data:
