@@ -5,12 +5,17 @@ test ! -d $HOME/.oh-my-zsh \
 export ANDROID_HOME=/opt/android-sdk
 export PATH=$PATH:$HOME/.pub-cache/bin
 
-# ~/.docker/dotfiles/docker-compse aliase
+# Dotfiles docker-compose
 alias dotfiles-shell="docker exec -ti dotfiles zsh"
-alias dotfiles-up="cd ~/.docker/dotfiles && docker-compose up -d"
-alias dotfiles-down="cd ~/.docker/dotfiles && docker-compose down"
-alias dotfiles-rebuild="cd ~/.docker/dotfiles && docker-compose down && docker image rm dotfiles_shell && docker-compose build"
-alias dotfiles-top="cd ~/.docker/dotfiles && docker-compose top"
+alias dotfiles-up="docker-compose -f ~/.docker/dotfiles/docker-compose.yml --env-file ~/.docker/dotfiles/.env up -d"
+alias dotfiles-down="docker-compose -f ~/.docker/dotfiles/docker-compose.yml  --env-file ~/.docker/dotfiles/.env down"
+alias dotfiles-rebuild="docker-compose -f ~/.docker/dotfiles/docker-compose.yml  --env-file ~/.docker/dotfiles/.env down && docker rmi dotfiles_shell &&  docker-compose -f ~/.docker/dotfiles --env-file ~/.docker/dotfiles/.env build"
+alias dotfiles-top="docker-compose -f ~/.docker/dotfiles/docker-compose.yml  --env-file ~/.docker/dotfiles/.env top"
+
+# Docker images mapped as commands 
+alias flutter="docker run --rm -v `pwd`:/app docker-flutter"
+alias flutter-start-emulator="docker run --rm -p 42000:42000 -p 8090:8090 --device /dev/kvm -v /tmp/.X11-unix -e DISPLAY -v `pwd`:/app --entrypoint flutter-android-emulator docker-flutter"
+alias flutter-start-web="docker run --rm -p 42000:42000 -p 8090:8090 --device /dev/kvm -v /tmp/.X11-unix -e DISPLAY -v `pwd`:/app --entrypoint flutter-web docker-flutter"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"

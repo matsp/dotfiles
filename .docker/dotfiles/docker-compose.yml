@@ -1,7 +1,6 @@
 version: "3.8"
 services:
   shell:
-    env_file: ~/.docker/dotfiles/.env
     build:
       context: ${DOCKERFILE_GIT}
       args:
