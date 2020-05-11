@@ -24,7 +24,8 @@ alias dotfiles-create-volume='docker volume create \
   --opt device=tmpfs \
   --opt o=uid=$(id -u),gid=$(id -g) \
   dotfiles-data'
-alias dotfiles-run='docker run --rm -ti \
+alias dotfiles-run='xhost local:$USER && \
+  docker run --rm -ti \
   -v ~/.ssh:/home/mats/.ssh:ro \
   -v dotfiles-data:/home/mats/projects \
   -v /var/run/docker.sock:/var/run/docker.sock:ro \
@@ -34,13 +35,29 @@ alias dotfiles-run='docker run --rm -ti \
   matspfeiffer/dotfiles'
 
 # Docker images mapped as commands 
-alias flutter='docker run --rm -e UID=$(id -u) -e GID=$(id -g) \
-  --workdir /project -v "$PWD":/project docker-flutter'
-alias flutter-start-emulator='docker run --rm -ti -p 42000:42000 \
-  --workdir /project --device /dev/kvm -v /tmp/.X11-unix -e DISPLAY \
-  -v "$PWD":/project --entrypoint flutter-android-emulator docker-flutter'
-alias flutter-start-web='docker run --rm -ti -p 42000:42000 -p 8090:8090 \
-  --workdir /project -v "$PWD":/project --entrypoint flutter-web docker-flutter'
+alias flutter='docker run --rm \
+  -e UID=$(id -u) \
+  -e GID=$(id -g) \
+  --workdir /project \
+  -v "$PWD":/project \
+  docker-flutter'
+alias flutter-start-emulator='xhost local:$USER && \
+  docker run --rm -ti \
+  -p 42000:42000 \
+  --workdir /project \
+  --device /dev/kvm \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -e DISPLAY \
+  -v "$PWD":/project \
+  --entrypoint flutter-android-emulator \
+  docker-flutter'
+alias flutter-start-web='docker run --rm -ti \
+  -p 42000:42000 \
+  -p 8090:8090 \
+  --workdir /project \
+  -v "$PWD":/project \
+  --entrypoint flutter-web \
+  docker-flutter'
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
