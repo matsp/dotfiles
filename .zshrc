@@ -5,12 +5,30 @@ test ! -d $HOME/.oh-my-zsh \
 export ANDROID_HOME=/opt/android-sdk
 export PATH=$PATH:$HOME/.pub-cache/bin
 
-# Dotfiles docker-compose
-alias dotfiles-shell='docker exec -ti dotfiles zsh'
-alias dotfiles-up='docker-compose -f ~/.:qdocker/dotfiles/docker-compose.yml --env-file ~/.docker/dotfiles/.env up -d'
-alias dotfiles-down='docker-compose -f ~/.docker/dotfiles/docker-compose.yml  --env-file ~/.docker/dotfiles/.env down'
-alias dotfiles-rebuild='docker-compose -f ~/.docker/dotfiles/docker-compose.yml  --env-file ~/.docker/dotfiles/.env down && docker rmi dotfiles_shell &&  docker-compose -f ~/.docker/dotfiles --env-file ~/.docker/dotfiles/.env build'
-alias dotfiles-top='docker-compose -f ~/.docker/dotfiles/docker-compose.yml  --env-file ~/.docker/dotfiles/.env top'
+# Dotfiles
+
+alias dotfiles-build='docker build \
+  -t matspfeiffer/dotfiles \
+  --build-arg USER=mats \
+  --build-arg DOTFILES_GIT_URL=https://github.com/matsp/dotfiles.git \
+  --build-arg GIT_USER=Mats\ Pfeiffer \
+  --build-arg GIT_EMAIL=mats.pfeiffer@googlemail.com \
+  --build-arg USER_ID=$(id -u) \
+  --build-arg GROUP_ID=$(id -g) \
+  --build-arg DOCKER_GROUP_ID=$(cut -d: -f3 < <(getent group docker)) \
+  --no-cache \
+  https://github.com/matsp/docker-dotfiles.git'
+alias dotfiles-push='docker push matspfeiffer/dotfiles:latest'
+alias dotfiles-create-volume='docker volume create dotfiles-data'
+alias dotfiles-run='docker run --rm -ti \
+  --workdir /home/mats/projects \
+  -v ~/.ssh:/home/mats/.ssh:ro \
+  -v dotfiles-data:/home/mats/projects \
+  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+  -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
+  --device /dev/kvm \
+  -e DISPLAY \
+  matspfeiffer/dotfiles'
 
 # Docker images mapped as commands 
 alias flutter='docker run --rm -e UID=$(id -u) -e GID=$(id -g) --workdir /project -v "$PWD":/project docker-flutter'
