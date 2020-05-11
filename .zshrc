@@ -9,10 +9,10 @@ export PATH=$PATH:$HOME/.pub-cache/bin
 
 alias dotfiles-build='docker build \
   -t matspfeiffer/dotfiles \
-  --build-arg USER=mats \
-  --build-arg DOTFILES_GIT_URL=https://github.com/matsp/dotfiles.git \
-  --build-arg GIT_USER=Mats\ Pfeiffer \
-  --build-arg GIT_EMAIL=mats.pfeiffer@googlemail.com \
+  --build-arg USER="mats" \
+  --build-arg DOTFILES_GIT_URL="https://github.com/matsp/dotfiles.git" \
+  --build-arg GIT_USER="Mats Pfeiffer" \
+  --build-arg GIT_EMAIL="mats.pfeiffer@googlemail.com" \
   --build-arg USER_ID=$(id -u) \
   --build-arg GROUP_ID=$(id -g) \
   --build-arg DOCKER_GROUP_ID=$(cut -d: -f3 < <(getent group docker)) \
