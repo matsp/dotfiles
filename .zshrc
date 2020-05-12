@@ -22,24 +22,20 @@ alias dotfiles-create-volume='docker volume create \
   --opt type=tmpfs \
   --opt device=tmpfs \
   --opt o=uid=$(id -u),gid=$(id -g) \
-  dotfiles-data'
-alias dotfiles-run='xhost local:$USER && \
-  docker run --rm -ti \
+  projects-data'
+alias dotfiles-run='docker run --rm -ti \
   --name dotfiles \
   -v ~/.ssh:/home/mats/.ssh:ro \
-  -v dotfiles-data:/projects \
+  -v projects-data:/projects \
   -v /var/run/docker.sock:/var/run/docker.sock:ro \
-  -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
-  --device /dev/kvm \
-  -e DISPLAY \
   matspfeiffer/dotfiles'
 
 # Docker images mapped as commands 
 alias flutter='docker run --rm \
   -e UID=$(id -u) \
   -e GID=$(id -g) \
-  --workdir /projects \
-  --volumes-from dotfiles
+  --workdir /project \
+  -v "$PWD":/project \
   matspfeiffer/flutter'
 alias flutter-start-emulator='xhost local:$USER && \
   docker run --rm -ti \
