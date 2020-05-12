@@ -26,6 +26,7 @@ alias dotfiles-create-volume='docker volume create \
   dotfiles-data'
 alias dotfiles-run='xhost local:$USER && \
   docker run --rm -ti \
+  -v $(which docker):/usr/bin/docker \
   -v ~/.ssh:/home/mats/.ssh:ro \
   -v dotfiles-data:/home/mats/projects \
   -v /var/run/docker.sock:/var/run/docker.sock:ro \
@@ -46,6 +47,7 @@ alias flutter-start-emulator='xhost local:$USER && \
   -p 42000:42000 \
   --workdir /project \
   --device /dev/kvm \
+  --device /dev/dri:/dev/dri \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -e DISPLAY \
   -v "$PWD":/project \
