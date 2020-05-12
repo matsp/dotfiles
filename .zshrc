@@ -2,11 +2,10 @@ test ! -d $HOME/.oh-my-zsh \
   && git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh \
   && exit 0
 
-export ANDROID_HOME=/opt/android-sdk
+# dart/flutter cache
 export PATH=$PATH:$HOME/.pub-cache/bin
 
 # Dotfiles
-
 alias dotfiles-build='docker build \
   -t matspfeiffer/dotfiles \
   --build-arg USER="mats" \
@@ -26,7 +25,6 @@ alias dotfiles-create-volume='docker volume create \
   dotfiles-data'
 alias dotfiles-run='xhost local:$USER && \
   docker run --rm -ti \
-  -v $(which docker):/usr/bin/docker \
   -v ~/.ssh:/home/mats/.ssh:ro \
   -v dotfiles-data:/home/mats/projects \
   -v /var/run/docker.sock:/var/run/docker.sock:ro \
