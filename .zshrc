@@ -36,7 +36,7 @@ alias flutter='docker run --rm \
   -e GID=$(id -g) \
   --workdir /project \
   -v "$PWD":/project \
-  matspfeiffer/flutter'
+  matspfeiffer/flutter:beta'
 alias flutter-start-emulator='xhost local:$USER && \
   docker run --rm -ti \
   -p 42000:42000 \
@@ -47,14 +47,14 @@ alias flutter-start-emulator='xhost local:$USER && \
   -e DISPLAY \
   -v "$PWD":/project \
   --entrypoint flutter-android-emulator \
-  matspfeiffer/flutter'
+  matspfeiffer/flutter:beta'
 alias flutter-start-web='docker run --rm -ti \
   -p 42000:42000 \
   -p 8090:8090 \
   --workdir /project \
   -v "$PWD":/project \
   --entrypoint flutter-web \
-  matspfeiffer/flutter'
+  matspfeiffer/flutter:beta'
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
