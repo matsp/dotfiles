@@ -40,6 +40,8 @@ alias flutter='docker run --rm \
 alias flutter-start-emulator='xhost local:$USER && \
   docker run --rm -ti \
   -p 42000:42000 \
+  -e UID=$(id -u) \
+  -e GID=$(id -g) \
   --workdir /project \
   --device /dev/kvm \
   --device /dev/dri:/dev/dri \
@@ -49,6 +51,8 @@ alias flutter-start-emulator='xhost local:$USER && \
   --entrypoint flutter-android-emulator \
   matspfeiffer/flutter:beta'
 alias flutter-start-web='docker run --rm -ti \
+  -e UID=$(id -u) \
+  -e GID=$(id -g) \
   -p 42000:42000 \
   -p 8090:8090 \
   --workdir /project \
