@@ -32,10 +32,10 @@ Plug 'tpope/vim-fugitive'
   nmap <leader>ge :Gedit<cr>
   nmap <silent><leader>gb :Gblame<cr>
 
-Plug 'natebosch/vim-lsc'
-  let g:lsc_auto_map = v:true
+"Plug 'natebosch/vim-lsc'
+"  let g:lsc_auto_map = v:true
 
-Plug 'natebosch/vim-lsc-dart'
+"Plug 'natebosch/vim-lsc-dart'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'dart-lang/dart-vim-plugin'
@@ -45,6 +45,7 @@ Plug 'dart-lang/dart-vim-plugin'
 "Plug 'ekalinin/dockerfile.vim', { 'for': 'Dockerfile' }
 
 "Plug 'elzr/vim-json', { 'for': 'json' }
+"
 
 call plug#end()
 
