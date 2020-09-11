@@ -60,6 +60,8 @@ alias flutter-start-web='docker run --rm -ti \
   --entrypoint flutter-web \
   matspfeiffer/flutter:beta'
 
+alias update='sudo lvcreate -L10G -s -n root_snap /dev/arch/root && yay'
+alias rrs='sudo lvremove -f /dev/arch/root_snap'
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
