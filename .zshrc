@@ -3,7 +3,8 @@ test ! -d $HOME/.oh-my-zsh \
   && exit 0
 
 # dart/flutter cache
-export PATH=$PATH:$HOME/.pub-cache/bin
+export PATH=$PATH:$HOME/.pub-cache/bin:$HOME/git/flutter/bin
+export CHROME_EXECUTABLE="google-chrome-stable"
 
 # Dotfiles
 alias dotfiles-build='docker build \
@@ -31,7 +32,7 @@ alias dotfiles-run='docker run --rm -ti \
   matspfeiffer/dotfiles'
 
 # Docker images mapped as commands 
-alias flutter='docker run --rm \
+alias docker-flutter='docker run --rm \
   -e UID=$(id -u) \
   -e GID=$(id -g) \
   --workdir /project \
