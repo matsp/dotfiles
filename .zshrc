@@ -31,38 +31,9 @@ alias dotfiles-run='docker run --rm -ti \
   -v /var/run/docker.sock:/var/run/docker.sock:ro \
   matspfeiffer/dotfiles'
 
-# Docker images mapped as commands 
-alias docker-flutter='docker run --rm \
-  -e UID=$(id -u) \
-  -e GID=$(id -g) \
-  --workdir /project \
-  -v "$PWD":/project \
-  matspfeiffer/flutter:beta'
-alias flutter-start-emulator='xhost local:$USER && \
-  docker run --rm -ti \
-  -p 42000:42000 \
-  -e UID=$(id -u) \
-  -e GID=$(id -g) \
-  --workdir /project \
-  --device /dev/kvm \
-  --device /dev/dri:/dev/dri \
-  -v /tmp/.X11-unix:/tmp/.X11-unix \
-  -e DISPLAY \
-  -v "$PWD":/project \
-  --entrypoint flutter-android-emulator \
-  matspfeiffer/flutter:beta'
-alias flutter-start-web='docker run --rm -ti \
-  -e UID=$(id -u) \
-  -e GID=$(id -g) \
-  -p 42000:42000 \
-  -p 8090:8090 \
-  --workdir /project \
-  -v "$PWD":/project \
-  --entrypoint flutter-web \
-  matspfeiffer/flutter:beta'
-
 alias update='sudo lvcreate -L10G -s -n root_snap /dev/arch/root && yay'
 alias rrs='sudo lvremove -f /dev/arch/root_snap'
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
