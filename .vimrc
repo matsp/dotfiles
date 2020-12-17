@@ -72,5 +72,6 @@ set expandtab
 set cursorline
 set t_Co=256
 set list
-set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+"set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set hidden

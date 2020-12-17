@@ -1,0 +1,9 @@
+otf-fira-code
+zsh
+termite
+i3
+xorg-xbacklight
+pulseaudio
+xorg-server
+polybar
+powerline-fonts
