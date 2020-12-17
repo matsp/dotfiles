@@ -33,6 +33,8 @@ alias dotfiles-run='docker run --rm -ti \
 
 alias update='sudo lvcreate -L10G -s -n root_snap /dev/arch/root && yay'
 alias rrs='sudo lvremove -f /dev/arch/root_snap'
+alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+alias system-deep-clean='yay -Qtdq | yay -Rns -'
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
