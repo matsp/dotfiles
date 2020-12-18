@@ -7,3 +7,4 @@ pulseaudio
 xorg-server
 polybar
 powerline-fonts
+feh

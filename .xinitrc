@@ -41,12 +41,15 @@ fi
 
 # start some nice programs
 
+
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
   [ -x "$f" ] && . "$f"
  done
  unset f
 fi
+
+#feh --bg-scale $HOME/.arch/wallpaper.jpg
 
 exec i3
 exec start-pulseaudio-x11
