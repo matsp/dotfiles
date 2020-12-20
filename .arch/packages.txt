@@ -1,6 +1,7 @@
 otf-fira-code
 zsh
-termite
+# termite
+kitty
 i3
 xorg-xbacklight
 pulseaudio
