@@ -189,8 +189,8 @@ bindsym $mod+r mode "resize"
 
 ## Screen brightness controls
 # setup -->  /etc/X11/xorg.conf.d/20-intel.conf
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 default_border none
 default_floating_border none
