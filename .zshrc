@@ -5,7 +5,7 @@ test ! -d $HOME/.oh-my-zsh \
 # dart/flutter cache
 export PATH=$PATH:$HOME/.pub-cache/bin:$HOME/git/flutter/bin
 export CHROME_EXECUTABLE="google-chrome-stable"
-export TERMINAL=kitty
+export TERMINAL=termite
 
 # Dotfiles
 alias dotfiles-build='docker build \

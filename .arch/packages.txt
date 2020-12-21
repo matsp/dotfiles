@@ -1,7 +1,6 @@
 otf-fira-code
 zsh
-# termite
-kitty
+termite
 i3
 xorg-xbacklight
 pulseaudio
@@ -9,3 +8,5 @@ xorg-server
 polybar
 powerline-fonts
 feh
+xorg-xsetroot
+xorg-xrandr
