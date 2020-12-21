@@ -190,7 +190,7 @@ bindsym $mod+r mode "resize"
 ## Screen brightness controls
 # setup -->  /etc/X11/xorg.conf.d/20-intel.conf
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF87MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 ## Multi monitor setup
 # xrandr --output DP1 --auto
