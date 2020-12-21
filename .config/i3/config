@@ -54,7 +54,7 @@ bindsym $mod+Shift+q kill
 # bindcode $mod+40 exec rofi -modi drun,run -show drun
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id dmenu_run -l 6 -fn 'Fira Code Medium:pixelsize=16' -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#93a1a1'
 
 # change focus
 bindsym $mod+j focus left
@@ -194,7 +194,7 @@ bindsym XF87MonBrightnessDown exec xbacklight -dec 5
 
 ## Multi monitor setup
 # xrandr --output DP1 --auto
-bindcode 33 exec xrandr --output DP1 --auto
+#bindcode 33 exec xrandr --output DP1 --auto
 
 default_border none
 default_floating_border none
