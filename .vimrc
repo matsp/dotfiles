@@ -18,11 +18,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#formatter = 'unique_tail'
+  let g:airline#extensions#ale#enabled = 1
   let g:airline_theme='solarized'
   let g:airline_solarized_bg='dark'
   let g:airline_powerline_fonts = 1
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-fugitive'
   nmap <silent> <leader>gs :Gstatus<cr>
@@ -32,25 +35,26 @@ Plug 'tpope/vim-fugitive'
   nmap <leader>ge :Gedit<cr>
   nmap <silent><leader>gb :Gblame<cr>
 
-" programming languages
-"Plug 'natebosch/vim-lsc'
-"  let g:lsc_auto_map = v:true
-
-"Plug 'natebosch/vim-lsc-dart'
+Plug 'dense-analysis/ale'
+  let g:ale_completion_enabled=1
+  let g:ale_fix_on_save = 1
+  let g:ale_fixers = {
+    \ 'dart': ['analysis_server']
+    \}
+  let g:ale_linters = {
+    \ 'dart': ['analysis_server']
+    \}
 
 Plug 'sheerun/vim-polyglot'
-Plug 'dart-lang/dart-vim-plugin'
+" already include in polygot
+"Plug 'dart-lang/dart-vim-plugin'
 
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-
-"Plug 'ekalinin/dockerfile.vim', { 'for': 'Dockerfile' }
-
-"Plug 'elzr/vim-json', { 'for': 'json' }
-"
 
 call plug#end()
 
 filetype plugin on
+set omnifunc=ale#completion#OmniFunc
 set encoding=utf8
 set laststatus=2
 set nowrap
@@ -73,6 +77,5 @@ set expandtab
 set cursorline
 set t_Co=256
 set list
-"set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set hidden
