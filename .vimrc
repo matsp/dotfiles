@@ -28,6 +28,7 @@ nmap <C-L> <C-W>l
 nmap <C-H> <C-W>h
 " vertical / horizontal split window
 nmap <leader>vs :vs<space>
+nmap <leader>hs :split<space>
 
 
 call plug#begin('~/.vim/plugged')
@@ -55,6 +56,13 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+  " Bubble single lines
+  nmap <C-Up> [e
+  nmap <C-Down> ]e
+  " Bubble multiple lines
+  vmap <C-Up> [egv
+  vmap <C-Down> ]egv
 
 Plug 'ctrlpvim/ctrlp.vim'
   "let g:ctrlp_map = '<c-p>'
@@ -86,14 +94,14 @@ Plug 'prabirshrestha/vim-lsp'
   " disable automatic signature hover
   let  g:lsp_signature_help_enabled = 0
   " key mappings
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
-    nmap <buffer> <leader>rn <plug>(lsp-rename)
-    nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
-    nmap <buffer> K <plug>(lsp-hover)
+    nmap <buffer> <leader>def <plug>(lsp-definition)
+    nmap <buffer> <leader>ref <plug>(lsp-references)
+    "nmap <buffer> gi <plug>(lsp-implementation)
+    "nmap <buffer> <leader>type <plug>(lsp-type-definition)
+    nmap <buffer> <leader>r <plug>(lsp-rename)
+    "nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
+    "nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
+    nmap <buffer> <leader>i <plug>(lsp-hover)
 
     let g:lsp_format_sync_timeout = 1000
     autocmd! BufWritePre *.dart,*.js call execute('LspDocumentFormatSync')
