@@ -93,8 +93,9 @@ Plug 'prabirshrestha/vim-lsp'
   " show messages
   let g:lsp_diagnostics_echo_cursor = 1
   " disable automatic signature hover
-  let  g:lsp_signature_help_enabled = 0
+  let g:lsp_signature_help_enabled = 0
   let g:lsp_format_sync_timeout = 1000
+  let g:lsp_highlight_references_enabled = 1
   autocmd! BufWritePre *.dart,*.js call execute('LspDocumentFormatSync')
   " key mappings
   nmap gd <plug>(lsp-definition)
@@ -102,7 +103,7 @@ Plug 'prabirshrestha/vim-lsp'
   nmap gr <plug>(lsp-rename)
   nmap gh <plug>(lsp-hover)
   nmap ga <plug>(lsp-code-action)
-
+  nmap gf <plug>(lsp-document-format)
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
