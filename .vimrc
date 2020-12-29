@@ -44,6 +44,7 @@ Plug 'vim-airline/vim-airline-themes'
   let g:airline#extensions#fugitiveline#enabled = 1
   let g:airline#extensions#netrw#enabled = 1
   let g:airline#extensions#ctrlp#enabled = 1
+  let g:airline#extensions#gitgutter#enabled = 1
   "let g:airline#extensions#ale#enabled = 1
   let g:airline_theme='solarized'
   let g:airline_solarized_bg='dark'
@@ -75,7 +76,10 @@ Plug 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_clear_cache_on_exit = 0
   endif
 
-"Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+  let g:gitgutter_set_sign_backgrounds = 1
+
+Plug 'tpope/vim-fugitive'
   "nnoremap <silent> <leader>gs :Gstatus<cr>
   "nnoremap <silent> <leader>gc :Gcommit<cr>
   "nnoremap <silent> <leader>gw :Gwrite<cr>
@@ -88,7 +92,6 @@ Plug 'prabirshrestha/vim-lsp'
   let g:lsp_signs_error = {'text': '>>'}
   let g:lsp_signs_warning = {'text': '--'}
   let g:lsp_signs_hint = {'text': '--'}
-  set signcolumn=number
   " show messages
   let g:lsp_diagnostics_echo_cursor = 1
   " disable automatic signature hover
@@ -137,11 +140,15 @@ set smarttab
 set expandtab
 set cursorline
 set t_Co=256
+" fix signcolumn background with solarized scheme
+autocmd ColorScheme * highlight! link SignColumn LineNr
 set background=dark
 silent! colorscheme solarized
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set hidden
-
+" use line number column also for signs
+set signcolumn=number
+" customize builtin file tree
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
