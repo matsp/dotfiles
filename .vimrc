@@ -76,12 +76,12 @@ Plug 'ctrlpvim/ctrlp.vim'
   endif
 
 "Plug 'tpope/vim-fugitive'
-  "nmap <silent> <leader>gs :Gstatus<cr>
-  "nmap <silent> <leader>gc :Gcommit<cr>
-  "nmap <silent> <leader>gw :Gwrite<cr>
-  "nmap <silent> <leader>gd :Gvdiff<cr>
-  "nmap <leader>ge :Gedit<cr>
-  "nmap <silent><leader>gb :Gblame<cr>
+  "nnoremap <silent> <leader>gs :Gstatus<cr>
+  "nnoremap <silent> <leader>gc :Gcommit<cr>
+  "nnoremap <silent> <leader>gw :Gwrite<cr>
+  "nnoremap <silent> <leader>gd :Gvdiff<cr>
+  "nnoremap <leader>ge :Gedit<cr>
+  "nnoremap <silent><leader>gb :Gblame<cr>
 
 Plug 'prabirshrestha/vim-lsp'
   let g:lsp_signs_enabled = 1
@@ -94,14 +94,14 @@ Plug 'prabirshrestha/vim-lsp'
   " disable automatic signature hover
   let  g:lsp_signature_help_enabled = 0
   " key mappings
-    nmap <buffer> <leader>def <plug>(lsp-definition)
-    nmap <buffer> <leader>ref <plug>(lsp-references)
-    "nmap <buffer> gi <plug>(lsp-implementation)
-    "nmap <buffer> <leader>type <plug>(lsp-type-definition)
-    nmap <buffer> <leader>r <plug>(lsp-rename)
-    "nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
-    "nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
-    nmap <buffer> <leader>i <plug>(lsp-hover)
+    nmap <leader>ld <plug>(lsp-definition)
+    nmap <leader>lr <plug>(lsp-references)
+    nmap <leader>r <plug>(lsp-rename)
+    nmap <leader>lh <plug>(lsp-hover)
+    "nnoremap <buffer> gi <plug>(lsp-implementation)
+    "nnoremap <buffer> <leader>type <plug>(lsp-type-definition)
+    "nnoremap <buffer> [g <Plug>(lsp-previous-diagnostic)
+    "nnoremap <buffer> ]g <Plug>(lsp-next-diagnostic)
 
     let g:lsp_format_sync_timeout = 1000
     autocmd! BufWritePre *.dart,*.js call execute('LspDocumentFormatSync')
