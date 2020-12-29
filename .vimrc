@@ -8,19 +8,19 @@ endif
 let mapleader = ','
 
 nmap <leader>n :Lexplore<CR>
-nmap <leader>b :buffers<cr>:b<space>
+nmap <leader>b :buffers<CR>:b<space>
 " close buffer
 nmap <leader>bd :bd<cr>
 " open buffers by number
-nmap <leader>1 :b<space>1<cr>
-nmap <leader>2 :b<space>2<cr>
-nmap <leader>3 :b<space>3<cr>
-nmap <leader>4 :b<space>4<cr>
-nmap <leader>5 :b<space>5<cr>
-nmap <leader>6 :b<space>6<cr>
-nmap <leader>7 :b<space>7<cr>
-nmap <leader>8 :b<space>8<cr>
-nmap <leader>9 :b<space>9<cr>
+nmap <leader>1 :b<space>1<CR>
+nmap <leader>2 :b<space>2<CR>
+nmap <leader>3 :b<space>3<CR>
+nmap <leader>4 :b<space>4<CR>
+nmap <leader>5 :b<space>5<CR>
+nmap <leader>6 :b<space>6<CR>
+nmap <leader>7 :b<space>7<CR>
+nmap <leader>8 :b<space>8<CR>
+nmap <leader>9 :b<space>9<CR>
 " switch windows
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
@@ -111,6 +111,8 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'sheerun/vim-polyglot'
+Plug 'thosakwe/vim-flutter'
+  let g:flutter_show_log_on_run = 0
 
 call plug#end()
 
