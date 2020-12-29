@@ -66,8 +66,6 @@ Plug 'tpope/vim-unimpaired'
   vmap <C-Down> ]egv
 
 Plug 'ctrlpvim/ctrlp.vim'
-  "let g:ctrlp_map = '<c-p>'
-  nmap <leader>p :CtrlPMixed<cr>
   if executable('rg')
     set grepprg=rg\ --color=never
     let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
@@ -96,24 +94,25 @@ Plug 'prabirshrestha/vim-lsp'
   let g:lsp_diagnostics_echo_cursor = 1
   " disable automatic signature hover
   let  g:lsp_signature_help_enabled = 0
+  let g:lsp_format_sync_timeout = 1000
+  autocmd! BufWritePre *.dart,*.js call execute('LspDocumentFormatSync')
   " key mappings
-    nmap <leader>ld <plug>(lsp-definition)
-    nmap <leader>lr <plug>(lsp-references)
-    nmap <leader>r <plug>(lsp-rename)
-    nmap <leader>lh <plug>(lsp-hover)
-    "nnoremap <buffer> gi <plug>(lsp-implementation)
-    "nnoremap <buffer> <leader>type <plug>(lsp-type-definition)
-    "nnoremap <buffer> [g <Plug>(lsp-previous-diagnostic)
-    "nnoremap <buffer> ]g <Plug>(lsp-next-diagnostic)
-
-    let g:lsp_format_sync_timeout = 1000
-    autocmd! BufWritePre *.dart,*.js call execute('LspDocumentFormatSync')
+  nmap gd <plug>(lsp-definition)
+  nmap gref <plug>(lsp-references)
+  nmap gr <plug>(lsp-rename)
+  nmap gh <plug>(lsp-hover)
+  nmap ga <plug>(lsp-code-action)
 
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
+Plug 'tpope/vim-commentary'
+  autocmd FileType dart setlocal commentstring=/\/\ %s
+
 Plug 'sheerun/vim-polyglot'
+
+" Flutter
 Plug 'thosakwe/vim-flutter'
   let g:flutter_show_log_on_run = 0
 
