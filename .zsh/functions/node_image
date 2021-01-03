@@ -1,0 +1,20 @@
+TAG=lts-alpine
+IMAGE=node:$TAG
+WORKDIR=/src
+NPM_CACHE=npm_data
+
+if [ ! "$(podman volume list -q -f name=$NPM_CACHE)" ]; then
+  # create volume if not exists
+  podman volume create $NPM_CACHE > /dev/null
+fi
+
+# function name
+#${funcstack[1]}
+# -e NPM_CONFIG_PREFIX='/root/.npm' \
+
+podman run --rm -it \
+  -v $NPM_CACHE:/root/.npm:z \
+  -v $(pwd):$WORKDIR \
+  -w $WORKDIR \
+  -p 4200:4200 \
+  $IMAGE $*

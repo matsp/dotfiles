@@ -2,46 +2,6 @@ test ! -d $HOME/.oh-my-zsh \
   && git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh \
   && exit 0
 
-# dart/flutter cache
-export PATH=$PATH:$HOME/.pub-cache/bin:$HOME/git/flutter/bin
-export CHROME_EXECUTABLE="google-chrome-stable"
-export TERMINAL=kitty
-export LANG=de_DE.UTF-8
-#export LC_CTYPE="de_DE.UTF-8"
-
-# Dotfiles
-alias dotfiles-build='docker build \
-  -t matspfeiffer/dotfiles \
-  --build-arg USER="mats" \
-  --build-arg DOTFILES_GIT_URL="https://github.com/matsp/dotfiles.git" \
-  --build-arg GIT_USER="Mats Pfeiffer" \
-  --build-arg GIT_EMAIL="mats.pfeiffer@googlemail.com" \
-  --build-arg USER_ID=$(id -u) \
-  --build-arg GROUP_ID=$(id -g) \
-  --build-arg DOCKER_GROUP_ID=$(cut -d: -f3 < <(getent group docker)) \
-  --no-cache \
-  https://github.com/matsp/docker-dotfiles.git'
-alias dotfiles-push='docker push matspfeiffer/dotfiles:latest'
-alias dotfiles-create-volume='docker volume create \
-  --opt type=tmpfs \
-  --opt device=tmpfs \
-  --opt o=uid=$(id -u),gid=$(id -g) \
-  projects-data'
-alias dotfiles-run='docker run --rm -ti \
-  --name dotfiles \
-  -v ~/.ssh:/home/mats/.ssh:ro \
-  -v projects-data:/projects \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
-  matspfeiffer/dotfiles'
-
-alias update='sudo lvcreate -L10G -s -n root_snap /dev/arch/root && yay'
-alias rrs='sudo lvremove -f /dev/arch/root_snap'
-alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
-alias system-pkgs-clean='yay -Qtdq | yay -Rns -'
-alias system-cache-clean'yay -Scc'
-alias system-journal-clean='sudo journalctl --vacuum-size=128M'
-alias install_fira_code='$HOME/.arch/font.sh'
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -138,3 +98,45 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# exports
+export CHROME_EXECUTABLE="google-chrome-stable"
+export TERMINAL=kitty
+export LANG=de_DE.UTF-8
+
+#export LC_CTYPE="de_DE.UTF-8"
+
+# Dotfiles
+# alias dotfiles-build='docker build \
+#   -t matspfeiffer/dotfiles \
+#   --build-arg USER="mats" \
+#   --build-arg DOTFILES_GIT_URL="https://github.com/matsp/dotfiles.git" \
+#   --build-arg GIT_USER="Mats Pfeiffer" \
+#   --build-arg GIT_EMAIL="mats.pfeiffer@googlemail.com" \
+#   --build-arg USER_ID=$(id -u) \
+#   --build-arg GROUP_ID=$(id -g) \
+#   --build-arg DOCKER_GROUP_ID=$(cut -d: -f3 < <(getent group docker)) \
+#   --no-cache \
+#   https://github.com/matsp/docker-dotfiles.git'
+# alias dotfiles-push='docker push matspfeiffer/dotfiles:latest'
+# alias dotfiles-create-volume='docker volume create \
+#   --opt type=tmpfs \
+#   --opt device=tmpfs \
+#   --opt o=uid=$(id -u),gid=$(id -g) \
+#   projects-data'
+# alias dotfiles-run='docker run --rm -ti \
+#   --name dotfiles \
+#   -v ~/.ssh:/home/mats/.ssh:ro \
+#   -v projects-data:/projects \
+#   -v /var/run/docker.sock:/var/run/docker.sock:ro \
+#   matspfeiffer/dotfiles'
+
+alias update='sudo lvcreate -L10G -s -n root_snap /dev/arch/root && yay'
+alias rrs='sudo lvremove -f /dev/arch/root_snap'
+alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+alias system-pkgs-clean='yay -Qtdq | yay -Rns -'
+alias system-cache-clean'yay -Scc'
+alias system-journal-clean='sudo journalctl --vacuum-size=128M'
+alias install_fira_code='$HOME/.arch/font.sh'
+alias docker=podman
+

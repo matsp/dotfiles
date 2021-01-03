@@ -140,6 +140,8 @@ set smarttab
 set expandtab
 set cursorline
 set t_Co=256
+set incsearch
+set shell=/usr/bin/zsh
 " fix signcolumn background with solarized scheme
 autocmd ColorScheme * highlight! link SignColumn LineNr
 set background=dark
