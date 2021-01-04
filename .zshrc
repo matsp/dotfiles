@@ -100,10 +100,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # exports
-export CHROME_EXECUTABLE="google-chrome-stable"
+export CHROME_EXECUTABLE='google-chrome-stable'
 export TERMINAL=kitty
 export LANG=de_DE.UTF-8
-
+#export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 #export LC_CTYPE="de_DE.UTF-8"
 
 # Dotfiles
@@ -139,4 +139,5 @@ alias system-cache-clean'yay -Scc'
 alias system-journal-clean='sudo journalctl --vacuum-size=128M'
 alias install_fira_code='$HOME/.arch/font.sh'
 alias docker=podman
+alias update-vim='vim +PlugUpgrade +PlugUpdate +qall'
 

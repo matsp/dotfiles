@@ -5,10 +5,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " key mappings
-let mapleader = ','
+nnoremap <SPACE> <Nop>
+let mapleader = ' '
 
 nmap <leader>n :Lexplore<CR>
-nmap <leader>b :buffers<CR>:b<space>
 " close buffer
 nmap <leader>bd :bd<cr>
 " open buffers by number
@@ -43,7 +43,7 @@ Plug 'vim-airline/vim-airline-themes'
   let g:airline#extensions#lsp#enabled = 1
   let g:airline#extensions#fugitiveline#enabled = 1
   let g:airline#extensions#netrw#enabled = 1
-  let g:airline#extensions#ctrlp#enabled = 1
+  let g:airline#extensions#fzf#enabled = 1
   let g:airline#extensions#gitgutter#enabled = 1
   "let g:airline#extensions#ale#enabled = 1
   let g:airline_theme='solarized'
@@ -58,27 +58,33 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-  " Bubble single lines
+  " Switch single lines
   nmap <C-Up> [e
   nmap <C-Down> ]e
-  " Bubble multiple lines
+  " Switch multiple lines
   vmap <C-Up> [egv
   vmap <C-Down> ]egv
 
-Plug 'ctrlpvim/ctrlp.vim'
-  if executable('rg')
-    set grepprg=rg\ --color=never
-    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-    let g:ctrlp_use_caching = 0
-  else
-    let g:ctrlp_clear_cache_on_exit = 0
-  endif
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+  let $FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+  let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+  nnoremap <leader>f :Files<CR>
+  nnoremap <leader>s :Rg<CR>
+  nnoremap <leader>c :Commits<CR>
+  nnoremap <leader>b :Buffers<CR>
+Plug 'stsewd/fzf-checkout.vim'
+  nnoremap <leader>gc :GCheckout<CR>
 
 Plug 'airblade/vim-gitgutter'
   let g:gitgutter_set_sign_backgrounds = 1
 
 Plug 'tpope/vim-fugitive'
-  "nnoremap <silent> <leader>gs :Gstatus<cr>
+  " git status
+  nmap <leader>gs :G<CR>
+  nmap <leader>gh :diffget //2<CR>
+  nmap <leader>gl :diffget //3<CR>
+  "nnoremap <silVent> <leader>gs :Gstatus<cr>
   "nnoremap <silent> <leader>gc :Gcommit<cr>
   "nnoremap <silent> <leader>gw :Gwrite<cr>
   "nnoremap <silent> <leader>gd :Gvdiff<cr>
@@ -104,6 +110,8 @@ Plug 'prabirshrestha/vim-lsp'
   nmap gh <plug>(lsp-hover)
   nmap ga <plug>(lsp-code-action)
   nmap gf <plug>(lsp-document-format)
+  let g:lsp_log_verbose = 1
+  let g:lsp_log_file = expand('~/vim-lsp.log')
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
@@ -113,7 +121,6 @@ Plug 'tpope/vim-commentary'
 
 Plug 'sheerun/vim-polyglot'
 
-" Flutter
 Plug 'thosakwe/vim-flutter'
   let g:flutter_show_log_on_run = 0
 
@@ -128,7 +135,7 @@ set laststatus=2
 set nowrap
 set noshowmode
 set noshowcmd
-set shortmess+=c
+" set shortmess+=c
 set ttimeoutlen=50
 set number
 set smartindent
@@ -142,6 +149,8 @@ set cursorline
 set t_Co=256
 set incsearch
 set shell=/usr/bin/zsh
+" hide intro message
+set shortmess=I
 " fix signcolumn background with solarized scheme
 autocmd ColorScheme * highlight! link SignColumn LineNr
 set background=dark
