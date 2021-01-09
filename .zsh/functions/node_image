@@ -8,16 +8,6 @@ if [ ! "$(podman volume list -q -f name=$NPM_CACHE)" ]; then
   podman volume create $NPM_CACHE > /dev/null
 fi
 
-# function name
-#${funcstack[1]}
-# -e NPM_CONFIG_PREFIX='/root/.npm' \
-
-#podman run --rm -ti \
-#  -v $NPM_CACHE:/root/.npm:z \
-#  -v $(pwd):$WORKDIR \
-#  -w $WORKDIR \
-#  --net host \
-#   $IMAGE $*
 podman run --rm -i \
   -v $HOME:$HOME \
   -v $NPM_CACHE:/root/.npm:z \

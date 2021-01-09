@@ -70,7 +70,7 @@ Plug 'junegunn/fzf.vim'
   let $FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
   let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
   nnoremap <leader>f :Files<CR>
-  nnoremap <leader>s :Rg<CR>
+  nnoremap <leader>g :Rg<CR>
   nnoremap <leader>c :Commits<CR>
   nnoremap <leader>b :Buffers<CR>
 Plug 'stsewd/fzf-checkout.vim'
@@ -93,9 +93,9 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'prabirshrestha/vim-lsp'
   let g:lsp_signs_enabled = 1
-  let g:lsp_signs_error = {'text': '>>'}
-  let g:lsp_signs_warning = {'text': '--'}
-  let g:lsp_signs_hint = {'text': '--'}
+  let g:lsp_diagnostics_signs_error = {'text': '>>'}
+  let g:lsp_diagnostics_signs_warning = {'text': '‼'}
+  let g:lsp_diagnostics_signs_hint = {'text': '?!'}
   " show messages
   let g:lsp_diagnostics_echo_cursor = 1
   " disable automatic signature hover
@@ -163,4 +163,4 @@ set signcolumn=number
 " customize builtin file tree
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-let g:netrw_localrmdir='rm -r'
+let g:netrw_localrmdir='rm -rf'
