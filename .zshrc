@@ -99,13 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# exports
-export CHROME_EXECUTABLE='google-chrome-stable'
-export TERMINAL=kitty
-export LANG=de_DE.UTF-8
-#export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-#export LC_CTYPE="de_DE.UTF-8"
-
 # Dotfiles
 # alias dotfiles-build='docker build \
 #   -t matspfeiffer/dotfiles \
