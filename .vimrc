@@ -10,7 +10,7 @@ let mapleader = ' '
 
 nmap <leader>n :Lexplore<CR>
 " close buffer
-nmap <leader>bd :bd<cr>
+nmap <leader>b :bd<cr>
 " open buffers by number
 nmap <leader>1 :b<space>1<CR>
 nmap <leader>2 :b<space>2<CR>
@@ -45,7 +45,6 @@ Plug 'vim-airline/vim-airline-themes'
   let g:airline#extensions#netrw#enabled = 1
   let g:airline#extensions#fzf#enabled = 1
   let g:airline#extensions#gitgutter#enabled = 1
-  "let g:airline#extensions#ale#enabled = 1
   let g:airline_theme='solarized'
   let g:airline_solarized_bg='dark'
   let g:airline_powerline_fonts = 1
@@ -72,7 +71,7 @@ Plug 'junegunn/fzf.vim'
   nnoremap <leader>f :Files<CR>
   nnoremap <leader>g :Rg<CR>
   nnoremap <leader>c :Commits<CR>
-  nnoremap <leader>b :Buffers<CR>
+  nnoremap <leader>d :Buffers<CR>
 Plug 'stsewd/fzf-checkout.vim'
   nnoremap <leader>gc :GCheckout<CR>
 
@@ -110,10 +109,24 @@ Plug 'prabirshrestha/vim-lsp'
   nmap gh <plug>(lsp-hover)
   nmap ga <plug>(lsp-code-action)
   nmap gf <plug>(lsp-document-format)
-  let g:lsp_log_verbose = 1
-  let g:lsp_log_file = expand('~/vim-lsp.log')
+  " let g:lsp_log_verbose = 1
+  " let g:lsp_log_file = expand('~/vim-lsp.log')
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
+  " imap <c-space> <Plug>(asyncomplete_force_refresh)
+  let g:asyncomplete_auto_popup = 0
+
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
+
+  inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ asyncomplete#force_refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'tpope/vim-commentary'
