@@ -1,0 +1,3 @@
+echo 'bootstrapping shell environment...'
+# regenerate font cache
+fc-cache -f
