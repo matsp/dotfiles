@@ -33,7 +33,9 @@ nmap <leader>hs :split<space>
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
+
+Plug 'gruvbox-community/gruvbox'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -45,7 +47,8 @@ Plug 'vim-airline/vim-airline-themes'
   let g:airline#extensions#netrw#enabled = 1
   let g:airline#extensions#fzf#enabled = 1
   let g:airline#extensions#gitgutter#enabled = 1
-  let g:airline_theme='solarized'
+  " let g:airline_theme='solarized'
+  let g:airline_theme='gruvbox'
   let g:airline_solarized_bg='dark'
   let g:airline_powerline_fonts = 1
 
@@ -66,7 +69,7 @@ Plug 'tpope/vim-unimpaired'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-  let $FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+  let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
   let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
   nnoremap <leader>f :Files<CR>
   nnoremap <leader>g :Rg<CR>
@@ -167,7 +170,8 @@ set shortmess=I
 " fix signcolumn background with solarized scheme
 autocmd ColorScheme * highlight! link SignColumn LineNr
 set background=dark
-silent! colorscheme solarized
+" silent! colorscheme solarized
+silent! colorscheme gruvbox
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set hidden
