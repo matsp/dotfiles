@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 TAG=lts-alpine
 IMAGE=node:$TAG
 WORKDIR=/src
