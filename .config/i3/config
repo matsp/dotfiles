@@ -198,5 +198,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 default_border none
 default_floating_border none
+gaps inner 10
+# gaps outer 0
 
+exec picom &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

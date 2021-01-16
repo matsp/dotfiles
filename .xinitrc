@@ -31,7 +31,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# solarized background --> base03
-xsetroot -solid "#282828"
+# xsetroot -solid "#282828"
+feh --bg-scale $HOME/.local/share/artwork/wallpaper-lava.jpg
+xrandr --output DP1 --above eDP1
 exec i3
 exec start-pulseaudio-x11

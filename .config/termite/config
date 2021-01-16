@@ -3,10 +3,12 @@
 font = Hack 11
 
 [colors]
-# hard contrast: background = #1d2021
-background = #282828
-# soft contrast: background = #32302f
+background = rgba(40, 40, 40, 0.9) 
 foreground = #ebdbb2
+# hard contrast: background = #1d2021
+# background = #282828
+# soft contrast: background = #32302f
+# foreground = #ebdbb2
 foreground_bold = #ebdbb2
 
 # dark0 + gray
