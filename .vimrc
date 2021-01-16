@@ -32,9 +32,7 @@ nmap <leader>hs :split<space>
 
 
 call plug#begin('~/.vim/plugged')
-
-" Plug 'altercation/vim-colors-solarized'
-
+" coloscheme
 Plug 'gruvbox-community/gruvbox'
 
 Plug 'vim-airline/vim-airline'
@@ -47,14 +45,12 @@ Plug 'vim-airline/vim-airline-themes'
   let g:airline#extensions#netrw#enabled = 1
   let g:airline#extensions#fzf#enabled = 1
   let g:airline#extensions#gitgutter#enabled = 1
-  " let g:airline_theme='solarized'
   let g:airline_theme='gruvbox'
-  let g:airline_solarized_bg='dark'
   let g:airline_powerline_fonts = 1
 
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
-  endif
+    endif
   let g:airline_symbols.dirty='*'
 
 Plug 'jiangmiao/auto-pairs'
@@ -69,7 +65,8 @@ Plug 'tpope/vim-unimpaired'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-  let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+  "let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
   let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
   nnoremap <leader>f :Files<CR>
   nnoremap <leader>g :Rg<CR>
@@ -78,8 +75,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
   nnoremap <leader>gc :GCheckout<CR>
 
+
 Plug 'airblade/vim-gitgutter'
-  let g:gitgutter_set_sign_backgrounds = 1
+  "let g:gitgutter_set_sign_backgrounds = 1
 
 Plug 'tpope/vim-fugitive'
   " git status
@@ -133,10 +131,9 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'tpope/vim-commentary'
-  autocmd FileType dart setlocal commentstring=/\/\ %s
+"  autocmd FileType dart setlocal commentstring=/\/\ %s
 
 Plug 'sheerun/vim-polyglot'
-
 Plug 'thosakwe/vim-flutter'
   let g:flutter_show_log_on_run = 0
 
@@ -151,32 +148,43 @@ set laststatus=2
 set nowrap
 set noshowmode
 set noshowcmd
-" set shortmess+=c
+set ttimeout
 set ttimeoutlen=50
 set number
 set smartindent
+" Autoindent when starting new line, or using `o` or `O`.
 set autoindent
+" Allow backspace in insert mode.
+set backspace=indent,eol,start
 set tabstop=2
 set shiftwidth=2
 set shiftround
 set smarttab
 set expandtab
 set cursorline
-set t_Co=256
+" show one more line while scolling
+set scrolloff=8
+set sidescrolloff=5
+set display+=lastline
+" Always focus on splited window.
+set splitright
+set splitbelow
+set termguicolors
+" Ignore case when searching.
+set ignorecase
+" Incremental search
 set incsearch
 set shell=/usr/bin/zsh
 " hide intro message
 set shortmess=I
-" fix signcolumn background with solarized scheme
-autocmd ColorScheme * highlight! link SignColumn LineNr
 set background=dark
-" silent! colorscheme solarized
-silent! colorscheme gruvbox
+colorscheme gruvbox
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set hidden
 " use line number column also for signs
-set signcolumn=number
+"set signcolumn=number
+set signcolumn=yes
 " customize builtin file tree
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
