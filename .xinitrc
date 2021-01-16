@@ -32,6 +32,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # solarized background --> base03
-xsetroot -solid "#002b36"
+xsetroot -solid "#282828"
 exec i3
 exec start-pulseaudio-x11
