@@ -131,7 +131,6 @@ alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
 alias system-pkgs-clean='yay -Qtdq | yay -Rns -'
 alias system-cache-clean'yay -Scc'
 alias system-journal-clean='sudo journalctl --vacuum-size=128M'
-alias install_fira_code='$HOME/.arch/font.sh'
 alias docker=podman
 alias update-vim='vim +PlugUpgrade +PlugUpdate +qall'
 
