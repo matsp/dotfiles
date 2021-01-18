@@ -1,0 +1,6 @@
+configuration {
+  theme: "gruvbox-dark";
+  font: "Hack 11";
+  width: "50";
+  opacity: "90";
+}
