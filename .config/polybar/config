@@ -12,10 +12,16 @@ teal       = #8ec07c
 orange     = #fe8019
 gray       = #a89984
 
+[global/wm]
+
 [bar/top]
 monitor = ${env:MONITOR}
-width = 100%
+width = 80%
 height = 30
+radius = 10.0
+override-redirect = true
+offset-y = 10
+offset-x = 10%
 
 background = ${colors.background}
 foreground = ${colors.foreground}
