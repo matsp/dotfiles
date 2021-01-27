@@ -1,0 +1,59 @@
+#!/usr/bin/env zsh
+
+test -f $HOME/.arch/bootstrap_done \
+  && exit 0
+
+# base pkgs
+echo 'installing base pkgs \n'
+sudo pacman -S --needed --noconfirm \
+  base-devel \
+  git \
+  vim \
+  htop \
+  mc \
+  zsh \
+  > /dev/null
+
+# yay
+echo 'installing yay \n'
+test ! -d $HOME/git/yay \
+  && mkdir -p $HOME/git \
+  && cd $HOME/git \
+  && git clone https://aur.archlinux.org/yay.git > /dev/null \
+  && cd yay \
+  && makepkg -si --needed --noconfirm > /dev/null \
+  && cd $HOME
+
+# window manager & system pkgs
+echo 'installing window manager & system pkgs \n'
+yay -S --needed --noconfirm \
+  i3-gaps \
+  termite \
+  pulseaudio \
+  xorg-server \
+  polybar \
+  feh \
+  xorg-xsetroot \
+  xorg-xrandr \
+  picom \
+  rofi \
+  > /dev/null
+
+# user pkgs
+echo 'installing user pkgs \n'
+yay -S --needed --noconfirm \
+  podman \
+  buildah \
+  skopeo \
+  google-chrome \
+  portfolio-performance-bin \
+  ripgrep \
+  cmus \
+  > /dev/null
+
+echo 'bootstrapping shell environment \n'
+# regenerate font cache
+fc-cache -f > /dev/null
+
+# touch file to signal the successfull bootstrap
+touch $HOME/.arch/bootstrap_done
