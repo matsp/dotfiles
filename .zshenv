@@ -1,5 +1,5 @@
 export CHROME_EXECUTABLE='google-chrome-stable'
-export TERMINAL=termite
+export TERMINAL=alacritty
 export LANG=de_DE.UTF-8
 
 typeset -U PATH path
