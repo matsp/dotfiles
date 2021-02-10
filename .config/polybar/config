@@ -1,7 +1,7 @@
 [colors]
 # FF is full opaque or not transparent.
 # 00 is fully transparent or no coloring at all.
-background = #cc282828
+background = #DD282828
 foreground = #ebdbb2
 red        = #fb4934
 green      = #b8bb26
@@ -14,12 +14,12 @@ gray       = #a89984
 
 [bar/top]
 monitor = ${env:MONITOR}
-width = 80%
+# width = 80%
 height = 30
-radius = 10.0
-override-redirect = true
-offset-y = 10
-offset-x = 10%
+# radius = 10.0
+# override-redirect = true
+# offset-y = 10
+# offset-x = 10%
 
 background = ${colors.background}
 foreground = ${colors.foreground}

@@ -1,7 +1,7 @@
 env:
   WINIT_X11_SCALE_FACTOR: '1.0'
 scrolling:
-  history: 500
+  history: 100
 font:
   normal:
     family: Hack
