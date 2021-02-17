@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+
+# needed pkgs before bootstrap: sudo, git, zsh
+
 test -f $HOME/.arch/bootstrap_done \
   && exit 0
 
@@ -12,6 +15,7 @@ sudo pacman -S --needed --noconfirm \
   htop \
   mc \
   zsh \
+  sudo \
   > /dev/null
 
 # yay
@@ -35,6 +39,7 @@ yay -S --needed --noconfirm \
   feh \
   xorg-xsetroot \
   xorg-xrandr \
+  xorg-xinit \
   picom \
   rofi \
   > /dev/null
