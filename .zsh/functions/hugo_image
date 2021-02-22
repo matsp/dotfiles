@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+TAG=alpine
+IMAGE=klakegg/hugo:$TAG
+WORKDIR=/src
+
+podman run --rm -i \
+  -v $HOME:$HOME \
+  -v $(pwd):$WORKDIR \
+  -w $WORKDIR \
+  --network="host" \
+  --pid="host" \
+   $IMAGE $*

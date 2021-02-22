@@ -10,3 +10,4 @@ fpath=($HOME/.zsh/functions $fpath)
 
 # load nodejs function for executable containers
 autoload -Uz node_image
+autoload -Uz hugo_image
