@@ -135,6 +135,7 @@ alias system-cache-clean'yay -Scc'
 alias system-journal-clean='sudo journalctl --vacuum-size=128M'
 alias docker=podman
 alias update-vim='vim +PlugUpgrade +PlugUpdate +qall'
+alias set-keymap='localectl set-keymap'
 alias gs='git status'
 alias gd='git diff'
 alias gc='git commit -m '
