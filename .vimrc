@@ -73,6 +73,7 @@ Plug 'junegunn/fzf.vim'
   nnoremap <leader>c :Commits<CR>
   nnoremap <leader>d :Buffers<CR>
 Plug 'stsewd/fzf-checkout.vim'
+  " https://github.com/stsewd/fzf-checkout.vim
   nnoremap <leader>gc :GCheckout<CR>
 
 
