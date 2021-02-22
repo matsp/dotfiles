@@ -57,11 +57,11 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
   " Switch single lines
-  nmap <C-Up> [e
-  nmap <C-Down> ]e
+  nmap <C-k> [e
+  nmap <C-j> ]e
   " Switch multiple lines
-  vmap <C-Up> [egv
-  vmap <C-Down> ]egv
+  vmap <C-k> [egv
+  vmap <C-j> ]egv
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
