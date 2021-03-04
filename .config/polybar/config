@@ -1,7 +1,7 @@
 [colors]
 # FF is full opaque or not transparent.
 # 00 is fully transparent or no coloring at all.
-background = #DD282828
+background = #282828
 foreground = #ebdbb2
 red        = #fb4934
 green      = #b8bb26
