@@ -2,6 +2,11 @@ env:
   WINIT_X11_SCALE_FACTOR: '1.0'
 scrolling:
   history: 100
+window:
+  padding:
+    x: 0
+    y: 0
+  dynamic_padding: true
 font:
   normal:
     family: Hack
