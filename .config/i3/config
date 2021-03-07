@@ -203,11 +203,11 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Custom options
-default_border none
-default_floating_border none
+default_border pixel 2
+default_floating_border pixel 2
 # smart_gaps on
-# gaps inner 16
-# gaps outer 4
+gaps inner 8
+gaps outer 8
 # gaps right 0
 # gaps left 0
 # gaps top 0
@@ -220,6 +220,11 @@ default_floating_border none
 # exec --no-startup-id i3-msg 'workspace $ws2; exec $TERMINAL -e vim; workspace; workspace $ws1'
 # exec --no-startup-id i3-msg 'workspace $ws3; exec /usr/bin/google-chrome-stable --new-window'
 
+# just colored border for active window
+#colors:                border  backgr. text    ind.   child border
+client.focused   #000000 #000000 #000000 #fe8019 #fe8019
+client.unfocused #000000 #000000 #000000 #000000 #282828
+
 # Set wallpaper
 exec --no-startup-id feh --bg-scale $HOME/.local/share/artwork/wallpaper-waves.jpg
 
@@ -227,5 +232,5 @@ exec --no-startup-id feh --bg-scale $HOME/.local/share/artwork/wallpaper-waves.j
 exec --no-startup-id xrandr --output DP1 --right-of eDP1
 bindsym $mod+m exec --no-startup-id xrandr --output DP1 --auto --right-of eDP1
 
-exec picom &
+# exec picom &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
