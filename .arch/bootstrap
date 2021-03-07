@@ -46,6 +46,9 @@ yay -S --needed --noconfirm \
 # user pkgs
 echo 'installing user pkgs \n'
 yay -S --needed --noconfirm \
+  nodejs \
+  npm \
+  hugo \
   podman \
   buildah \
   skopeo \
