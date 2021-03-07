@@ -31,7 +31,7 @@ test ! -d $HOME/git/yay \
 # window manager & system pkgs
 echo 'installing window manager & system pkgs \n'
 yay -S --needed --noconfirm \
-  i3-wm \
+  i3-gaps \
   alacritty \
   pulseaudio \
   xorg-server \
@@ -40,7 +40,6 @@ yay -S --needed --noconfirm \
   xorg-xsetroot \
   xorg-xrandr \
   xorg-xinit \
-  picom \
   rofi \
   > /dev/null
 
