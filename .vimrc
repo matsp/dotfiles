@@ -54,6 +54,7 @@ Plug 'vim-airline/vim-airline-themes'
   let g:airline_symbols.dirty='*'
 
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
   " Switch single lines
@@ -114,6 +115,7 @@ Plug 'prabirshrestha/vim-lsp'
   " let g:lsp_log_verbose = 1
   " let g:lsp_log_file = expand('~/vim-lsp.log')
 Plug 'mattn/vim-lsp-settings'
+  let g:lsp_settings_filetype_html = ['html-languageserver', 'tailwindcss-intellisense']
 Plug 'prabirshrestha/asyncomplete.vim'
   " imap <c-space> <Plug>(asyncomplete_force_refresh)
   let g:asyncomplete_auto_popup = 0
