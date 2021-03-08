@@ -58,11 +58,11 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
   " Switch single lines
-  nmap <C-k> [e
-  nmap <C-j> ]e
+  nmap <leader>k [e
+  nmap <leader>j ]e
   " Switch multiple lines
-  vmap <C-k> [egv
-  vmap <C-j> ]egv
+  vmap <leader>k [egv
+  vmap <leader>j ]egv
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
