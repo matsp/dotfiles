@@ -203,8 +203,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Custom options
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 1
+default_floating_border pixel 1
 # smart_gaps on
 gaps inner 8
 gaps outer 8
@@ -222,15 +222,22 @@ gaps outer 8
 
 # just colored border for active window
 #colors:                border  backgr. text    ind.   child border
+# #ebdbb2
 client.focused   #000000 #000000 #000000 #fe8019 #fe8019
-client.unfocused #000000 #000000 #000000 #000000 #282828
+client.unfocused #000000 #000000 #000000 #000000 #ebdbb2
+# client.focused   #000000 #000000 #000000 #fe8019 #fe8019
+# client.unfocused #000000 #000000 #000000 #000000 #282828
 
 # Set wallpaper
-exec --no-startup-id feh --bg-scale $HOME/.local/share/artwork/wallpaper-waves.jpg
+#exec --no-startup-id feh --bg-scale $HOME/.local/share/artwork/wallpaper-waves.jpg
+exec --no-startup-id xsetroot -solid '#282828'
 
 # Multi monitor setup
 exec --no-startup-id xrandr --output DP1 --right-of eDP1
 bindsym $mod+m exec --no-startup-id xrandr --output DP1 --auto --right-of eDP1
+
+# disable mouse hover for activating the focus on windows
+focus_follows_mouse no
 
 # exec picom &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
