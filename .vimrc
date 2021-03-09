@@ -66,7 +66,7 @@ Plug 'tpope/vim-unimpaired'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+  let $FZF_DEFAULT_COMMAND = 'rg --files'
   "let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
   let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
   nnoremap <leader>f :Files<CR>
