@@ -58,16 +58,16 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
   " Switch single lines
-  nmap <leader>k [e
-  nmap <leader>j ]e
+  nmap <S-k> [e
+  nmap <S-j> ]e
   " Switch multiple lines
-  vmap <leader>k [egv
-  vmap <leader>j ]egv
+  vmap <S-k> [egv
+  vmap <S-j> ]egv
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-  let $FZF_DEFAULT_COMMAND = 'rg --files'
   "let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
+  let $FZF_DEFAULT_COMMAND = 'rg --files'
   let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
   nnoremap <leader>f :Files<CR>
   nnoremap <leader>g :Rg<CR>
