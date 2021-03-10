@@ -104,7 +104,7 @@ Plug 'prabirshrestha/vim-lsp'
   let g:lsp_signature_help_enabled = 0
   let g:lsp_format_sync_timeout = 1000
   let g:lsp_highlight_references_enabled = 1
-  autocmd! BufWritePre *.dart,*.js call execute('LspDocumentFormatSync')
+  " autocmd! BufWritePre *.dart,*.js call execute('LspDocumentFormatSync')
   " key mappings
   nmap gd <plug>(lsp-definition)
   nmap gref <plug>(lsp-references)
@@ -115,7 +115,17 @@ Plug 'prabirshrestha/vim-lsp'
   " let g:lsp_log_verbose = 1
   " let g:lsp_log_file = expand('~/vim-lsp.log')
 Plug 'mattn/vim-lsp-settings'
-  let g:lsp_settings_filetype_html = ['html-languageserver', 'tailwindcss-intellisense']
+  let g:lsp_settings_filetype_html = ['tailwindcss-intellisense', 'html-languageserver']
+  " default:
+  " let g:lsp_settings_root_markers = [
+    " \   '.git',
+    " \   '.git/',
+    " \   '.svn',
+    " \   '.hg',
+    " \   '.bzr'
+    " \ ]
+    " ]
+  let g:lsp_settings_root_markers = ['.git']
 Plug 'prabirshrestha/asyncomplete.vim'
   " imap <c-space> <Plug>(asyncomplete_force_refresh)
   let g:asyncomplete_auto_popup = 0
@@ -130,7 +140,6 @@ Plug 'prabirshrestha/asyncomplete.vim'
     \ <SID>check_back_space() ? "\<TAB>" :
     \ asyncomplete#force_refresh()
   inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'tpope/vim-commentary'
