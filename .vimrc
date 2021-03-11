@@ -125,7 +125,7 @@ Plug 'mattn/vim-lsp-settings'
     " \   '.bzr'
     " \ ]
     " ]
-  let g:lsp_settings_root_markers = ['.git']
+  let g:lsp_settings_root_markers = ['.git/']
 Plug 'prabirshrestha/asyncomplete.vim'
   " imap <c-space> <Plug>(asyncomplete_force_refresh)
   let g:asyncomplete_auto_popup = 0
