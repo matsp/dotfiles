@@ -26,10 +26,28 @@ nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
 nmap <C-H> <C-W>h
+tmap <C-J> <C-W>j
+tmap <C-K> <C-W>k
+tmap <C-L> <C-W>l
+tmap <C-H> <C-W>h
 " vertical / horizontal split window
 nmap <leader>vs :vs<space>
 nmap <leader>hs :split<space>
-
+" terminal in split window
+nmap <leader>vt :vert term ++close<cr>
+nmap <leader>ht :term ++close<cr>
+tmap <leader>vt <c-w>:vert term ++close<cr>
+tmap <leader>ht <c-w>:term ++close<cr>
+" resize window
+" vertical/horizontal 'i'ncrease / 'd'ecrease
+nmap <leader>vi :vertical resize +5<cr>
+nmap <leader>vd :vertical resize -5<cr>
+nmap <leader>hi :resize +5<cr>
+nmap <leader>hd :resize -5<cr>
+tmap <leader>vi <c-w>:vertical resize +5<cr>
+tmap <leader>vd <c-w>:vertical resize -5<cr>
+tmap <leader>hi <c-w>:resize +5<cr>
+tmap <leader>hd <c-w>:resize -5<cr>
 
 call plug#begin('~/.vim/plugged')
 " coloscheme
