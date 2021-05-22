@@ -9,22 +9,23 @@ window:
   dynamic_padding: true
 font:
   normal:
-    family: Hack
+    # family: Hack
+    family: "Fira Code"
     style: Regular
 
   bold:
-    family: Hack
+    family: "Fira Code"
     style: Bold
 
   italic:
-    family: Hack
+    family: "Fira Code"
     style: Italic
 
-  bold_italic:
-    family: Hack
-    style: Bold Italic
+  # bold_italic:
+  #   family: Hack
+  #   style: Bold Italic
 
-  size: 11
+  size: 11.0
   offset:
       x: 0
       y: 1
