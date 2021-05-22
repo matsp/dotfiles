@@ -168,8 +168,11 @@ Plug 'tpope/vim-commentary'
 "  autocmd FileType dart setlocal commentstring=/\/\ %s
 
 Plug 'sheerun/vim-polyglot'
-Plug 'thosakwe/vim-flutter'
-  let g:flutter_show_log_on_run = 0
+" Plug 'thosakwe/vim-flutter'
+  " let g:flutter_show_log_on_run = 0
+
+Plug 'mattn/webapi-vim'
+Plug 'mattn/vim-gist'
 
 call plug#end()
 
