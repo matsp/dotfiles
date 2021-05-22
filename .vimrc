@@ -65,6 +65,7 @@ Plug 'vim-airline/vim-airline-themes'
   let g:airline#extensions#gitgutter#enabled = 1
   let g:airline_theme='gruvbox'
   let g:airline_powerline_fonts = 1
+  let g:airline_section_z = ''
 
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -124,6 +125,7 @@ Plug 'prabirshrestha/vim-lsp'
   let g:lsp_signature_help_enabled = 0
   let g:lsp_format_sync_timeout = 1000
   let g:lsp_highlight_references_enabled = 1
+  let g:lsp_document_highlight_enabled = 0
   " autocmd! BufWritePre *.dart,*.js call execute('LspDocumentFormatSync')
   " key mappings
   nmap gd <plug>(lsp-definition)
