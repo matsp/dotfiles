@@ -24,7 +24,7 @@ set $mod Mod4
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -229,15 +229,16 @@ client.unfocused #000000 #000000 #000000 #000000 #ebdbb2
 # client.unfocused #000000 #000000 #000000 #000000 #282828
 
 # Set wallpaper
-#exec --no-startup-id feh --bg-scale $HOME/.local/share/artwork/wallpaper-waves.jpg
-exec --no-startup-id xsetroot -solid '#282828'
+exec --no-startup-id feh --bg-scale $HOME/.local/share/artwork/wallpaper-gruvbox-arch.jpg
+# exec --no-startup-id xsetroot -solid '#282828'
 
 # Multi monitor setup
-exec --no-startup-id xrandr --output DP1 --right-of eDP1
+# exec --no-startup-id xrandr --output DP1 --right-of eDP1
+exec --no-startup-id xrandr --output DP1 --auto --output eDP1 --off
 bindsym $mod+m exec --no-startup-id xrandr --output DP1 --auto --right-of eDP1
 
 # disable mouse hover for activating the focus on windows
 focus_follows_mouse no
 
-# exec picom &
+exec picom &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
