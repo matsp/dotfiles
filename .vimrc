@@ -73,6 +73,7 @@ Plug 'vim-airline/vim-airline-themes'
   let g:airline_symbols.dirty='*'
 
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-eunuch'
 " CTRL+X /, SPACE, ENTER
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
