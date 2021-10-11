@@ -84,6 +84,9 @@ Plug 'tpope/vim-unimpaired'
   " Switch multiple lines
   vmap <S-k> [egv
   vmap <S-j> ]egv
+Plug 'Yggdroot/indentLine'
+  let g:indentLine_enabled = 1
+
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -169,8 +172,6 @@ Plug 'tpope/vim-commentary'
 "  autocmd FileType dart setlocal commentstring=/\/\ %s
 
 Plug 'sheerun/vim-polyglot'
-" Plug 'thosakwe/vim-flutter'
-  " let g:flutter_show_log_on_run = 0
 
 Plug 'mattn/webapi-vim'
 Plug 'mattn/vim-gist'
