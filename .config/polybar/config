@@ -86,7 +86,7 @@ label-focused = %index%: %icon%
 label-visible = %index%: %icon%
 label-focused-foreground = ${colors.orange}
 label-separator = |
-label-separator-padding = 2
+label-separator-padding = 1
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
