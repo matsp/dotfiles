@@ -130,7 +130,7 @@ Plug 'prabirshrestha/vim-lsp'
   let g:lsp_format_sync_timeout = 1000
   let g:lsp_highlight_references_enabled = 1
   let g:lsp_document_highlight_enabled = 0
-  " autocmd! BufWritePre *.dart,*.js call execute('LspDocumentFormatSync')
+  autocmd! BufWritePre *.dart,*.js call execute('LspDocumentFormatSync')
   " key mappings
   nmap gd <plug>(lsp-definition)
   nmap gref <plug>(lsp-references)
@@ -154,7 +154,7 @@ Plug 'mattn/vim-lsp-settings'
   let g:lsp_settings_root_markers = ['.git/']
 Plug 'prabirshrestha/asyncomplete.vim'
   " imap <c-space> <Plug>(asyncomplete_force_refresh)
-  let g:asyncomplete_auto_popup = 0
+  " let g:asyncomplete_auto_popup = 0
 
   function! s:check_back_space() abort
     let col = col('.') - 1
@@ -166,6 +166,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
     \ <SID>check_back_space() ? "\<TAB>" :
     \ asyncomplete#force_refresh()
   inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'tpope/vim-commentary'
