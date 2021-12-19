@@ -124,13 +124,13 @@ Plug 'prabirshrestha/vim-lsp'
   let g:lsp_diagnostics_signs_warning = {'text': '‼'}
   let g:lsp_diagnostics_signs_hint = {'text': '?!'}
   " show messages
-  let g:lsp_diagnostics_echo_cursor = 1
+  let g:lsp_diagnostics_echo_cursor = 0
   " disable automatic signature hover
-  let g:lsp_signature_help_enabled = 0
+  let g:lsp_signature_help_enabled = 1
   let g:lsp_format_sync_timeout = 1000
   let g:lsp_highlight_references_enabled = 1
   let g:lsp_document_highlight_enabled = 0
-  autocmd! BufWritePre *.dart,*.js call execute('LspDocumentFormatSync')
+  " autocmd! BufWritePre *.dart,*.js call execute('LspDocumentFormatSync')
   " key mappings
   nmap gd <plug>(lsp-definition)
   nmap gref <plug>(lsp-references)
@@ -141,7 +141,7 @@ Plug 'prabirshrestha/vim-lsp'
   " let g:lsp_log_verbose = 1
   " let g:lsp_log_file = expand('~/vim-lsp.log')
 Plug 'mattn/vim-lsp-settings'
-  let g:lsp_settings_filetype_html = ['tailwindcss-intellisense', 'html-languageserver']
+  " let g:lsp_settings_filetype_html = ['tailwindcss-intellisense', 'html-languageserver']
   " default:
   " let g:lsp_settings_root_markers = [
     " \   '.git',
