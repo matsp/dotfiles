@@ -10,17 +10,17 @@ let mapleader = ' '
 
 nmap <leader>n :Lexplore<CR>
 " close buffer
-nmap <leader>b :bd<cr>
+" nmap <leader>b :bd<cr>
 " open buffers by number
-nmap <leader>1 :b<space>1<CR>
-nmap <leader>2 :b<space>2<CR>
-nmap <leader>3 :b<space>3<CR>
-nmap <leader>4 :b<space>4<CR>
-nmap <leader>5 :b<space>5<CR>
-nmap <leader>6 :b<space>6<CR>
-nmap <leader>7 :b<space>7<CR>
-nmap <leader>8 :b<space>8<CR>
-nmap <leader>9 :b<space>9<CR>
+" nmap <leader>1 :b<space>1<CR>
+" nmap <leader>2 :b<space>2<CR>
+" nmap <leader>3 :b<space>3<CR>
+" nmap <leader>4 :b<space>4<CR>
+" nmap <leader>5 :b<space>5<CR>
+" nmap <leader>6 :b<space>6<CR>
+" nmap <leader>7 :b<space>7<CR>
+" nmap <leader>8 :b<space>8<CR>
+" nmap <leader>9 :b<space>9<CR>
 " switch windows
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
@@ -85,19 +85,17 @@ Plug 'tpope/vim-unimpaired'
 Plug 'Yggdroot/indentLine'
   let g:indentLine_enabled = 1
 
-
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
   "let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
   let $FZF_DEFAULT_COMMAND = 'rg --files'
   let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
   nnoremap <leader>f :Files<CR>
-  nnoremap <leader>g :Rg<CR>
+  nnoremap <leader>gf :Rg<CR>
   nnoremap <leader>c :Commits<CR>
-  nnoremap <leader>d :Buffers<CR>
+  nnoremap <leader>b :Buffers<CR>
   nnoremap <leader>w :Windows<CR>
 Plug 'stsewd/fzf-checkout.vim'
-  " https://github.com/stsewd/fzf-checkout.vim
   nnoremap <leader>gc :GCheckout<CR>
 
 
@@ -128,14 +126,15 @@ Plug 'prabirshrestha/vim-lsp'
   let g:lsp_format_sync_timeout = 1000
   let g:lsp_highlight_references_enabled = 1
   let g:lsp_document_highlight_enabled = 1
-  " autocmd! BufWritePre *.dart,*.js call execute('LspDocumentFormatSync')
   " key mappings
-  nmap gd <plug>(lsp-definition)
-  nmap gref <plug>(lsp-references)
-  nmap gr <plug>(lsp-rename)
-  nmap gh <plug>(lsp-hover)
-  nmap ga <plug>(lsp-code-action)
-  nmap gf <plug>(lsp-document-format)
+  nmap <leader>ld <plug>(lsp-definition)
+  nmap <leader>lref <plug>(lsp-references)
+  nmap <leader>lr <plug>(lsp-rename)
+  nmap <leader>lh <plug>(lsp-hover)
+  nmap <leader>la <plug>(lsp-code-action)
+  nmap <leader>lf <plug>(lsp-document-format)
+  nmap <leader>ln <plug>(lsp-next-diagnostic)
+  nmap <leader>lp <plug>(lsp-previous-diagnostic)
   " let g:lsp_log_verbose = 1
   " let g:lsp_log_file = expand('~/vim-lsp.log')
 Plug 'mattn/vim-lsp-settings'
@@ -168,12 +167,8 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'tpope/vim-commentary'
-"  autocmd FileType dart setlocal commentstring=/\/\ %s
 
 Plug 'sheerun/vim-polyglot'
-
-Plug 'mattn/webapi-vim'
-Plug 'mattn/vim-gist'
 
 " coloscheme
 Plug 'gruvbox-community/gruvbox'
@@ -234,6 +229,8 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_localrmdir='rm -rf'
 " disable mouse
-set mouse=
-set ttymouse=
+if !has('nvim')
+  set ttymouse=
+  set mouse=
+endif
 
