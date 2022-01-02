@@ -1,10 +1,16 @@
 #!/usr/bin/env zsh
 
+if [ ! -f /usr/bin/sudo ]
+then 
+  echo 'please install sudo and re-run the script'
+  exit 1
+fi
 
-# needed pkgs before bootstrap: sudo, git, zsh
-
-test -f $HOME/.arch/bootstrap_done \
-  && exit 0
+# already bootstraped?!
+if [ -f $HOME/.arch/bootstrap_done ]
+then
+  exit 0
+fi
 
 # base pkgs
 echo 'installing base pkgs \n'
@@ -15,8 +21,13 @@ sudo pacman -S --needed --noconfirm \
   htop \
   mc \
   zsh \
-  sudo \
   > /dev/null
+
+echo 'configure user \n'
+sudo gpasswd -a $USER wheel
+
+echo 'configure sudo \n'
+sudo echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 
 # yay
 echo 'installing yay \n'
@@ -41,6 +52,11 @@ yay -S --needed --noconfirm \
   xorg-xrandr \
   xorg-xinit \
   rofi \
+  netctl \
+  wifi-menu \
+  fstrim \
+  bluez \
+  bluez-utils \
   > /dev/null
 
 # user pkgs
@@ -57,6 +73,9 @@ yay -S --needed --noconfirm \
   ripgrep \
   cmus \
   > /dev/null
+
+echo 'enabling services \n'
+sudo sudo systemctl enable bluetooth.service
 
 echo 'bootstrapping shell environment \n'
 # regenerate font cache
