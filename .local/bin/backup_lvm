@@ -1,5 +1,8 @@
-## SCRIPT
-USB=$1
+#!/usr/bin/env zsh
+
+TARGET=$1
+HDD=nvme0n1
+EFI=nvme0n1p1
 DATE=$(date +"%Y-%m-%d")
 PREFIX=backup
 VGGROUP=arch
@@ -7,26 +10,23 @@ PARTITIONS=("root" "home")
 IGNORE_FILE=backup.ignore
 TMP_DIRS=("/tmp" "/var/tmp" "/usr/src/tmp")
 FILEAGE=+7
-## END SCRIPT
 
-if [ ! -d "$USB" ]; then
-  echo "The path "$USB" does not exist. Please check..."
+if [ ! -d "$TARGET" ]; then
+  echo "The path "$TARGET" does not exist. Please check"
   exit 1
 fi
 
 if ! [ $(id -u) = 0 ]; then
-  echo "The script must be run with root privileges..."
+  echo "The script must be run with root privileges"
   exit 1
 fi
 
 
-## CLEAN (optional)
-echo "Cleaning system packages and caches..."
+echo "Cleaning system packages and caches"
 yay -Sccq --noconfirm >/dev/null 2>&1
 rm -rf ~/.local/share/Trash/* >/dev/null 2>&1
-#echo "Finished system cleanup!"
 
-echo "Cleaning temp dirs..."
+echo "Cleaning temp dirs"
 for DIR in "${TMP_DIRS[@]}"
 do
   /usr/bin/find $DIR -depth -type f -a -ctime $FILEAGE -print -delete >/dev/null 2>&1
@@ -37,12 +37,24 @@ do
 done
 #echo "Finished cleaning!"
 
-echo "Cleaning user tools..."
+# TODO: We are user root here, find better solution to cleanup userland caches
+# echo "Cleaning user tools"
 # TODO: check if docker or podman command is available
-podman system prune -a --volumes -f >/dev/null 2>&1
+# podman system prune -a --volumes -f >/dev/null 2>&1
+# npm cache
+# rm -rf $HOME/.npm
+# rm -rf $HOME/.pub-cache
 
+echo "Backup partition schema"
+fdisk -l /dev/$HDD > $TARGET/partitioning_$PREFIX_$DATE.txt
 
-## MAIN
+echo "Backup LVM schema"
+lvs -v > $TARGET/lvm_$PREFIX_$DATE.txt
+
+echo "Backup EFI partition"
+dd bs=4M if=/dev/$EFI | xz -T 0 -c > $TARGET/efi_$PREFIX_$DATE.bin.xz
+
+echo "File-based backup defined partitions"
 for VOLUME in "${PARTITIONS[@]}"
 do
   umount /dev/$VGGROUP/lv_"$VOLUME"_snapshot >/dev/null 2>&1
@@ -51,15 +63,11 @@ do
   mkdir -p /mnt/lv_"$VOLUME"_snapshot >/dev/null 2>&1
   mount /dev/$VGGROUP/lv_"$VOLUME"_snapshot /mnt/lv_"$VOLUME"_snapshot >/dev/null 2>&1
   echo "Starting backup for "$VGGROUP"/"$VOLUME"..."
-  # tar --exclude-tag-all=$IGNORE_FILE -c /mnt/lv_"$VOLUME"_snapshot/ | pigz --fast > $USB/"$VOLUME"_"$PREFIX"_$DATE.tar.gz
-  tar --exclude-tag-all=$IGNORE_FILE -c /mnt/lv_"$VOLUME"_snapshot/ | xz -T 0 -c > $USB/"$VOLUME"_"$PREFIX"_$DATE.tar.xz
+  tar --exclude-tag-all=$IGNORE_FILE -c /mnt/lv_"$VOLUME"_snapshot/ | xz -T 0 -c > $TARGET/"$VOLUME"_"$PREFIX"_$DATE.tar.xz
   echo "Finished "$VGGROUP"/"$VOLUME"!"
   umount /dev/$VGGROUP/lv_"$VOLUME"_snapshot >/dev/null 2>&1
   rmdir /mnt/lv_"$VOLUME"_snapshot >/dev/null 2>&1
   lvremove -f /dev/$VGGROUP/lv_"$VOLUME"_snapshot >/dev/null 2>&1
 done
 
-
-## FINAL
-exit
-
+exit 0
