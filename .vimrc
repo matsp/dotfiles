@@ -7,20 +7,7 @@ endif
 " key mappings
 nnoremap <SPACE> <Nop>
 let mapleader = ' '
-
 nmap <leader>n :Lexplore<CR>
-" close buffer
-" nmap <leader>b :bd<cr>
-" open buffers by number
-" nmap <leader>1 :b<space>1<CR>
-" nmap <leader>2 :b<space>2<CR>
-" nmap <leader>3 :b<space>3<CR>
-" nmap <leader>4 :b<space>4<CR>
-" nmap <leader>5 :b<space>5<CR>
-" nmap <leader>6 :b<space>6<CR>
-" nmap <leader>7 :b<space>7<CR>
-" nmap <leader>8 :b<space>8<CR>
-" nmap <leader>9 :b<space>9<CR>
 " switch windows
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
@@ -50,7 +37,6 @@ tmap <leader>hi <c-w>:resize +5<cr>
 tmap <leader>hd <c-w>:resize -5<cr>
 
 call plug#begin('~/.vim/plugged')
-
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
   let g:airline#extensions#tabline#enabled = 1
@@ -65,11 +51,10 @@ Plug 'vim-airline/vim-airline-themes'
   let g:airline_powerline_fonts = 1
   let g:airline_section_z = ''
 
-  " if !exists('g:airline_symbols')
-  "   let g:airline_symbols = {}
-  "   endif
-  " let g:airline_symbols.dirty='*'
-
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+    endif
+  let g:airline_symbols.dirty='*'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-eunuch'
 " CTRL+X /, SPACE, ENTER
@@ -84,7 +69,6 @@ Plug 'tpope/vim-unimpaired'
   vmap <S-j> ]egv
 Plug 'Yggdroot/indentLine'
   let g:indentLine_enabled = 1
-
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
   "let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
@@ -97,11 +81,7 @@ Plug 'junegunn/fzf.vim'
   nnoremap <leader>w :Windows<CR>
 Plug 'stsewd/fzf-checkout.vim'
   nnoremap <leader>gc :GCheckout<CR>
-
-
 Plug 'airblade/vim-gitgutter'
-  "let g:gitgutter_set_sign_backgrounds = 1
-
 Plug 'tpope/vim-fugitive'
   " git status
   nmap <leader>gs :G<CR>
@@ -113,7 +93,6 @@ Plug 'tpope/vim-fugitive'
   "nnoremap <silent> <leader>gd :Gvdiff<cr>
   "nnoremap <leader>ge :Gedit<cr>
   "nnoremap <silent><leader>gb :Gblame<cr>
-
 Plug 'prabirshrestha/vim-lsp'
   let g:lsp_signs_enabled = 1
   let g:lsp_diagnostics_signs_error = {'text': '>>'}
@@ -138,16 +117,6 @@ Plug 'prabirshrestha/vim-lsp'
   " let g:lsp_log_verbose = 1
   " let g:lsp_log_file = expand('~/vim-lsp.log')
 Plug 'mattn/vim-lsp-settings'
-  " let g:lsp_settings_filetype_html = ['tailwindcss-intellisense', 'html-languageserver']
-  " default:
-  " let g:lsp_settings_root_markers = [
-    " \   '.git',
-    " \   '.git/',
-    " \   '.svn',
-    " \   '.hg',
-    " \   '.bzr'
-    " \ ]
-    " ]
   let g:lsp_settings_root_markers = ['.git/']
 Plug 'prabirshrestha/asyncomplete.vim'
   " imap <c-space> <Plug>(asyncomplete_force_refresh)
@@ -163,19 +132,13 @@ Plug 'prabirshrestha/asyncomplete.vim'
     \ <SID>check_back_space() ? "\<TAB>" :
     \ asyncomplete#force_refresh()
   inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
 Plug 'tpope/vim-commentary'
-
 Plug 'sheerun/vim-polyglot'
-
 " coloscheme
 Plug 'gruvbox-community/gruvbox'
-
 call plug#end()
 
-" plain vim settings
 set path+=**
 set wildmenu
 set ttyfast
@@ -222,7 +185,6 @@ set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set hidden
 " use line number column also for signs
-"set signcolumn=number
 set signcolumn=yes
 " customize builtin file tree
 let g:netrw_banner = 0
