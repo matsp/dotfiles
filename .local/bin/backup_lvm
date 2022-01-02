@@ -51,7 +51,8 @@ do
   mkdir -p /mnt/lv_"$VOLUME"_snapshot >/dev/null 2>&1
   mount /dev/$VGGROUP/lv_"$VOLUME"_snapshot /mnt/lv_"$VOLUME"_snapshot >/dev/null 2>&1
   echo "Starting backup for "$VGGROUP"/"$VOLUME"..."
-  tar --exclude-tag-all=$IGNORE_FILE -c /mnt/lv_"$VOLUME"_snapshot/ | pigz --fast > $USB/"$VOLUME"_"$PREFIX"_$DATE.tar.gz
+  # tar --exclude-tag-all=$IGNORE_FILE -c /mnt/lv_"$VOLUME"_snapshot/ | pigz --fast > $USB/"$VOLUME"_"$PREFIX"_$DATE.tar.gz
+  tar --exclude-tag-all=$IGNORE_FILE -c /mnt/lv_"$VOLUME"_snapshot/ | xz -T 0 -c > $USB/"$VOLUME"_"$PREFIX"_$DATE.tar.xz
   echo "Finished "$VGGROUP"/"$VOLUME"!"
   umount /dev/$VGGROUP/lv_"$VOLUME"_snapshot >/dev/null 2>&1
   rmdir /mnt/lv_"$VOLUME"_snapshot >/dev/null 2>&1
