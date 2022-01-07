@@ -135,6 +135,10 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'sheerun/vim-polyglot'
+Plug 'untitled-ai/jupyter_ascending.vim'
+  let g:jupyter_ascending_auto_write = 1
+  nmap <leader>x <Plug>JupyterExecute
+  nmap <leader>X <Plug>JupyterExecuteAll
 " coloscheme
 Plug 'gruvbox-community/gruvbox'
 call plug#end()

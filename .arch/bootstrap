@@ -64,6 +64,10 @@ echo 'installing user pkgs \n'
 yay -S --needed --noconfirm \
   nodejs \
   npm \
+  python \
+  python-pip \
+  jupyterlab \
+  rustup \
   hugo \
   podman \
   buildah \
@@ -80,6 +84,17 @@ sudo sudo systemctl enable bluetooth.service
 echo 'bootstrapping shell environment \n'
 # regenerate font cache
 fc-cache -f > /dev/null
+
+echo 'bootstrapping programming environments \n'
+# TODO
+# rustup
+
+# python / jupyter
+jupyter lab build
+pip3 install --user jupyter_ascending # vim <-> jupyter sync
+jupyter nbextension install jupyter_ascending --user --py \
+  && jupyter nbextension enable jupyter_ascending --user --py \
+  && jupyter serverextension enable jupyter_ascending --user --py
 
 # touch file to signal the successfull bootstrap
 touch $HOME/.arch/bootstrap_done
