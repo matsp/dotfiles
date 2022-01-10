@@ -1,33 +1,25 @@
 #!/usr/bin/env zsh
 
-if [ ! -f /usr/bin/sudo ]
-then 
-  echo 'please install sudo and re-run the script'
-  exit 1
-fi
-
 # already bootstraped?!
 if [ -f $HOME/.arch/bootstrap_done ]
 then
   exit 0
 fi
 
+if [ ! -f /usr/bin/sudo ]
+then 
+  echo 'please install sudo and re-run the script'
+  exit 1
+fi
+
 # base pkgs
 echo 'installing base pkgs \n'
 sudo pacman -S --needed --noconfirm \
   base-devel \
-  git \
-  vim \
   htop \
   mc \
   zsh \
   > /dev/null
-
-echo 'configure user \n'
-sudo gpasswd -a $USER wheel
-
-echo 'configure sudo \n'
-sudo echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 
 # yay
 echo 'installing yay \n'
@@ -62,12 +54,14 @@ yay -S --needed --noconfirm \
 # user pkgs
 echo 'installing user pkgs \n'
 yay -S --needed --noconfirm \
+  vim \
   nodejs \
   npm \
   python \
   python-pip \
   jupyterlab \
   rustup \
+  gnuplot \
   hugo \
   podman \
   buildah \
