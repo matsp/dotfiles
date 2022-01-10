@@ -14,8 +14,8 @@ chsh -s /usr/bin/zsh
 git init
 git remote add origin https://github.com/matsp/dotfiles.git # git@github.com:matsp/dotfiles.git
 git branch -M master
-git branch -u origin/master
 git pull origin master
+git branch -u origin/master
 
 # open new shell or execute:
 zsh
