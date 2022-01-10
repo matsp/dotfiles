@@ -135,6 +135,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'sheerun/vim-polyglot'
+  let g:polyglot_disabled = ['markdown']
 Plug 'untitled-ai/jupyter_ascending.vim'
   let g:jupyter_ascending_auto_write = 1
   nmap <leader>x <Plug>JupyterExecute
