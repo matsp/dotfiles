@@ -86,8 +86,8 @@ echo 'bootstrapping shell environment \n'
 fc-cache -f > /dev/null
 
 echo 'bootstrapping programming environments \n'
-# TODO
-# rustup
+# rust
+rustup component add rust-src
 
 # python / jupyter
 jupyter lab build
