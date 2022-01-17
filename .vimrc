@@ -41,7 +41,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#formatter = 'unique_tail'
-  let g:airline#extensions#tabline#buffer_nr_show = 1
+  " let g:airline#extensions#tabline#buffer_nr_show = 1
   let g:airline#extensions#lsp#enabled = 1
   let g:airline#extensions#fugitiveline#enabled = 1
   let g:airline#extensions#netrw#enabled = 1
@@ -54,7 +54,7 @@ Plug 'vim-airline/vim-airline-themes'
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
     endif
-  let g:airline_symbols.dirty='*'
+  let g:airline_symbols.dirty='!'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-eunuch'
 " CTRL+X /, SPACE, ENTER
@@ -85,6 +85,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
   " git status
   nmap <leader>gs :G<CR>
+  nmap <leader>gd :Gvdiff<CR>
   nmap <leader>gh :diffget //2<CR>
   nmap <leader>gl :diffget //3<CR>
   "nnoremap <silVent> <leader>gs :Gstatus<cr>
