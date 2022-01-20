@@ -61,6 +61,7 @@ yay -S --needed --noconfirm \
   python-pip \
   jupyterlab \
   rustup \
+  cmake \
   pkgconf \
   gnuplot \
   hugo \
