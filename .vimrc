@@ -106,6 +106,9 @@ Plug 'prabirshrestha/vim-lsp'
   let g:lsp_format_sync_timeout = 1000
   let g:lsp_highlight_references_enabled = 1
   let g:lsp_document_highlight_enabled = 1
+  " format on save
+  let g:lsp_format_sync_timeout = 1000
+  autocmd! BufWritePre *.rs,*.dart call execute('LspDocumentFormatSync')
   " key mappings
   nmap <leader>ld <plug>(lsp-definition)
   nmap <leader>lref <plug>(lsp-references)
@@ -201,4 +204,8 @@ if !has('nvim')
   set ttymouse=
   set mouse=
 endif
-
+" disable arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
