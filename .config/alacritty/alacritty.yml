@@ -1,15 +1,14 @@
 env:
   WINIT_X11_SCALE_FACTOR: '1.0'
 scrolling:
-  history: 100
+  history: 1000
 window:
   padding:
-    x: 2
-    y: 2
+    x: 0
+    y: 0
   dynamic_padding: true
 font:
   normal:
-    # family: Hack
     family: "Fira Code"
     style: Regular
 
