@@ -1,5 +1,5 @@
 configuration {
-  font: "Hack 11";
+  font: "Iosveka 13";
   width: "50";
   opacity: "90";
 }
