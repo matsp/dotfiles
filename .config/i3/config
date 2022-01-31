@@ -192,6 +192,8 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+# switch back and forth between workspaces
+bindsym $mod+Tab workspace back_and_forth
 
 ####
 ### custom
