@@ -30,7 +30,7 @@ height = 30
 override-redirect = true
 offset-y = 10
 offset-x = 10% # both sides 10% <-- 80% width + 20 % = 100%
-# wm-restack = i3
+wm-restack = i3
 
 # background = ${colors.background}
 background = ${colors.foreground}
