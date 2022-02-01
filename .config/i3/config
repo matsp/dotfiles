@@ -208,7 +208,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 default_border pixel 2
 default_floating_border pixel 2
 # smart_gaps on
-smart_borders on
+# smart_borders on
 gaps inner 8
 # gaps outer 8
 # gaps right 0
@@ -231,7 +231,8 @@ client.focused_inactive #000000 #000000 #000000 #3c3836 #3c3836
 
 # Set wallpaper
 # exec --no-startup-id feh --bg-scale $HOME/.local/share/artwork/wallpaper-gruvbox-arch.jpg
-exec --no-startup-id xsetroot -solid '#282828'
+# exec --no-startup-id xsetroot -solid '#282828'
+exec --no-startup-id hsetroot -solid '#282828'
 
 # Multi monitor setup
 # exec --no-startup-id xrandr --output DP1 --right-of eDP1
@@ -241,5 +242,5 @@ bindsym $mod+m exec --no-startup-id xrandr --output DP1 --auto --right-of eDP1
 # disable mouse hover for activating the focus on windows
 focus_follows_mouse no
 
-# exec picom --no-startup-id &
+exec --no-startup-id picom -b
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
