@@ -6,6 +6,7 @@ endif
 
 " key mappings
 nnoremap <SPACE> <Nop>
+" tmap <leader><leader> <SPACE>
 let mapleader = ' '
 nmap <leader>n :Lexplore<CR>
 " switch windows
@@ -53,8 +54,11 @@ Plug 'vim-airline/vim-airline-themes'
 
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
-    endif
+  endif
   let g:airline_symbols.dirty='!'
+  let g:airline_symbols.maxlinenr=''
+  let g:airline_symbols.whitespace=' '
+
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-eunuch'
 " CTRL+X /, SPACE, ENTER
@@ -156,8 +160,10 @@ set laststatus=2
 set nowrap
 set noshowmode
 set noshowcmd
+set timeout
 set ttimeout
-set ttimeoutlen=50
+set timeoutlen=150
+" set ttimeoutlen=50
 set number
 set smartindent
 " Autoindent when starting new line, or using `o` or `O`.
@@ -206,6 +212,10 @@ if !has('nvim')
 endif
 " disable arrow keys
 noremap <Up> <Nop>
+inoremap <Up> <Nop>
 noremap <Down> <Nop>
+inoremap <Down> <Nop>
 noremap <Left> <Nop>
+inoremap <Left> <Nop>
 noremap <Right> <Nop>
+inoremap <Right> <Nop>
