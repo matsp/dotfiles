@@ -6,7 +6,6 @@ endif
 
 " key mappings
 nnoremap <SPACE> <Nop>
-" tmap <leader><leader> <SPACE>
 let mapleader = ' '
 nmap <leader>n :Lexplore<CR>
 " switch windows
@@ -162,7 +161,7 @@ set noshowmode
 set noshowcmd
 set timeout
 set ttimeout
-set timeoutlen=150
+set timeoutlen=250
 " set ttimeoutlen=50
 set number
 set smartindent
