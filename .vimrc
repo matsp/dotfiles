@@ -49,7 +49,8 @@ Plug 'vim-airline/vim-airline-themes'
   let g:airline#extensions#gitgutter#enabled = 1
   let g:airline_theme='gruvbox'
   let g:airline_powerline_fonts = 1
-  let g:airline_section_z = ''
+  " let g:airline_section_z = ''
+  let g:airline_section_z = '%{strftime("%H:%M")}'
 
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -58,7 +59,8 @@ Plug 'vim-airline/vim-airline-themes'
   let g:airline_symbols.maxlinenr=''
   let g:airline_symbols.whitespace=' '
 
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
+" Plug 'LunarWatcher/auto-pairs'
 Plug 'tpope/vim-eunuch'
 " CTRL+X /, SPACE, ENTER
 Plug 'tpope/vim-ragtag'
