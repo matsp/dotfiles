@@ -4,9 +4,9 @@ env:
 scrolling:
   history: 1000
 window:
-  padding:
-    x: 1
-    y: 1
+  # padding:
+  #   x: 1
+  #   y: 1
   dynamic_padding: true
 font:
   normal:
