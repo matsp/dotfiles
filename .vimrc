@@ -48,6 +48,7 @@ let g:airline#extensions#lsp#enabled = 1
 let g:airline#extensions#netrw#enabled = 1
 let g:airline#extensions#fzf#enabled = 1
 let g:airline#extensions#gitgutter#enabled = 1
+" let g:airline#extensions#term#enabled = 0
 let g:airline_theme='gruvbox'
 " let g:airline_powerline_fonts = 1
 " let g:airline_section_z = ''
@@ -58,6 +59,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.dirty='!'
 let g:airline_symbols.maxlinenr=''
+let g:airline_symbols.linenr=''
 let g:airline_symbols.whitespace=' '
 let g:airline_symbols.branch=''
 
@@ -84,8 +86,8 @@ nnoremap <leader>gf :Rg<CR>
 nnoremap <leader>c :Commits<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>w :Windows<CR>
-Plug 'stsewd/fzf-checkout.vim'
-nnoremap <leader>gc :GCheckout<CR>
+" Plug 'stsewd/fzf-checkout.vim'
+" nnoremap <leader>gc :GCheckout<CR>
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 " git status
@@ -147,10 +149,11 @@ Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'tpope/vim-commentary'
 Plug 'sheerun/vim-polyglot'
   let g:polyglot_disabled = ['markdown']
-Plug 'untitled-ai/jupyter_ascending.vim'
-  let g:jupyter_ascending_auto_write = 1
-  nmap <leader>x <Plug>JupyterExecute
-  nmap <leader>X <Plug>JupyterExecuteAll
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'untitled-ai/jupyter_ascending.vim'
+"   let g:jupyter_ascending_auto_write = 1
+"   nmap <leader>x <Plug>JupyterExecute
+"   nmap <leader>X <Plug>JupyterExecuteAll
 " coloscheme
 Plug 'gruvbox-community/gruvbox'
 call plug#end()
