@@ -101,6 +101,10 @@ jupyter nbextension install jupyter_ascending --user --py \
   && jupyter nbextension enable jupyter_ascending --user --py \
   && jupyter serverextension enable jupyter_ascending --user --py
 
+# go
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+
 echo 'bootstrapping infrastructure environments \n'
 
 # podman
