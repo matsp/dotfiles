@@ -74,6 +74,13 @@ yay -S --needed --noconfirm \
   portfolio-performance-bin \
   ripgrep \
   cmus \
+  go \
+  minikube \
+  kubectl \
+  helm \
+  k9s \
+  libvirt \
+  qemu-headless \
   > /dev/null
 
 echo 'enabling services \n'
@@ -93,6 +100,23 @@ pip3 install --user jupyter_ascending # vim <-> jupyter sync
 jupyter nbextension install jupyter_ascending --user --py \
   && jupyter nbextension enable jupyter_ascending --user --py \
   && jupyter serverextension enable jupyter_ascending --user --py
+
+echo 'bootstrapping infrastructure environments \n'
+
+# podman
+sudo touch /etc/subuid /etc/subgid
+sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $(whoami)
+sudo podman system migrate
+# sudo echo "$USER ALL=(ALL) NOPASSWD: /usr/bin/podman" >> /etc/sudoers
+
+# minikube (podman driver needs v1.26)
+# minikube config set driver podman
+minikube config set driver kvm2
+# minikube config set rootless true
+
+# libvirt
+sudo usermod -a -G libvirt $(whoami)
+sudo virsh net-autostart default
 
 # touch file to signal the successfull bootstrap
 touch $HOME/.arch/bootstrap_done
