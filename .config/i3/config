@@ -243,5 +243,5 @@ bindsym $mod+m exec --no-startup-id xrandr --output DP1 --auto --right-of eDP1
 # disable mouse hover for activating the focus on windows
 focus_follows_mouse no
 
-exec --no-startup-id picom -b
+# exec --no-startup-id picom -b
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
