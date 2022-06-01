@@ -37,7 +37,8 @@ yay -S --needed --noconfirm \
   i3-gaps \
   picom-git \
   hsetroot \
-  alacritty \
+  # alacritty \
+  rxvt-unicode \
   pulseaudio \
   xorg-server \
   polybar \
