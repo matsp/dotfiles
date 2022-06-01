@@ -44,24 +44,24 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 " let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#lsp#enabled = 1
-" let g:airline#extensions#fugitiveline#enabled = 1
+let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#netrw#enabled = 1
 let g:airline#extensions#fzf#enabled = 1
 let g:airline#extensions#gitgutter#enabled = 1
 " let g:airline#extensions#term#enabled = 0
 let g:airline_theme='gruvbox'
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 " let g:airline_section_z = ''
 let g:airline_section_z = '%{strftime("%H:%M")}'
 
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.dirty='!'
-let g:airline_symbols.maxlinenr=''
-let g:airline_symbols.linenr=''
-let g:airline_symbols.whitespace=' '
-let g:airline_symbols.branch=''
+" if !exists('g:airline_symbols')
+"   let g:airline_symbols = {}
+" endif
+" let g:airline_symbols.dirty='!'
+" let g:airline_symbols.maxlinenr=''
+" let g:airline_symbols.linenr=''
+" let g:airline_symbols.whitespace=' '
+" let g:airline_symbols.branch=''
 
 Plug 'tpope/vim-eunuch'
 " CTRL+X /, SPACE, ENTER
