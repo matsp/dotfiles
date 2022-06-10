@@ -31,6 +31,51 @@ test ! -d $HOME/git/yay \
   && makepkg -si --needed --noconfirm > /dev/null \
   && cd $HOME
 
+# programming languages && tools
+echo 'installing developer environment \n'
+yay -S --needed --noconfirm \
+  vim \
+  nodejs \
+  npm \
+  dart \
+  python \
+  python-pip \
+  jupyterlab \
+  rustup \
+  cmake \
+  pkgconf \
+  ripgrep \
+  k9s \
+  go \
+  kubectl \
+  helm \
+  > /dev/null
+
+echo 'configuring developer environment \n'
+# git credentials
+# TODO
+
+# rust
+rustup component add rust-src
+
+# python / jupyter
+# pip3 install --user jupyter_ascending # vim <-> jupyter sync
+# jupyter lab build
+# jupyter nbextension install jupyter_ascending --user --py \
+#   && jupyter nbextension enable jupyter_ascending --user --py \
+#   && jupyter serverextension enable jupyter_ascending --user --py
+
+# go
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+
+if [ ! $BUILD_IMAGE_DOTFILES -eq 0 ]
+then 
+  echo 'early exiting now due image build'
+  touch $HOME/.arch/bootstrap_done
+  exit 0
+fi
+
 # window manager & system pkgs
 echo 'installing window manager & system pkgs \n'
 yay -S --needed --noconfirm \
@@ -57,30 +102,15 @@ yay -S --needed --noconfirm \
 # user pkgs
 echo 'installing user pkgs \n'
 yay -S --needed --noconfirm \
-  vim \
-  nodejs \
-  npm \
-  dart \
-  python \
-  python-pip \
-  jupyterlab \
-  rustup \
-  cmake \
-  pkgconf \
-  gnuplot \
   hugo \
+  gnuplot \
   podman \
   buildah \
   skopeo \
   google-chrome \
   portfolio-performance-bin \
-  ripgrep \
   cmus \
-  go \
   minikube \
-  kubectl \
-  helm \
-  k9s \
   libvirt \
   qemu-headless \
   > /dev/null
@@ -88,26 +118,11 @@ yay -S --needed --noconfirm \
 echo 'enabling services \n'
 sudo sudo systemctl enable bluetooth.service
 
-echo 'bootstrapping shell environment \n'
+echo 'configuring shell environment \n'
 # regenerate font cache
 fc-cache -f > /dev/null
 
-echo 'bootstrapping programming environments \n'
-# rust
-rustup component add rust-src
-
-# python / jupyter
-jupyter lab build
-pip3 install --user jupyter_ascending # vim <-> jupyter sync
-jupyter nbextension install jupyter_ascending --user --py \
-  && jupyter nbextension enable jupyter_ascending --user --py \
-  && jupyter serverextension enable jupyter_ascending --user --py
-
-# go
-go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-
-echo 'bootstrapping infrastructure environments \n'
+echo 'configuring infrastructure environment \n'
 
 # podman
 sudo touch /etc/subuid /etc/subgid
