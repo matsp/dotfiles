@@ -16,6 +16,7 @@ git remote add origin https://github.com/matsp/dotfiles.git # git@github.com:mat
 git branch -M master
 git pull origin master
 git branch -u origin/master
+git submodule update --init --recursive
 
 # open new shell or execute:
 zsh
