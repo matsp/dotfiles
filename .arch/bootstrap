@@ -52,10 +52,6 @@ yay -S --needed --noconfirm \
   > /dev/null
 
 echo '\nconfiguring developer environment \n'
-# vim
-vim +qall
-vim +PlugInstall +qall
-
 # git credentials
 git config --global user.name "Mats Pfeiffer"
 git config --global user.email "mats.pfeiffer@googlemail.com"
