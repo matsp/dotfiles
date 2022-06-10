@@ -52,8 +52,12 @@ yay -S --needed --noconfirm \
   > /dev/null
 
 echo '\nconfiguring developer environment \n'
+# vim
+vim +PlugInstall +qall
+
 # git credentials
-# TODO
+git config --global user.name "Mats Pfeiffer"
+git config --global user.email "mats.pfeiffer@googlemail.com"
 
 # rust
 rustup component add rust-src
@@ -71,7 +75,7 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 
 if [ ! $BUILD_IMAGE_DOTFILES -eq 0 ]
 then 
-  echo 'early exiting now due image build'
+  echo '\nearly exiting now due image build \n'
   touch $HOME/.arch/bootstrap_done
   exit 0
 fi
