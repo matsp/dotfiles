@@ -13,7 +13,7 @@ then
 fi
 
 # base pkgs
-echo 'installing base pkgs \n'
+echo '\ninstalling base pkgs \n'
 sudo pacman -S --needed --noconfirm \
   base-devel \
   htop \
@@ -22,7 +22,7 @@ sudo pacman -S --needed --noconfirm \
   > /dev/null
 
 # yay
-echo 'installing yay \n'
+echo '\ninstalling yay \n'
 test ! -d $HOME/git/yay \
   && mkdir -p $HOME/git \
   && cd $HOME/git \
@@ -32,7 +32,7 @@ test ! -d $HOME/git/yay \
   && cd $HOME
 
 # programming languages && tools
-echo 'installing developer environment \n'
+echo '\ninstalling developer environment \n'
 yay -S --needed --noconfirm \
   vim \
   nodejs \
@@ -51,7 +51,7 @@ yay -S --needed --noconfirm \
   helm \
   > /dev/null
 
-echo 'configuring developer environment \n'
+echo '\nconfiguring developer environment \n'
 # git credentials
 # TODO
 
@@ -77,7 +77,7 @@ then
 fi
 
 # window manager & system pkgs
-echo 'installing window manager & system pkgs \n'
+echo '\ninstalling window manager & system pkgs \n'
 yay -S --needed --noconfirm \
   i3-gaps \
   picom-git \
@@ -100,7 +100,7 @@ yay -S --needed --noconfirm \
   > /dev/null
 
 # user pkgs
-echo 'installing user pkgs \n'
+echo '\ninstalling user pkgs \n'
 yay -S --needed --noconfirm \
   hugo \
   gnuplot \
@@ -115,14 +115,14 @@ yay -S --needed --noconfirm \
   qemu-headless \
   > /dev/null
 
-echo 'enabling services \n'
+echo '\nenabling services \n'
 sudo sudo systemctl enable bluetooth.service
 
-echo 'configuring shell environment \n'
+echo '\nconfiguring shell environment \n'
 # regenerate font cache
 fc-cache -f > /dev/null
 
-echo 'configuring infrastructure environment \n'
+echo '\nconfiguring infrastructure environment \n'
 
 # podman
 sudo touch /etc/subuid /etc/subgid

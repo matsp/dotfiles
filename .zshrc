@@ -2,8 +2,9 @@
 
 test ! -d $HOME/.oh-my-zsh \
   && git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh \
-  && $HOME/.arch/bootstrap \
-  && exit 0
+  # && $HOME/.arch/bootstrap \
+  && $HOME/.arch/bootstrap
+  # && exit 0
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
