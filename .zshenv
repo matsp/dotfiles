@@ -1,5 +1,5 @@
 export CHROME_EXECUTABLE='google-chrome-stable'
-export TERMINAL=urxvt
+export TERMINAL=alacritty
 export LANG=de_DE.UTF-8
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 export GOPATH=$HOME/go
