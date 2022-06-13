@@ -1,10 +1,12 @@
 FROM archlinux
 
 ARG USER
+ARG HOSTNAME
 
 RUN pacman -Sy --noconfirm zsh git sudo \
   && echo "${USER} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers \
-  && useradd -m -s /usr/bin/zsh -U $USER
+  && useradd -m -s /usr/bin/zsh -U $USER \
+  && echo "${HOSTNAME}" > /etc/hostname
 
 WORKDIR /home/$USER
 USER $USER
@@ -17,7 +19,7 @@ RUN git init \
   && git branch -u origin/master \
   && git submodule update --init --recursive
 
-RUN /home/$USER/.arch/bootstrap \ 
+RUN /home/$USER/.arch/bootstrap \
   && /usr/bin/zsh
 
 ENTRYPOINT [ "/usr/bin/zsh" ]
