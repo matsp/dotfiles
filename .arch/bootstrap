@@ -19,6 +19,7 @@ sudo pacman -S --needed --noconfirm \
   htop \
   mc \
   zsh \
+  tmux \
   > /dev/null
 
 # yay
