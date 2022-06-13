@@ -3,7 +3,7 @@ FROM archlinux
 ARG USER
 
 RUN pacman -Sy --noconfirm zsh git sudo \
-  && echo '$USER ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
+  && echo "${USER} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers \
   && useradd -m -s /usr/bin/zsh -U $USER
 
 WORKDIR /home/$USER
