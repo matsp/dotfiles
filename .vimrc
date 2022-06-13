@@ -51,8 +51,8 @@ let g:airline#extensions#gitgutter#enabled = 1
 " let g:airline#extensions#term#enabled = 0
 let g:airline_theme='gruvbox'
 " let g:airline_powerline_fonts = 1
-" let g:airline_section_z = ''
-let g:airline_section_z = '%{strftime("%H:%M")}'
+let g:airline_section_z = ''
+" let g:airline_section_z = '%{strftime("%H:%M")}'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
