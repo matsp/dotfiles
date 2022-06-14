@@ -201,7 +201,7 @@ set shell=/usr/bin/zsh
 " hide intro message
 set shortmess=I
 set background=dark
-colorscheme gruvbox
+silent! colorscheme gruvbox
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set hidden
