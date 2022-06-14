@@ -21,3 +21,10 @@ git submodule update --init --recursive
 # open new shell or execute:
 zsh
 ```
+
+## dotfiles container
+
+```
+podman build --build-arg USER=mp -t dotfiles .arch/
+podman run -ti --user mp -h dev dotfiles
+```
