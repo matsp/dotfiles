@@ -1,3 +1,10 @@
+function container_settings {
+  if [[ $DOTFILES_CONTAINER == 1 ]];
+  then ZSH_TMUX_AUTOSTART=true;
+  else ZSH_TMUX_AUTOSTART=false;
+  fi;
+}
+
 # if no oh-my-zsh distribution is installed we will first bootstrap this arch system
 
 test ! -d $HOME/.oh-my-zsh \
@@ -78,6 +85,9 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_UNICODE=true
 ZSH_TMUX_FIXTERM_WITH_256COLOR=true
+
+# apply settings if DOTFILES_CONTAINER=1
+container_settings
 
 source $ZSH/oh-my-zsh.sh
 

@@ -8,7 +8,7 @@ RUN pacman -Sy --noconfirm zsh git sudo \
 
 WORKDIR /home/$USER
 USER $USER
-ENV BUILD_IMAGE_DOTFILES=1
+ENV DOTFILES_CONTAINER=1
 
 RUN git init \
   && git remote add origin https://github.com/matsp/dotfiles.git \

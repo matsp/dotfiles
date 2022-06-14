@@ -78,7 +78,7 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
 #   && jupyter serverextension enable jupyter_ascending --user --py
 
 
-if [ ! $BUILD_IMAGE_DOTFILES -eq 0 ]
+if [ ! $DOTFILES_CONTAINER -eq 0 ]
 then 
   echo 'early exiting now due image build \n'
   touch $HOME/.arch/bootstrap_done
