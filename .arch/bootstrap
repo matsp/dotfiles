@@ -16,41 +16,40 @@ fi
 echo '\ninstalling base pkgs \n'
 sudo pacman -S --needed --noconfirm \
   base-devel \
-  htop \
-  mc \
   zsh \
-  tmux \
-  > /dev/null
+  &> /dev/null
 
 # yay
 echo '\ninstalling yay \n'
 test ! -d $HOME/git/yay \
   && mkdir -p $HOME/git \
   && cd $HOME/git \
-  && git clone https://aur.archlinux.org/yay.git > /dev/null \
+  && git clone https://aur.archlinux.org/yay.git &> /dev/null \
   && cd yay \
-  && makepkg -si --needed --noconfirm > /dev/null \
+  && makepkg -si --needed --noconfirm &> /dev/null \
   && cd $HOME
 
 # programming languages && tools
 echo '\ninstalling developer environment \n'
 yay -S --needed --noconfirm \
   vim \
+  tmux \
   nodejs \
   npm \
   dart \
   python \
   python-pip \
   go \
-  # jupyterlab \
-  # rustup \
-  cmake \
-  pkgconf \
   ripgrep \
   k9s \
   kubectl \
   helm \
-  > /dev/null
+  &> /dev/null
+
+# jupyterlab \
+# rustup \
+# cmake \
+# pkgconf \
 
 echo '\nconfiguring developer environment \n'
 # git credentials
@@ -58,6 +57,10 @@ git config --global user.name "Mats Pfeiffer"
 git config --global user.email "mats.pfeiffer@googlemail.com"
 # vim
 vim +PlugInstall +qall &> /dev/null
+
+# go
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest &> /dev/null
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
 
 # rust
 # rustup component add rust-src
@@ -69,9 +72,6 @@ vim +PlugInstall +qall &> /dev/null
 #   && jupyter nbextension enable jupyter_ascending --user --py \
 #   && jupyter serverextension enable jupyter_ascending --user --py
 
-# go
-go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 
 if [ ! $BUILD_IMAGE_DOTFILES -eq 0 ]
 then 
@@ -101,12 +101,14 @@ yay -S --needed --noconfirm \
   fstrim \
   bluez \
   bluez-utils \
-  > /dev/null
+  &> /dev/null
 
 # user pkgs
 echo '\ninstalling user pkgs \n'
 yay -S --needed --noconfirm \
   hugo \
+  htop \
+  mc \
   gotop \
   gnuplot \
   podman \
@@ -118,14 +120,14 @@ yay -S --needed --noconfirm \
   minikube \
   libvirt \
   qemu-headless \
-  > /dev/null
+  &> /dev/null
 
 echo '\nenabling services \n'
 sudo sudo systemctl enable bluetooth.service
 
 echo '\nconfiguring shell environment \n'
 # regenerate font cache
-fc-cache -f > /dev/null
+fc-cache -f &> /dev/null
 
 echo '\nconfiguring infrastructure environment \n'
 
