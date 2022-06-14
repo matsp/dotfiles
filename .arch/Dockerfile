@@ -17,7 +17,4 @@ RUN git init \
   && git branch -u origin/master \
   && git submodule update --init --recursive
 
-# bootstrap
-RUN /usr/bin/zsh
-
 ENTRYPOINT [ "/usr/bin/zsh" ]
