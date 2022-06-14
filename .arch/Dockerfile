@@ -18,6 +18,6 @@ RUN git init \
   && git submodule update --init --recursive
 
 # bootstrap
-RUN /usr/bin/zsh /home/$USER/.arch/bootstrap
+RUN /usr/bin/zsh
 
 ENTRYPOINT [ "/usr/bin/zsh" ]
