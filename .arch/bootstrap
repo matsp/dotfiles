@@ -57,7 +57,7 @@ echo '\nconfiguring developer environment \n'
 git config --global user.name "Mats Pfeiffer"
 git config --global user.email "mats.pfeiffer@googlemail.com"
 # vim
-vim --clean '+source ~/.vimrc' +PluginInstall +qall
+vim +PlugInstall +qall &> /dev/null
 
 # rust
 rustup component add rust-src
