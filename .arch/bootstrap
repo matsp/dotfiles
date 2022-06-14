@@ -13,14 +13,14 @@ then
 fi
 
 # base pkgs
-echo '\ninstalling base pkgs \n'
+echo 'installing base pkgs \n'
 sudo pacman -S --needed --noconfirm \
   base-devel \
   zsh \
   &> /dev/null
 
 # yay
-echo '\ninstalling yay \n'
+echo 'installing yay \n'
 test ! -d $HOME/git/yay \
   && mkdir -p $HOME/git \
   && cd $HOME/git \
@@ -30,7 +30,7 @@ test ! -d $HOME/git/yay \
   && cd $HOME
 
 # programming languages && tools
-echo '\ninstalling developer environment \n'
+echo 'installing developer environment \n'
 yay -S --needed --noconfirm \
   vim \
   tmux \
@@ -51,12 +51,17 @@ yay -S --needed --noconfirm \
 # cmake \
 # pkgconf \
 
-echo '\nconfiguring developer environment \n'
+echo 'configuring developer environment \n'
 # git credentials
 git config --global user.name "Mats Pfeiffer"
 git config --global user.email "mats.pfeiffer@googlemail.com"
 # vim
 vim +PlugInstall +qall &> /dev/null
+# tmux
+tmux start-server \
+  && tmux new-session -d \
+  && ~/.tmux/plugins/tpm/scripts/install_plugins.sh \
+  && tmux kill-server
 
 # go
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest &> /dev/null
@@ -75,13 +80,13 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
 
 if [ ! $BUILD_IMAGE_DOTFILES -eq 0 ]
 then 
-  echo '\nearly exiting now due image build \n'
+  echo 'early exiting now due image build \n'
   touch $HOME/.arch/bootstrap_done
   exit 0
 fi
 
 # window manager & system pkgs
-echo '\ninstalling window manager & system pkgs \n'
+echo 'installing window manager & system pkgs \n'
 yay -S --needed --noconfirm \
   i3-gaps \
   picom-git \
@@ -104,7 +109,7 @@ yay -S --needed --noconfirm \
   &> /dev/null
 
 # user pkgs
-echo '\ninstalling user pkgs \n'
+echo 'installing user pkgs \n'
 yay -S --needed --noconfirm \
   hugo \
   htop \
@@ -122,14 +127,14 @@ yay -S --needed --noconfirm \
   qemu-headless \
   &> /dev/null
 
-echo '\nenabling services \n'
+echo 'enabling services \n'
 sudo sudo systemctl enable bluetooth.service
 
-echo '\nconfiguring shell environment \n'
+echo 'configuring shell environment \n'
 # regenerate font cache
 fc-cache -f &> /dev/null
 
-echo '\nconfiguring infrastructure environment \n'
+echo 'configuring infrastructure environment \n'
 
 # podman
 sudo touch /etc/subuid /etc/subgid
