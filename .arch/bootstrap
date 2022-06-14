@@ -41,13 +41,13 @@ yay -S --needed --noconfirm \
   dart \
   python \
   python-pip \
-  jupyterlab \
-  rustup \
+  go \
+  # jupyterlab \
+  # rustup \
   cmake \
   pkgconf \
   ripgrep \
   k9s \
-  go \
   kubectl \
   helm \
   > /dev/null
@@ -60,7 +60,7 @@ git config --global user.email "mats.pfeiffer@googlemail.com"
 vim +PlugInstall +qall &> /dev/null
 
 # rust
-rustup component add rust-src
+# rustup component add rust-src
 
 # python / jupyter
 # pip3 install --user jupyter_ascending # vim <-> jupyter sync
