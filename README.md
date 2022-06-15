@@ -22,9 +22,14 @@ git submodule update --init --recursive
 zsh
 ```
 
-## dotfiles container
+## local dotfiles container
 
 ```
-podman build --build-arg USER=mp -t dotfiles .arch/
-podman run -ti --user mp -h dev dotfiles
+docker build --build-arg USER=mp -t dotfiles .arch/
+docker run -ti --user mp -h dev dotfiles
+```
+
+## github container registry
+```
+docker run -ti --user mp -h dev ghcr.io/matsp/dotfiles:master
 ```
