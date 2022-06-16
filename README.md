@@ -25,11 +25,18 @@ zsh
 ## local dotfiles container
 
 ```
-docker build --build-arg USER=mp -t dotfiles .arch/
-docker run -ti --user mp -h dev dotfiles
+docker build --build-arg USER=dev -t dotfiles .arch/
+docker run -ti -h dev --name dev dotfiles
 ```
 
 ## github container registry
 ```
-docker run -ti --user mp -h dev ghcr.io/matsp/dotfiles:master
+docker run -ti -h dev --name dev ghcr.io/matsp/dotfiles:master
+```
+
+## build & run local image with ssh keys
+```
+cd ~
+docker build -f .arch/container/Dockerfile.local -t dev .
+docker run -ti -h dev --name dev dev
 ```
