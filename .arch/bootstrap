@@ -15,6 +15,7 @@ fi
 # base pkgs
 echo 'installing base pkgs \n'
 sudo pacman -S --needed --noconfirm \
+  openssh \
   base-devel \
   zsh \
   &> /dev/null
