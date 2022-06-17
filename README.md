@@ -37,6 +37,6 @@ docker run -ti -h dev --name dev ghcr.io/matsp/dotfiles:master
 ## build & run local image with ssh keys
 ```
 cd ~
-docker build -f .arch/container/local/Dockerfile -t dev .
+curl -s -o Dockerfile https://raw.githubusercontent.com/matsp/dotfiles/master/.arch/container/local/Dockerfile && docker build -t dev .
 docker run -ti -h dev --name dev dev
 ```
