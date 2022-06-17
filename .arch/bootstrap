@@ -59,10 +59,10 @@ git config --global user.email "mats.pfeiffer@googlemail.com"
 # vim
 vim +PlugInstall +qall &> /dev/null
 # tmux
-tmux start-server \
-  && tmux new-session -d \
+tmux start-server &> /dev/null \
+  && tmux new-session -d &> /dev/null \
   && ~/.tmux/plugins/tpm/scripts/install_plugins.sh &> /dev/null \
-  && tmux kill-server
+  && tmux kill-server &> /dev/null
 
 # go
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest &> /dev/null
