@@ -1,6 +1,8 @@
 function container_settings {
   if [[ $DOTFILES_CONTAINER == 1 ]];
-  then ZSH_TMUX_AUTOSTART=true;
+  then 
+    ZSH_TMUX_AUTOSTART=true;
+    eval ssh-agent $SHELL;
   else ZSH_TMUX_AUTOSTART=false;
   fi;
 }
