@@ -17,4 +17,7 @@ RUN git init \
   && git branch -u origin/master \
   && git submodule update --init --recursive
 
+# start bootstrapping
+RUN /usr/bin/zsh -c "source ~/.zshrc"
+
 ENTRYPOINT [ "/usr/bin/zsh" ]
