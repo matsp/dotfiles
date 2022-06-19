@@ -12,6 +12,8 @@ then
   exit 1
 fi
 
+echo 'start bootstrapping\n'
+
 # base pkgs
 echo 'installing base pkgs \n'
 sudo pacman -S --needed --noconfirm \
@@ -82,7 +84,7 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
 
 if [ ! $DOTFILES_CONTAINER -eq 0 ]
 then 
-  echo 'early exiting now due image build \n'
+  echo 'bootstrapping finished! have fun.\n'
   touch $HOME/.arch/bootstrap_done
   exit 0
 fi
