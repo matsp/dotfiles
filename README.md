@@ -38,5 +38,6 @@ docker run -ti -h dev --name dev ghcr.io/matsp/dotfiles:master
 ```
 cd ~
 curl -s -o Dockerfile https://raw.githubusercontent.com/matsp/dotfiles/master/.arch/container/local/Dockerfile && docker build -t dev .
-docker run -ti -h dev --name dev dev
+docker volume create dev_projects
+docker run -ti -h dev --name dev -v dev_projects:/home/dev/projects dev
 ```
