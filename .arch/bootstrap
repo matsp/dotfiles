@@ -43,6 +43,7 @@ yay -S --needed --noconfirm \
   dart \
   python \
   python-pip \
+  tinygo \
   go \
   ripgrep \
   k9s \
