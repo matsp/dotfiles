@@ -48,6 +48,7 @@ yay -S --needed --noconfirm \
   ripgrep \
   k9s \
   kubectl \
+  aws-cli \
   helm \
   wasmer \
   &> /dev/null
