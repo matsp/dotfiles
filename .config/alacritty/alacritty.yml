@@ -1,24 +1,24 @@
 env:
   WINIT_X11_SCALE_FACTOR: '1'
-  TERM: xterm-256color
+  # TERM: xterm-256color
 scrolling:
   history: 1000
 window:
   # padding:
-  #   x: 1
-  #   y: 1
+  #   x: 0
+  #   y: 0
   dynamic_padding: true
 font:
   normal:
-    family: Hack
+    family: Hack Nerd Font
     style: Regular
 
   bold:
-    family: Hack
+    family: Hack Nerd Font
     style: Bold
 
   italic:
-    family: Hack
+    family: Hack Nerd Font
     style: Italic
 
   size: 14.0

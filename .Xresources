@@ -30,5 +30,5 @@
 ! urxvt settings
 URxvt.saveLines: 1000
 URxvt.scrollBar: false
-URxvt.font: xft:Hack:size=14
+URxvt.font: xft:Hack Nerd Font:size=14
 URxvt.letterSpace: -1
