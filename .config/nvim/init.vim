@@ -157,17 +157,18 @@ require('telescope').setup()
 local opts = { noremap=true, silent=true }
 local map = vim.api.nvim_set_keymap
 map('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>', opts)
+map('n', '<leader>fd', '<cmd>lua require("telescope.builtin").diagnostics()<cr>', opts)
 map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
 -- map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
 map('n', '<leader>fc', '<cmd>lua require("telescope.builtin").git_commits()<cr>', opts)
 map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").git_branches()<cr>', opts)
 
 -- lsp-trouble
-require("trouble").setup {
+--require("trouble").setup {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
-  }
+  -- }
 
 -- lualine
 require('lualine').setup {
