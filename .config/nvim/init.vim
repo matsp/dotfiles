@@ -87,12 +87,7 @@ nmap <leader>gs :G<CR>
 nmap <leader>gd :Gvdiff<CR>
 nmap <leader>gh :diffget //2<CR>
 nmap <leader>gl :diffget //3<CR>
-"nnoremap <silVent> <leader>gs :Gstatus<cr>
-"nnoremap <silent> <leader>gc :Gcommit<cr>
-"nnoremap <silent> <leader>gw :Gwrite<cr>
-"nnoremap <silent> <leader>gd :Gvdiff<cr>
-"nnoremap <leader>ge :Gedit<cr>
-"nnoremap <silent><leader>gb :Gblame<cr>
+
 " Plug 'prabirshrestha/vim-lsp'
 " let g:lsp_signs_enabled = 1
 " let g:lsp_diagnostics_signs_error = {'text': '>>'}
@@ -149,12 +144,23 @@ Plug 'williamboman/nvim-lsp-installer'
 call plug#end()
 
 lua <<EOF
+
 -- treesitter
 require'nvim-treesitter.configs'.setup { ensure_installed = { "go", "lua", "dart", "html", "json", "markdown", "scss" }, highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 
 -- colorscheme
 vim.g.tokyonight_style = "storm"
 vim.cmd[[colorscheme tokyonight]]
+
+-- telescope
+require('telescope').setup()
+local opts = { noremap=true, silent=true }
+local map = vim.api.nvim_set_keymap
+map('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>', opts)
+map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
+-- map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
+map('n', '<leader>fc', '<cmd>lua require("telescope.builtin").git_commits()<cr>', opts)
+map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").git_branches()<cr>', opts)
 
 -- lsp-trouble
 require("trouble").setup {
@@ -166,7 +172,15 @@ require("trouble").setup {
 -- lualine
 require('lualine').setup {
   options = {
-    theme = 'tokyonight'
+    theme = 'tokyonight',
+  },
+  tabline = {
+    lualine_a = {'buffers'},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
   }
 }
 
@@ -181,31 +195,46 @@ require("nvim-lsp-installer").setup {
   automatic_installation = true
 }
 
--- lspconfig
-local lspconfig = require("lspconfig")
--- golang
-lspconfig.gopls.setup {}
--- dart
-lspconfig.dartls.setup {}
--- markdown
-lspconfig.marksman.setup {}
--- html
-lspconfig.html.setup {}
--- json
-lspconfig.jsonls.setup {}
--- yaml
-lspconfig.yamlls.setup {}
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
 local lspconfig = require('lspconfig')
 
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+-- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '<leader>gp', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<leader>gn', vim.diagnostic.goto_next, opts)
+-- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover, bufopts)
+  -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<leader>k', vim.lsp.buf.signature_help, bufopts)
+  -- vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  -- vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  -- vim.keymap.set('n', '<leader>wl', function()
+    -- print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  -- end, bufopts)
+  vim.keymap.set('n', '<leader>d', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
+end
+
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'dartls', 'gopls', 'jsonls', 'html', 'marksman' }
+local servers = { 'dartls', 'gopls', 'jsonls', 'html', 'marksman', 'yamlls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
+    on_attach = on_attach,
     capabilities = capabilities,
   }
 end
@@ -254,7 +283,6 @@ cmp.setup {
   },
 }
 
-
 EOF
 
 set path+=**
@@ -289,9 +317,9 @@ set display+=lastline
 set splitright
 set splitbelow
 " true color support
-set termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" set termguicolors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " Ignore case when searching.
 set ignorecase
 " Incremental search
