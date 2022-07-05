@@ -132,6 +132,14 @@ let g:lsp_settings_root_markers = ['.git/']
 Plug 'prabirshrestha/asyncomplete.vim'
 " imap <c-space> <Plug>(asyncomplete_force_refresh)
 " let g:asyncomplete_auto_popup = 0
+let g:lsp_settings = {
+  \ 'analysis-server-dart-snapshot': {
+  \   'cmd': [
+  \     '/usr/bin/dart',
+  \    'language-server'
+  \    ],
+  \ },
+\ }
 
 function! s:check_back_space() abort
   let col = col('.') - 1
