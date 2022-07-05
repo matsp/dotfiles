@@ -163,3 +163,4 @@ alias gpush='git push'
 alias la='ls -lah'
 alias ll='ls -lh'
 alias df='df -h'
+alias vim=nvim
