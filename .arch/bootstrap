@@ -36,7 +36,8 @@ test ! -d $HOME/git/yay \
 # programming languages && tools
 echo 'installing developer environment \n'
 yay -S --needed --noconfirm \
-  vim \
+  # vim \
+  nvim \
   tmux \
   nodejs \
   npm \
@@ -98,8 +99,8 @@ yay -S --needed --noconfirm \
   i3-gaps \
   picom-git \
   hsetroot \
-  # alacritty \
-  rxvt-unicode \
+  alacritty \
+  # rxvt-unicode \
   pulseaudio \
   xorg-server \
   polybar \
