@@ -207,6 +207,34 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+local lsp = {
+    float = {
+      focusable = true,
+      style = "minimal",
+      border = "rounded",
+    },
+    diagnostic = {
+      -- virtual_text = true,
+      virtual_text = { spacing = 4, prefix = "●" },
+      underline = true,
+      update_in_insert = false,
+      severity_sort = true,
+      float = {
+        focusable = true,
+        style = "minimal",
+        border = "rounded",
+      },
+    },
+  }
+
+-- Diagnostic configuration
+vim.diagnostic.config(lsp.diagnostic)
+
+-- Hover configuration
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, lsp.float)
+-- Signature help configuration
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, lsp.float)
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
