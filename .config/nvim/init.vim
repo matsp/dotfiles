@@ -140,6 +140,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
+Plug 'folke/todo-comments.nvim'
 
 call plug#end()
 
@@ -162,6 +163,9 @@ map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', 
 -- map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
 map('n', '<leader>fc', '<cmd>lua require("telescope.builtin").git_commits()<cr>', opts)
 map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").git_branches()<cr>', opts)
+
+-- todo-comments
+require("todo-comments").setup {}
 
 -- lsp-trouble
 --require("trouble").setup {
