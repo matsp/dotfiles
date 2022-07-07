@@ -85,8 +85,8 @@ yay -S --needed --noconfirm \
   # rxvt-unicode \
   pulseaudio \
   xorg-server \
-  polybar \
-  feh \
+  # polybar \
+  # feh \
   # xorg-xsetroot \
   xorg-xrandr \
   xorg-xinit \
