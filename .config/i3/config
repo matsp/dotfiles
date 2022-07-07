@@ -225,15 +225,15 @@ gaps top 48
 
 # just colored border for active window
 #colors:                border  backgr. text    ind.   child border
-client.focused   #000000 #000000 #000000 #ebdbb2 #ebdbb2
-client.unfocused #000000 #000000 #000000 #3c3836 #3c3836
-client.focused_inactive #000000 #000000 #000000 #3c3836 #3c3836
-client.urgent #000000 #000000 #000000 #fb4934 #fb4934
+client.focused   #000000 #000000 #000000 #a9b1d6 #a9b1d6
+client.unfocused #000000 #000000 #000000 #32344a #32344a
+client.focused_inactive #000000 #000000 #000000 #32344a #32344a
+client.urgent #000000 #000000 #000000 #f7768e #f7768e
 
 # Set wallpaper
 # exec --no-startup-id feh --bg-scale $HOME/.local/share/artwork/wallpaper-gruvbox-arch.jpg
 # exec --no-startup-id xsetroot -solid '#282828'
-exec --no-startup-id hsetroot -solid '#282828'
+exec --no-startup-id hsetroot -solid '#24283b'
 
 # Multi monitor setup
 # exec --no-startup-id xrandr --output DP1 --right-of eDP1
