@@ -37,7 +37,7 @@ test ! -d $HOME/git/yay \
 echo 'installing developer environment \n'
 yay -S --needed --noconfirm \
   # vim \
-  nvim \
+  neovim \
   tmux \
   nodejs \
   npm \
