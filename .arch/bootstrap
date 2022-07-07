@@ -36,9 +36,8 @@ test ! -d $HOME/git/yay \
 # programming languages && tools
 echo 'installing developer environment \n'
 yay -S --needed --noconfirm \
-  # vim \
-  neovim \
   tmux \
+  neovim \
   nodejs \
   npm \
   dart \
@@ -54,37 +53,20 @@ yay -S --needed --noconfirm \
   wasmer \
   &> /dev/null
 
-# jupyterlab \
-# rustup \
-# cmake \
-# pkgconf \
-
 echo 'configuring developer environment \n'
 # git credentials
 git config --global user.name "Mats Pfeiffer"
 git config --global user.email "mats.pfeiffer@googlemail.com"
 # vim
-vim +PlugInstall +qall &> /dev/null
+nvim +PlugInstall +qall &> /dev/null
 # tmux
 tmux start-server &> /dev/null \
   && tmux new-session -d &> /dev/null \
   && ~/.tmux/plugins/tpm/scripts/install_plugins.sh &> /dev/null \
   && tmux kill-server &> /dev/null
-
 # go
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest &> /dev/null
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
-
-# rust
-# rustup component add rust-src
-
-# python / jupyter
-# pip3 install --user jupyter_ascending # vim <-> jupyter sync
-# jupyter lab build
-# jupyter nbextension install jupyter_ascending --user --py \
-#   && jupyter nbextension enable jupyter_ascending --user --py \
-#   && jupyter serverextension enable jupyter_ascending --user --py
-
 
 if [ ! $DOTFILES_CONTAINER -eq 0 ]
 then 
