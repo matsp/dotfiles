@@ -79,7 +79,7 @@ fi
 echo 'installing window manager & system pkgs \n'
 yay -S --needed --noconfirm \
   i3-gaps \
-  picom-git \
+  # picom-git \
   hsetroot \
   alacritty \
   # rxvt-unicode \
