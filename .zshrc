@@ -3,7 +3,7 @@ function container_settings {
   then 
     ZSH_TMUX_AUTOSTART=true;
     eval `ssh-agent -s` &> /dev/null;
-  else ZSH_TMUX_AUTOSTART=false;
+  else ZSH_TMUX_AUTOSTART=true;
   fi;
 }
 
@@ -84,7 +84,7 @@ plugins=(autoupdate git ripgrep zsh-autosuggestions zsh-syntax-highlighting dote
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-ZSH_TMUX_AUTOSTART=false
+ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_UNICODE=true
 ZSH_TMUX_FIXTERM_WITH_256COLOR=true
 
