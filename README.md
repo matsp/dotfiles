@@ -25,7 +25,7 @@ zsh
 ## local dotfiles container
 
 ```
-docker build --build-arg USER=dev -t dotfiles .arch/
+docker build --build-arg USER=dev -t dotfiles .arch/container
 docker run -ti -h dev --name dev dotfiles
 ```
 
