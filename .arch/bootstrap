@@ -90,7 +90,7 @@ yay -S --needed --noconfirm \
   # xorg-xsetroot \
   xorg-xrandr \
   xorg-xinit \
-  rofi \
+  # rofi \
   netctl \
   wifi-menu \
   fstrim \
@@ -105,13 +105,13 @@ yay -S --needed --noconfirm \
   htop \
   mc \
   gotop \
-  gnuplot \
+  # gnuplot \
   podman \
   buildah \
   skopeo \
   google-chrome \
   portfolio-performance-bin \
-  cmus \
+  # cmus \
   minikube \
   libvirt \
   qemu-headless \
