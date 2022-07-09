@@ -2,16 +2,16 @@ function tmux_settings {
   if [[ $DOTFILES_CONTAINER == 1 ]];
   then 
     ZSH_TMUX_AUTOSTART=true;
-    container_settings;
+    # container_settings;
   elif [[ $DISPLAY != '' ]];
   then ZSH_TMUX_AUTOSTART=true;
   else ZSH_TMUX_AUTOSTART=false;
   fi;
 }
 
-function container_settings {
-    eval `ssh-agent -s` &> /dev/null;
-}
+# function container_settings {
+#     eval `ssh-agent -s` &> /dev/null;
+# }
 
 # if no oh-my-zsh distribution is installed we will first bootstrap this arch system
 
@@ -96,6 +96,9 @@ ZSH_TMUX_FIXTERM_WITH_256COLOR=true
 
 # apply settings if DOTFILES_CONTAINER=1
 tmux_settings
+
+# ssh-agent
+zstyle :omz:plugins:ssh-agent quiet yes
 
 source $ZSH/oh-my-zsh.sh
 
