@@ -86,7 +86,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autoupdate git ripgrep zsh-autosuggestions zsh-syntax-highlighting dotenv tmux)
+plugins=(autoupdate git git-auto-fetch ripgrep zsh-autosuggestions zsh-syntax-highlighting dotenv tmux ssh-agent)
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
