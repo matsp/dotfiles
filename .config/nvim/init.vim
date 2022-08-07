@@ -68,6 +68,8 @@ nmap <S-j> ]e
 " Switch multiple lines
 vmap <S-k> [egv
 vmap <S-j> ]egv
+" vim sessions
+Plug 'tpope/vim-obsession'
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
 ""let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
