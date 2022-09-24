@@ -27,10 +27,10 @@ tmap <C-H> <C-W>h
 nmap <leader>vs :vs<space>
 nmap <leader>hs :split<space>
 " terminal in split window
-nmap <leader>vt :vert term ++close<cr>
-nmap <leader>ht :term ++close<cr>
-tmap <leader>vt <c-w>:vert term ++close<cr>
-tmap <leader>ht <c-w>:term ++close<cr>
+" nmap <leader>vt :vert term ++close<cr>
+" nmap <leader>ht :term ++close<cr>
+" tmap <leader>vt <c-w>:vert term ++close<cr>
+" tmap <leader>ht <c-w>:term ++close<cr>
 " resize window
 " vertical/horizontal 'i'ncrease / 'd'ecrease
 nmap <leader>vi :vertical resize +5<cr>
@@ -143,7 +143,10 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'folke/todo-comments.nvim'
-
+Plug 'vim-test/vim-test'
+  nmap <silent> <leader>t :TestNearest<CR>
+  nmap <silent> <leader>T :TestFile<CR>
+  nmap <silent> <leader>a :TestSuite<CR>
 call plug#end()
 
 lua <<EOF
