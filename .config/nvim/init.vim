@@ -388,6 +388,7 @@ set ttimeout
 set timeoutlen=250
 " set ttimeoutlen=50
 set number
+set relativenumber
 set smartindent
 " Autoindent when starting new line, or using `o` or `O`.
 set autoindent
