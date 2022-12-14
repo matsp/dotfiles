@@ -1,3 +1,5 @@
+" TODO: Migrate to init.lua instead of old config and inlined lua
+
 " Autoinstall vim-plug
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
