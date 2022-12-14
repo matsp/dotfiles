@@ -26,11 +26,6 @@ tmap <C-H> <C-W>h
 " vertical / horizontal split window
 nmap <leader>vs :vs<space>
 nmap <leader>hs :split<space>
-" terminal in split window
-" nmap <leader>vt :vert term ++close<cr>
-" nmap <leader>ht :term ++close<cr>
-" tmap <leader>vt <c-w>:vert term ++close<cr>
-" tmap <leader>ht <c-w>:term ++close<cr>
 " resize window
 " vertical/horizontal 'i'ncrease / 'd'ecrease
 nmap <leader>vi :vertical resize +5<cr>
@@ -70,18 +65,6 @@ vmap <S-k> [egv
 vmap <S-j> ]egv
 " vim sessions
 Plug 'tpope/vim-obsession'
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
-""let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
-"let $FZF_DEFAULT_COMMAND = 'rg --files'
-"let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-"nnoremap <leader>f :Files<CR>
-"nnoremap <leader>gf :Rg<CR>
-"nnoremap <leader>c :Commits<CR>
-"nnoremap <leader>b :Buffers<CR>
-"nnoremap <leader>w :Windows<CR>
-" Plug 'stsewd/fzf-checkout.vim'
-  " nnoremap <leader>gc :GCheckout<CR>
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 " git status
@@ -90,51 +73,6 @@ nmap <leader>gd :Gvdiff<CR>
 nmap <leader>gh :diffget //2<CR>
 nmap <leader>gl :diffget //3<CR>
 
-" Plug 'prabirshrestha/vim-lsp'
-" let g:lsp_signs_enabled = 1
-" let g:lsp_diagnostics_signs_error = {'text': '>>'}
-" let g:lsp_diagnostics_signs_warning = {'text': '‼'}
-" let g:lsp_diagnostics_signs_hint = {'text': '?!'}
-" " show messages
-" let g:lsp_diagnostics_echo_cursor = 1
-" " disable automatic signature hover
-" let g:lsp_signature_help_enabled = 1
-" let g:lsp_format_sync_timeout = 1000
-" let g:lsp_highlight_references_enabled = 1
-" let g:lsp_document_highlight_enabled = 1
-" " format on save
-" let g:lsp_format_sync_timeout = 1000
-" autocmd! BufWritePre *.rs,*.dart call execute('LspDocumentFormatSync')
-" " key mappings
-" nmap <leader>ld <plug>(lsp-definition)
-" nmap <leader>lref <plug>(lsp-references)
-" nmap <leader>lr <plug>(lsp-rename)
-" nmap <leader>lh <plug>(lsp-hover)
-" nmap <leader>la <plug>(lsp-code-action)
-" nmap <leader>lf <plug>(lsp-document-format)
-" nmap <leader>ln <plug>(lsp-next-diagnostic)
-" nmap <leader>lp <plug>(lsp-previous-diagnostic)
-" let g:lsp_log_verbose = 1
-" let g:lsp_log_file = expand('~/vim-lsp.log')
-" Plug 'mattn/vim-lsp-settings'
-" let g:lsp_settings_root_markers = ['.git/']
-" Plug 'prabirshrestha/asyncomplete.vim'
-" imap <c-space> <Plug>(asyncomplete_force_refresh)
-" let g:asyncomplete_auto_popup = 0
-
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~ '\s'
-" endfunction
-
-" inoremap <silent><expr> <TAB>
-"   \ pumvisible() ? "\<C-n>" :
-"   \ <SID>check_back_space() ? "\<TAB>" :
-"   \ asyncomplete#force_refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" Plug 'prabirshrestha/asyncomplete-lsp.vim'
-" Plug 'hrsh7th/vim-vsnip'
-" Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'tpope/vim-commentary'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -143,11 +81,83 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'folke/todo-comments.nvim'
+" maybe have a look at neotest
 Plug 'vim-test/vim-test'
+  let test#go#gotest#options = '-coverprofile=coverage.out'
   nmap <silent> <leader>t :TestNearest<CR>
   nmap <silent> <leader>T :TestFile<CR>
   nmap <silent> <leader>a :TestSuite<CR>
+Plug 'andythigpen/nvim-coverage'
 call plug#end()
+
+set path+=**
+set wildmenu
+set ttyfast
+set encoding=utf-8
+set laststatus=2
+set nowrap
+set noshowmode
+set noshowcmd
+set timeout
+set ttimeout
+set timeoutlen=250
+" set ttimeoutlen=50
+set number
+set relativenumber
+set smartindent
+" Autoindent when starting new line, or using `o` or `O`.
+set autoindent
+" Allow backspace in insert mode.
+set backspace=indent,eol,start
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set smarttab
+set expandtab
+set cursorline
+" show one more line while scolling
+set scrolloff=8
+set sidescrolloff=5
+set display+=lastline
+" Always focus on splited window.
+set splitright
+set splitbelow
+" true color support
+" set termguicolors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" Ignore case when searching.
+set ignorecase
+" Incremental search
+set incsearch
+set shell=/usr/bin/zsh
+" hide intro message
+set shortmess=I
+set background=dark
+" silent! colorscheme gruvbox
+set list
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+set hidden
+" use line number column also for signs
+set signcolumn=yes
+" customize builtin file tree
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_localrmdir='rm -rf'
+" disable mouse
+if !has('nvim')
+  set ttymouse=
+  set mouse=
+endif
+" disable arrow keys
+noremap <Up> <Nop>
+inoremap <Up> <Nop>
+noremap <Down> <Nop>
+inoremap <Down> <Nop>
+noremap <Left> <Nop>
+inoremap <Left> <Nop>
+noremap <Right> <Nop>
+inoremap <Right> <Nop>
 
 lua <<EOF
 
@@ -156,7 +166,14 @@ require'nvim-treesitter.configs'.setup { ensure_installed = { "go", "lua", "dart
 
 -- colorscheme
 vim.g.tokyonight_style = "storm"
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd.colorscheme('tokyonight')
+
+-- vim-coverage
+require('coverage').setup({
+  auto_reload = true,
+  -- optionally configure how long to wait after detecting a change to reload the file
+  -- auto_reload_timeout_ms = 1000,
+})
 
 -- telescope
 require('telescope').setup()
@@ -165,19 +182,19 @@ local map = vim.api.nvim_set_keymap
 map('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>', opts)
 map('n', '<leader>fd', '<cmd>lua require("telescope.builtin").diagnostics()<cr>', opts)
 map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
--- map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
+map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
 map('n', '<leader>fc', '<cmd>lua require("telescope.builtin").git_commits()<cr>', opts)
-map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").git_branches()<cr>', opts)
+map('n', '<leader>fbb', '<cmd>lua require("telescope.builtin").git_branches()<cr>', opts)
 
 -- todo-comments
 require("todo-comments").setup {}
 
 -- lsp-trouble
---require("trouble").setup {
+require("trouble").setup {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
-  -- }
+}
 
 -- lualine
 require('lualine').setup {
@@ -373,73 +390,6 @@ cmp.setup {
   }
 }
 
+
 EOF
 
-set path+=**
-set wildmenu
-set ttyfast
-set encoding=utf-8
-set laststatus=2
-set nowrap
-set noshowmode
-set noshowcmd
-set timeout
-set ttimeout
-set timeoutlen=250
-" set ttimeoutlen=50
-set number
-set relativenumber
-set smartindent
-" Autoindent when starting new line, or using `o` or `O`.
-set autoindent
-" Allow backspace in insert mode.
-set backspace=indent,eol,start
-set tabstop=2
-set shiftwidth=2
-set shiftround
-set smarttab
-set expandtab
-set cursorline
-" show one more line while scolling
-set scrolloff=8
-set sidescrolloff=5
-set display+=lastline
-" Always focus on splited window.
-set splitright
-set splitbelow
-" true color support
-" set termguicolors
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" Ignore case when searching.
-set ignorecase
-" Incremental search
-set incsearch
-set shell=/usr/bin/zsh
-" hide intro message
-set shortmess=I
-set background=dark
-" silent! colorscheme gruvbox
-set list
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
-set hidden
-" use line number column also for signs
-set signcolumn=yes
-" customize builtin file tree
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_localrmdir='rm -rf'
-" disable mouse
-if !has('nvim')
-  set ttymouse=
-  set mouse=
-endif
-" disable arrow keys
-noremap <Up> <Nop>
-inoremap <Up> <Nop>
-noremap <Down> <Nop>
-inoremap <Down> <Nop>
-noremap <Left> <Nop>
-inoremap <Left> <Nop>
-noremap <Right> <Nop>
-inoremap <Right> <Nop>
