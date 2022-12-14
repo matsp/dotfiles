@@ -5,7 +5,8 @@ export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 export TERM=xterm-256color
 
 typeset -U PATH path
-path=("$HOME/.local/bin" "$HOME/.pub-cache/bin" "$HOME/git/flutter/bin" "$HOME/.cargo/bin" "$path[@]")
+# path=("$HOME/.local/bin" "$HOME/.pub-cache/bin" "$HOME/git/flutter/bin" "$HOME/.cargo/bin" "$path[@]")
+path=("$HOME/.local/bin" "$HOME/.pub-cache/bin" "$HOME/.cargo/bin" "$path[@]")
 # path=("$HOME/.local/bin" "$HOME/.pub-cache/bin" "$path[@]")
 export PATH
 
