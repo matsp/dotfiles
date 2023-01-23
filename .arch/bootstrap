@@ -53,6 +53,8 @@ yay -S --needed --noconfirm \
   wasmer \
   lazygit \
   mqttui \
+  wireshark-cli \
+  protobuf \
   &> /dev/null
 
 echo 'configuring developer environment \n'
@@ -69,6 +71,8 @@ tmux start-server &> /dev/null \
 # go
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest &> /dev/null
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
+# dart
+dart pub global activate protoc_plugin
 
 if [ ! $DOTFILES_CONTAINER -eq 0 ]
 then 
