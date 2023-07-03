@@ -41,19 +41,13 @@ tmap <leader>hd <c-w>:resize -5<cr>
 
 call plug#begin('~/.vim/plugged')
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'gruvbox-community/gruvbox'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'folke/trouble.nvim'
-
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-
-Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-
 Plug 'lukas-reineke/indent-blankline.nvim'
-
 Plug 'tpope/vim-eunuch'
 " CTRL+X /, SPACE, ENTER
 Plug 'tpope/vim-ragtag'
@@ -67,14 +61,12 @@ vmap <S-k> [egv
 vmap <S-j> ]egv
 " vim sessions
 Plug 'tpope/vim-obsession'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-" git status
-nmap <leader>gs :G<CR>
-nmap <leader>gd :Gvdiff<CR>
-nmap <leader>gh :diffget //2<CR>
-nmap <leader>gl :diffget //3<CR>
-
+" Plug 'airblade/vim-gitgutter'
+" Plug 'tpope/vim-fugitive'
+" nmap <leader>gs :G<CR>
+" nmap <leader>gd :Gvdiff<CR>
+" nmap <leader>gh :diffget //2<CR>
+" nmap <leader>gl :diffget //3<CR>
 Plug 'tpope/vim-commentary'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -90,6 +82,8 @@ Plug 'vim-test/vim-test'
   nmap <silent> <leader>T :TestFile<CR>
   nmap <silent> <leader>a :TestSuite<CR>
 Plug 'andythigpen/nvim-coverage'
+Plug 'kdheepak/lazygit.nvim'
+Plug 'https://github.com/github/copilot.vim'
 call plug#end()
 
 set path+=**
