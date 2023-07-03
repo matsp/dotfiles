@@ -3,6 +3,7 @@ export TERMINAL=alacritty
 export LANG=de_DE.UTF-8
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 export TERM=xterm-256color
+export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
 
 typeset -U PATH path
 # path=("$HOME/.local/bin" "$HOME/.pub-cache/bin" "$HOME/git/flutter/bin" "$HOME/.cargo/bin" "$path[@]")
