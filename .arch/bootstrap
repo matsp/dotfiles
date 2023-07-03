@@ -84,7 +84,7 @@ fi
 # window manager & system pkgs
 echo 'installing window manager & system pkgs \n'
 yay -S --needed --noconfirm \
-  i3-gaps \
+  i3-wm \
   # picom-git \
   hsetroot \
   alacritty \
@@ -111,16 +111,14 @@ yay -S --needed --noconfirm \
   htop \
   mc \
   gotop \
-  # gnuplot \
   podman \
+  podman-compose \
   buildah \
   skopeo \
   google-chrome \
-  portfolio-performance-bin \
-  # cmus \
   minikube \
   libvirt \
-  qemu-headless \
+  qemu-base \
   &> /dev/null
 
 echo 'enabling services \n'
@@ -139,8 +137,8 @@ sudo podman system migrate
 # sudo echo "$USER ALL=(ALL) NOPASSWD: /usr/bin/podman" >> /etc/sudoers
 
 # minikube (podman driver needs v1.26)
-# minikube config set driver podman
-minikube config set driver kvm2
+minikube config set driver podman
+# minikube config set driver kvm2
 # minikube config set rootless true
 
 # libvirt
