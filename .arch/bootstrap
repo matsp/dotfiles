@@ -102,6 +102,10 @@ yay -S --needed --noconfirm \
   fstrim \
   bluez \
   bluez-utils \
+  noto-fonts \
+  noto-fonts-emoji \
+  noto-fonts-cjk \
+  noto-fonts-extra \
   &> /dev/null
 
 # user pkgs
@@ -113,6 +117,8 @@ yay -S --needed --noconfirm \
   gotop \
   podman \
   podman-compose \
+  aardvark-dns \
+  netavark \
   buildah \
   skopeo \
   google-chrome \
