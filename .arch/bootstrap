@@ -39,6 +39,7 @@ yay -S --needed --noconfirm \
   tmux \
   neovim \
   nodejs \
+  deno \
   npm \
   dart \
   python \
@@ -106,6 +107,10 @@ yay -S --needed --noconfirm \
   noto-fonts-emoji \
   noto-fonts-cjk \
   noto-fonts-extra \
+  # ttf-hack-nerd \
+  # ttf-font-awesome \
+  ttf-nerd-fonts-symbols \
+  ttf-nerd-fonst-symbols-mono \
   &> /dev/null
 
 # user pkgs
