@@ -11,7 +11,7 @@ USER $USER
 ENV DOTFILES_CONTAINER=1
 
 
-RUN git clone --bare git@github.com:matsp/dotfiles.git $HOME/.dotfiles \
+RUN git clone --bare https://github.com/matsp/dotfiles.git $HOME/.dotfiles \
   && alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"' \
   && dotfiles checkout \
   && dotfiles config --local status.showUntrackedFiles no \
