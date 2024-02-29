@@ -12,10 +12,9 @@ ENV DOTFILES_CONTAINER=1
 
 
 RUN git clone --bare https://github.com/matsp/dotfiles.git $HOME/.dotfiles \
-  && alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"' \
-  && dotfiles checkout \
-  && dotfiles config --local status.showUntrackedFiles no \
-  && dotfiles submodule update --init --recursive
+  && git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" checkout \
+  && git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" config --local status.showUntrackedFiles no \
+  && git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" submodule update --init --recursive
 
 # start bootstrapping
 RUN /usr/bin/zsh -c "source ~/.zshrc"
