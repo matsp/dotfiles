@@ -173,3 +173,4 @@ alias la='ls -lah'
 alias ll='ls -lh'
 alias df='df -h'
 alias vim=nvim
+alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
