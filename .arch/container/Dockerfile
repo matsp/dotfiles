@@ -10,12 +10,12 @@ WORKDIR /home/$USER
 USER $USER
 ENV DOTFILES_CONTAINER=1
 
-RUN git init \
-  && git remote add origin https://github.com/matsp/dotfiles.git \
-  && git branch -M master \
-  && git pull origin master \
-  && git branch -u origin/master \
-  && git submodule update --init --recursive
+
+RUN git clone --bare git@github.com:matsp/dotfiles.git $HOME/.dotfiles \
+  && alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"' \
+  && dotfiles checkout \
+  && dotfiles config --local status.showUntrackedFiles no \
+  && dotfiles submodule update --init --recursive
 
 # start bootstrapping
 RUN /usr/bin/zsh -c "source ~/.zshrc"

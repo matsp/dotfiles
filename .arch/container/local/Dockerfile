@@ -1,4 +1,4 @@
-FROM ghcr.io/matsp/dotfiles:master
+FROM ghcr.io/matsp/dotfiles:main
 
 # ssh keys with correct permissions
 COPY .ssh .ssh
