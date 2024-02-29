@@ -1,0 +1,30 @@
+import = ["~/.config/alacritty/colors.toml"]
+
+[env]
+WINIT_X11_SCALE_FACTOR = "1"
+
+[font]
+size = 13
+
+[font.bold]
+family = "Hack Nerd Font"
+style = "Bold"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "Hack Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[scrolling]
+history = 1000

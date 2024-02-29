@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+TAG=ext-alpine
+IMAGE=klakegg/hugo:$TAG
+WORKDIR=/hugo
+
+podman run --rm -i \
+  -p 1313:1313 \
+  -v $(pwd):$WORKDIR \
+  -w $WORKDIR \
+   $IMAGE $*
+
