@@ -155,6 +155,8 @@ noremap <Left> <Nop>
 inoremap <Left> <Nop>
 noremap <Right> <Nop>
 inoremap <Right> <Nop>
+" filetype
+au BufRead,BufNewFile *.njk set filetype=html
 
 lua <<EOF
 
