@@ -153,7 +153,7 @@ source $ZSH/oh-my-zsh.sh
 #   -v /var/run/docker.sock:/var/run/docker.sock:ro \
 #   matspfeiffer/dotfiles'
 
-alias update='sudo lvcreate -L10G -s -n root_snap /dev/arch/root && yay'
+alias update='sudo lvcreate -L11G -s -n root_snap /dev/arch/root && yay -Suuyy'
 alias rrs='sudo lvremove -f /dev/arch/root_snap'
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
 alias system-pkgs-clean='yay -Qtdq | yay -Rns -'
