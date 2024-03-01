@@ -3,7 +3,7 @@
 
 ```
 # as root
-pacman -S zsh sudo git
+pacman -S zsh sudo git openssh
 gpasswd -a YOUR_USER_NAME wheel
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 
