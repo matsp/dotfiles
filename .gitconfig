@@ -1,0 +1,13 @@
+[user]
+	email = mats.pfeiffer@googlemail.com
+	name = Mats Pfeiffer
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[diff]
+	colorMoved = zebra
