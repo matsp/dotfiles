@@ -11,7 +11,7 @@ USER $USER
 ENV DOTFILES_CONTAINER=1
 
 
-RUN git clone --bare https://github.com/matsp/dotfiles.git $HOME/.dotfiles \
+RUN git clone --bare --depth 1 --recurse-submodules --shallow-submodules https://github.com/matsp/dotfiles.git $HOME/.dotfiles \
   && git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" checkout \
   && git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" config --local status.showUntrackedFiles no \
   && git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" submodule update --init --recursive

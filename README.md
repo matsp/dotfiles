@@ -11,7 +11,7 @@ echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 cd $HOME
 chsh -s /usr/bin/zsh
 
-git clone --bare git@github.com:matsp/dotfiles.git $HOME/.dotfiles
+git clone --bare --depth 1 --recurse-submodules --shallow-submodules git@github.com:matsp/dotfiles.git $HOME/.dotfiles
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 dotfiles checkout
 dotfiles config --local status.showUntrackedFiles no
