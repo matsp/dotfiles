@@ -60,9 +60,6 @@ yay -S --needed --noconfirm \
   &> /dev/null
 
 echo 'configuring developer environment \n'
-# git credentials
-git config --global user.name "Mats Pfeiffer"
-git config --global user.email "mats.pfeiffer@googlemail.com"
 # vim
 nvim +PlugInstall +qall &> /dev/null
 # tmux
