@@ -8,8 +8,7 @@ RUN pacman -Sy --noconfirm zsh git sudo \
 
 WORKDIR /home/$USER
 USER $USER
-ENV DOTFILES_CONTAINER=1
-
+ENV DOTFILES_INJECTED=1
 
 RUN git clone --bare --depth 1 --recurse-submodules --shallow-submodules https://github.com/matsp/dotfiles.git $HOME/.dotfiles \
   && git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" checkout \

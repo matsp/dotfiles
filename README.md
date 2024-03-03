@@ -21,6 +21,21 @@ dotfiles submodule update --init --recursive
 zsh
 ```
 
+## wsl
+
+```
+export DOTFILES_INJECTED=1
+
+cd $HOME
+chsh -s /usr/bin/zsh
+
+git clone --bare --depth 1 --recurse-submodules --shallow-submodules git@github.com:matsp/dotfiles.git $HOME/.dotfiles
+alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+dotfiles checkout
+dotfiles config --local status.showUntrackedFiles no
+dotfiles submodule update --init --recursive
+```
+
 ## local dotfiles container
 
 ```

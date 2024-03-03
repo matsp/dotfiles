@@ -31,7 +31,8 @@ test ! -d $HOME/git/yay \
   && git clone https://aur.archlinux.org/yay.git &> /dev/null \
   && cd yay \
   && makepkg -si --needed --noconfirm &> /dev/null \
-  && cd $HOME
+  && cd $HOME \
+  &> /dev/null
 
 # programming languages && tools
 echo 'installing developer environment \n'
@@ -73,7 +74,7 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
 # dart
 dart pub global activate protoc_plugin
 
-if [ ! $DOTFILES_CONTAINER -eq 0 ]
+if [ ! $DOTFILES_INJECTED -eq 0 ]
 then 
   echo 'bootstrapping finished! have fun.\n'
   touch $HOME/.arch/bootstrap_done
