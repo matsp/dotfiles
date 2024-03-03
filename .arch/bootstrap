@@ -34,29 +34,45 @@ test ! -d $HOME/git/yay \
   && cd $HOME \
   &> /dev/null
 
-# programming languages && tools
+# programming languages
+echo 'installing programming languages \n'
+yay -S --needed --noconfirm \
+  rustup \
+  go \
+  tinygo \
+  dart \
+  nodejs \
+  npm \
+  deno \
+  python \
+  python-pip \
+  wasmer \
+  protobuf \
+  &> /dev/null
+
+echo 'configuring programming languages \n'
+# go
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest &> /dev/null
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
+# dart
+dart pub global activate protoc_plugin &> /dev/null
+# rust
+rustup default stable &> /dev/null
+rustup component add rls rust-analysis rust-src &> /dev/null
+
+# developer environment
 echo 'installing developer environment \n'
 yay -S --needed --noconfirm \
   tmux \
   neovim \
-  nodejs \
-  deno \
-  npm \
-  dart \
-  python \
-  python-pip \
-  tinygo \
-  go \
   ripgrep \
   k9s \
   kubectl \
   aws-cli \
   helm \
-  wasmer \
   lazygit \
   mqttui \
   wireshark-cli \
-  protobuf \
   qmk \
   &> /dev/null
 
@@ -68,11 +84,6 @@ tmux start-server &> /dev/null \
   && tmux new-session -d &> /dev/null \
   && ~/.tmux/plugins/tpm/scripts/install_plugins.sh &> /dev/null \
   && tmux kill-server &> /dev/null
-# go
-go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest &> /dev/null
-go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
-# dart
-dart pub global activate protoc_plugin
 
 if [ ! $DOTFILES_INJECTED -eq 0 ]
 then 
