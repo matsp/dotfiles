@@ -62,27 +62,23 @@ vmap <S-k> [egv
 vmap <S-j> ]egv
 " vim sessions
 Plug 'tpope/vim-obsession'
-" Plug 'airblade/vim-gitgutter'
-" Plug 'tpope/vim-fugitive'
-" nmap <leader>gs :G<CR>
-" nmap <leader>gd :Gvdiff<CR>
-" nmap <leader>gh :diffget //2<CR>
-" nmap <leader>gl :diffget //3<CR>
 Plug 'tpope/vim-commentary'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
+" Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'folke/todo-comments.nvim'
 " maybe have a look at neotest
-Plug 'vim-test/vim-test'
-  let test#go#gotest#options = '-coverprofile=coverage.out'
-  nmap <silent> <leader>t :TestNearest<CR>
-  nmap <silent> <leader>T :TestFile<CR>
-  nmap <silent> <leader>a :TestSuite<CR>
-Plug 'andythigpen/nvim-coverage'
+" Plug 'vim-test/vim-test'
+"   let test#go#gotest#options = '-coverprofile=coverage.out'
+"   nmap <silent> <leader>t :TestNearest<CR>
+"   nmap <silent> <leader>T :TestFile<CR>
+"   nmap <silent> <leader>a :TestSuite<CR>
+" Plug 'andythigpen/nvim-coverage'
 Plug 'kdheepak/lazygit.nvim'
 Plug 'https://github.com/github/copilot.vim'
 call plug#end()
@@ -168,11 +164,11 @@ vim.g.tokyonight_style = "storm"
 vim.cmd.colorscheme('tokyonight')
 
 -- vim-coverage
-require('coverage').setup({
-  auto_reload = true,
+--require('coverage').setup({
+--  auto_reload = true,
   -- optionally configure how long to wait after detecting a change to reload the file
   -- auto_reload_timeout_ms = 1000,
-})
+--})
 
 -- telescope
 require('telescope').setup()
@@ -198,7 +194,7 @@ require("trouble").setup {
 -- lualine
 require('lualine').setup {
   options = {
-    --icons_enabled = true,
+    -- icons_enabled = true,
     theme = 'tokyonight',
   },
   tabline = {
@@ -214,8 +210,10 @@ require('lualine').setup {
 -- indentline
 require("ibl").setup()
 
-require("nvim-lsp-installer").setup {
-  automatic_installation = true
+-- package manager for lsp servers & configs
+require("mason").setup()
+require("mason-lspconfig").setup {
+  automatic_isntallation = true,
 }
 
 -- lspconfig
@@ -289,13 +287,13 @@ local on_attach = function(client, bufnr)
 end
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'dartls', 'gopls', 'jsonls', 'html', 'marksman', 'yamlls', 'tsserver', 'tailwindcss' }
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
+--local servers = { 'dartls', 'gopls', 'jsonls', 'html', 'marksman', 'yamlls', 'tsserver', 'tailwindcss' }
+--for _, lsp in ipairs(servers) do
+--  lspconfig[lsp].setup {
+--    on_attach = on_attach,
+--    capabilities = capabilities,
+--  }
+--end
 
 -- luasnip setup
 local luasnip = require 'luasnip'
