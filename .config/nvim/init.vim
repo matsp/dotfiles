@@ -44,33 +44,30 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'folke/trouble.nvim'
 Plug 'nvim-lualine/lualine.nvim'
-" Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'tpope/vim-eunuch'
+" Plug 'tpope/vim-eunuch'
 " CTRL+X /, SPACE, ENTER
-Plug 'tpope/vim-ragtag'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
+" Plug 'tpope/vim-ragtag'
+" Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-unimpaired'
 " Switch single lines
-nmap <S-k> [e
-nmap <S-j> ]e
+" nmap <S-k> [e
+" nmap <S-j> ]e
 " Switch multiple lines
-vmap <S-k> [egv
-vmap <S-j> ]egv
+" vmap <S-k> [egv
+" vmap <S-j> ]egv
 " vim sessions
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-commentary'
+autocmd FileType dart setlocal commentstring=/\/\ %s
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'neovim/nvim-lspconfig'
-" Plug 'williamboman/nvim-lsp-installer'
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'folke/todo-comments.nvim'
 " maybe have a look at neotest
 " Plug 'vim-test/vim-test'
@@ -81,6 +78,7 @@ Plug 'folke/todo-comments.nvim'
 " Plug 'andythigpen/nvim-coverage'
 Plug 'kdheepak/lazygit.nvim'
 Plug 'https://github.com/github/copilot.vim'
+Plug 'lewis6991/gitsigns.nvim'
 call plug#end()
 
 set path+=**
@@ -160,8 +158,40 @@ lua <<EOF
 require'nvim-treesitter.configs'.setup { ensure_installed = { "go", "lua", "dart", "html", "json", "markdown", "scss" }, highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 
 -- colorscheme
-vim.g.tokyonight_style = "storm"
-vim.cmd.colorscheme('tokyonight')
+require("tokyonight").setup({
+  style = "storm",
+  on_highlights = function(hl, c)
+    local prompt = "#2d3149"
+    hl.TelescopeNormal = {
+      bg = c.bg_dark,
+      fg = c.fg_dark,
+    }
+    hl.TelescopeBorder = {
+      bg = c.bg_dark,
+      fg = c.bg_dark,
+    }
+    hl.TelescopePromptNormal = {
+      bg = prompt,
+    }
+    hl.TelescopePromptBorder = {
+      bg = prompt,
+      fg = prompt,
+    }
+    hl.TelescopePromptTitle = {
+      bg = prompt,
+      fg = prompt,
+    }
+    hl.TelescopePreviewTitle = {
+      bg = c.bg_dark,
+      fg = c.bg_dark,
+    }
+    hl.TelescopeResultsTitle = {
+      bg = c.bg_dark,
+      fg = c.bg_dark,
+    }
+  end,
+})
+vim.cmd[[colorscheme tokyonight]]
 
 -- vim-coverage
 --require('coverage').setup({
@@ -169,6 +199,9 @@ vim.cmd.colorscheme('tokyonight')
   -- optionally configure how long to wait after detecting a change to reload the file
   -- auto_reload_timeout_ms = 1000,
 --})
+
+-- gitsigns
+require('gitsigns').setup()
 
 -- telescope
 require('telescope').setup()
@@ -194,8 +227,12 @@ require("trouble").setup {
 -- lualine
 require('lualine').setup {
   options = {
-    -- icons_enabled = true,
-    theme = 'tokyonight',
+   theme = 'tokyonight',
+   --section_separators = '',
+   --component_separators = '',
+  },
+  sections = {
+     lualine_b = {'branch', 'diagnostics'},
   },
   tabline = {
     lualine_a = {'buffers'},
@@ -207,19 +244,21 @@ require('lualine').setup {
   }
 }
 
+-- web-dev-icons
+require('nvim-web-devicons').setup()
+
 -- indentline
 require("ibl").setup()
-
--- package manager for lsp servers & configs
-require("mason").setup()
-require("mason-lspconfig").setup {
-  automatic_isntallation = true,
-}
 
 -- lspconfig
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local lspconfig = require('lspconfig')
+
+-- lsp server configs
+
+-- dart => https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dartls
+lspconfig.dartls.setup{}
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
