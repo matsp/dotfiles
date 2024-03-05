@@ -5,21 +5,14 @@ WINIT_X11_SCALE_FACTOR = "1"
 
 [font]
 size = 13
-
-[font.bold]
-family = "Hack Nerd Font"
-style = "Bold"
+builtin_box_drawing = false
 
 [font.glyph_offset]
 x = 0
 y = 0
 
-[font.italic]
-family = "Hack Nerd Font"
-style = "Italic"
-
 [font.normal]
-family = "Hack Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [font.offset]
