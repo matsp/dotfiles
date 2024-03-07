@@ -40,6 +40,7 @@ yay -S --needed --noconfirm \
   rustup \
   go \
   tinygo \
+  # includes language server
   dart \
   nodejs \
   npm \
@@ -48,6 +49,15 @@ yay -S --needed --noconfirm \
   python-pip \
   wasmer \
   protobuf \
+  # language server
+  # lua
+  lua-language-server \
+  # python
+  pyright \
+  # tailwindcss
+  tailwindcss-language-server \
+  # html, css, eslint, json
+  vscode-langservers-extracted \
   &> /dev/null
 
 echo 'configuring programming languages \n'
@@ -58,6 +68,7 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
 dart pub global activate protoc_plugin &> /dev/null
 # rust
 rustup default stable &> /dev/null
+## language server for rust
 rustup component add rls rust-analysis rust-src &> /dev/null
 
 # developer environment
