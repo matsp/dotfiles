@@ -38,6 +38,7 @@ test ! -d $HOME/git/yay \
 echo 'installing programming languages \n'
 yay -S --needed --noconfirm \
   rustup \
+  # includes language server
   go \
   tinygo \
   # includes language server
@@ -49,7 +50,7 @@ yay -S --needed --noconfirm \
   python-pip \
   wasmer \
   protobuf \
-  # language server
+  # language servers
   # lua
   lua-language-server \
   # python
@@ -68,13 +69,15 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
 dart pub global activate protoc_plugin &> /dev/null
 # rust
 rustup default stable &> /dev/null
-## language server for rust
 rustup component add rls rust-analysis rust-src &> /dev/null
+rustup update &> /dev/null
 
 # developer environment
 echo 'installing developer environment \n'
 yay -S --needed --noconfirm \
   tmux \
+  mc \
+  gotop \
   neovim \
   ripgrep \
   k9s \
@@ -88,13 +91,18 @@ yay -S --needed --noconfirm \
   &> /dev/null
 
 echo 'configuring developer environment \n'
-# vim
-nvim +PlugInstall +qall &> /dev/null
+# neovim
+nvim --headless "+Lazy! sync" +qa &> /dev/null
 # tmux
-tmux start-server &> /dev/null \
-  && tmux new-session -d &> /dev/null \
-  && ~/.tmux/plugins/tpm/scripts/install_plugins.sh &> /dev/null \
-  && tmux kill-server &> /dev/null
+if tmux info &> /dev/null; then 
+  ~/.tmux/plugins/tpm/bin/clean_plugins
+  ~/.tmux/plugins/tpm/bin/update_plugins all
+else
+  tmux start-server &> /dev/null \
+    && tmux new-session -d &> /dev/null \
+    && ~/.tmux/plugins/tpm/bin/install_plugins.sh &> /dev/null \
+    && tmux kill-server &> /dev/null
+fi
 
 if [ ! $DOTFILES_INJECTED -eq 0 ]
 then 
@@ -103,22 +111,18 @@ then
   exit 0
 fi
 
+# HINT: Now we are assuming an regular installation on arch linux
+
 # window manager & system pkgs
 echo 'installing window manager & system pkgs \n'
 yay -S --needed --noconfirm \
   i3-wm \
-  # picom-git \
   hsetroot \
   alacritty \
-  # rxvt-unicode \
   pulseaudio \
   xorg-server \
-  # polybar \
-  # feh \
-  # xorg-xsetroot \
   xorg-xrandr \
   xorg-xinit \
-  # rofi \
   netctl \
   wifi-menu \
   fstrim \
@@ -128,8 +132,6 @@ yay -S --needed --noconfirm \
   noto-fonts-emoji \
   noto-fonts-cjk \
   noto-fonts-extra \
-  # ttf-hack-nerd \
-  # ttf-font-awesome \
   ttf-nerd-fonts-symbols \
   ttf-nerd-fonst-symbols-mono \
   &> /dev/null
@@ -138,9 +140,6 @@ yay -S --needed --noconfirm \
 echo 'installing user pkgs \n'
 yay -S --needed --noconfirm \
   hugo \
-  htop \
-  mc \
-  gotop \
   podman \
   podman-compose \
   aardvark-dns \
@@ -154,14 +153,13 @@ yay -S --needed --noconfirm \
   &> /dev/null
 
 echo 'enabling services \n'
-sudo sudo systemctl enable bluetooth.service
+sudo systemctl enable bluetooth.service
 
 echo 'configuring shell environment \n'
 # regenerate font cache
 fc-cache -f &> /dev/null
 
 echo 'configuring infrastructure environment \n'
-
 # podman
 sudo touch /etc/subuid /etc/subgid
 sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $(whoami)
@@ -184,7 +182,6 @@ mkdir -p $HOME/git \
   && git clone -b dztech/dz60rgb_ansi/v2 git@github.com:matsp/qmk_firmware.git &> /dev/null \
   && cd qmk_firmware \
   && make git-submodule &> /dev/null
-
 
 # touch file to signal the successfull bootstrap
 touch $HOME/.arch/bootstrap_done
