@@ -188,3 +188,6 @@ mkdir -p $HOME/git \
 
 # touch file to signal the successfull bootstrap
 touch $HOME/.arch/bootstrap_done
+
+### HINT: load keymap for mechanical keyboard with ansi layout and mapped umlaute
+# localectl set-x11-keymap us altgr-intl altgr-intl nodeadkeys
