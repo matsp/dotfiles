@@ -329,6 +329,27 @@ require("lazy").setup({
         on_attach = on_attach,
       })
 
+      -- configure markdown server
+      lspconfig["marksman"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      -- configure docker server
+      lspconfig["dockerls"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      -- configure deno server
+      vim.g.markdown_fenced_languages = {
+        "ts=typescript"
+      }
+      lspconfig["denols"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
       -- configure lua server (with special settings)
       lspconfig["lua_ls"].setup({
         capabilities = capabilities,
