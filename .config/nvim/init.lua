@@ -58,7 +58,11 @@ require("lazy").setup({
   },
   {
     "folke/which-key.nvim",
-    lazy = true,
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
     opts = {}
   },
   {
@@ -182,7 +186,7 @@ require("lazy").setup({
   },
   {
     "numToStr/Comment.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    opts = {},
   },
   {
     "stevearc/conform.nvim",
