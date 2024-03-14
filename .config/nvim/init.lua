@@ -126,6 +126,21 @@ require("lazy").setup({
     }
   },
   {
+    "ellisonleao/glow.nvim",
+    -- config = true,
+    opts = {},
+    cmd = "Glow"
+  },
+  -- {
+  --   'stevearc/aerial.nvim',
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   opts = {},
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "nvim-tree/nvim-web-devicons"
+  --   },
+  -- },
+  {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
     dependencies = {
