@@ -44,7 +44,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'folke/trouble.nvim'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -154,6 +155,8 @@ noremap <Left> <Nop>
 inoremap <Left> <Nop>
 noremap <Right> <Nop>
 inoremap <Right> <Nop>
+" filetype
+au BufRead,BufNewFile *.njk set filetype=html
 
 lua <<EOF
 
@@ -195,6 +198,7 @@ require("trouble").setup {
 -- lualine
 require('lualine').setup {
   options = {
+    --icons_enabled = true,
     theme = 'tokyonight',
   },
   tabline = {
@@ -285,7 +289,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'dartls', 'gopls', 'jsonls', 'html', 'marksman', 'yamlls' }
+local servers = { 'dartls', 'gopls', 'jsonls', 'html', 'marksman', 'yamlls', 'tsserver', 'tailwindcss' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,

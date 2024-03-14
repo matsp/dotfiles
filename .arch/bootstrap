@@ -39,6 +39,7 @@ yay -S --needed --noconfirm \
   tmux \
   neovim \
   nodejs \
+  deno \
   npm \
   dart \
   python \
@@ -55,6 +56,7 @@ yay -S --needed --noconfirm \
   mqttui \
   wireshark-cli \
   protobuf \
+  qmk \
   &> /dev/null
 
 echo 'configuring developer environment \n'
@@ -106,6 +108,10 @@ yay -S --needed --noconfirm \
   noto-fonts-emoji \
   noto-fonts-cjk \
   noto-fonts-extra \
+  # ttf-hack-nerd \
+  # ttf-font-awesome \
+  ttf-nerd-fonts-symbols \
+  ttf-nerd-fonst-symbols-mono \
   &> /dev/null
 
 # user pkgs
@@ -150,6 +156,15 @@ minikube config set driver podman
 # libvirt
 sudo usermod -a -G libvirt $(whoami)
 sudo virsh net-autostart default
+
+echo 'configuring user environment \n'
+# qmk
+mkdir -p $HOME/git \
+  && cd $HOME/git \
+  && git clone -b dztech/dz60rgb_ansi/v2 git@github.com:matsp/qmk_firmware.git &> /dev/null \
+  && cd qmk_firmware \
+  && make git-submodule &> /dev/null
+
 
 # touch file to signal the successfull bootstrap
 touch $HOME/.arch/bootstrap_done
