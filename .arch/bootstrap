@@ -41,9 +41,7 @@ yay -S --needed --noconfirm \
   go \
   tinygo \
   dart \
-  # nodejs \
   nvm \
-  # npm \
   deno \
   python \
   python-pip \
@@ -65,7 +63,8 @@ rustup component add rls rust-analysis rust-src &> /dev/null
 rustup update &> /dev/null
 # docker
 npm install -g dockerfile-language-server-nodejs &> /dev/null
-# nodejs
+# nvm
+source /usr/share/nvm/init-nvm.sh
 nvm install --lts &> /dev/null
 
 # developer environment
