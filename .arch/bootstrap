@@ -41,17 +41,15 @@ yay -S --needed --noconfirm \
   go \
   tinygo \
   dart \
-  nodejs \
-  npm \
+  # nodejs \
+  nvm \
+  # npm \
   deno \
   python \
   python-pip \
   wasmer \
   protobuf \
   lua-language-server \
-  pyright \
-  tailwindcss-language-server \
-  vscode-langservers-extracted \
   marksman \
   &> /dev/null
 
@@ -66,7 +64,9 @@ rustup default stable &> /dev/null
 rustup component add rls rust-analysis rust-src &> /dev/null
 rustup update &> /dev/null
 # docker
-sudo npm install -g dockerfile-language-server-nodejs &> /dev/null
+npm install -g dockerfile-language-server-nodejs &> /dev/null
+# nodejs
+nvm install --lts &> /dev/null
 
 # developer environment
 echo 'installing developer environment \n'
@@ -89,9 +89,13 @@ yay -S --needed --noconfirm \
 
 echo 'configuring developer environment \n'
 # update global npm packages
-sudo npm update -g &> /dev/null
+npm update -g &> /dev/null
 # netlify-cli
-sudo npm install -g netlify-cli &> /dev/null
+npm install -g netlify-cli &> /dev/null
+# language servers
+npm install -g pyright &> /dev/null
+npm install -g tailwindcss-language-server &> /dev/null
+npm install -g vscode-langservers-extracted &> /dev/null
 # neovim
 nvim --headless "+Lazy! sync" +qa &> /dev/null
 # tmux
