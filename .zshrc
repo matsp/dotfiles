@@ -100,7 +100,11 @@ tmux_settings
 # ssh-agent
 zstyle :omz:plugins:ssh-agent quiet yes
 
+# init oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# init nvm 
+source /usr/share/nvm/init-nvm.sh
 
 # User configuration
 
@@ -175,3 +179,4 @@ alias df='df -h'
 alias vim=nvim
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias lazydot='lazygit -w $HOME -g $HOME/.dotfiles'
+
