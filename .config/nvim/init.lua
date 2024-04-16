@@ -57,6 +57,13 @@ require("lazy").setup({
     end,
   },
   {
+    "rmagatti/auto-session",
+    opts = {
+      log_level = "error",
+      auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
+    }
+  },
+  {
     "folke/which-key.nvim",
     event = "VeryLazy",
     init = function()
@@ -173,15 +180,15 @@ require("lazy").setup({
     main = "ibl",
     opts = {}
   },
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = { 'Copilot', 'CopilotAuth' },
-    event = "InsertEnter",
-    opts = {
-      suggestion = { enabled = false },
-      panel = { enabled = false },
-    }
-  },
+  -- {
+  --   'zbirenbaum/copilot.lua',
+  --   cmd = { 'Copilot', 'CopilotAuth' },
+  --   event = "InsertEnter",
+  --   opts = {
+  --     suggestion = { enabled = false },
+  --     panel = { enabled = false },
+  --   }
+  -- },
   {
     "kdheepak/lazygit.nvim",
     cmd = {
@@ -222,14 +229,13 @@ require("lazy").setup({
           markdown = { "prettier" },
           lua = { "stylua" },
           python = { "isort", "black" },
-          dart = { "dart_format" }
+          dart = { "dart_format" },
         },
 
         format_on_save = {
           lsp_fallback = true,
-
-          async = false,
-          timeout_ms = 1000,
+          async = true,
+          -- timeout_ms = 500,
         },
       })
 
@@ -401,14 +407,14 @@ require("lazy").setup({
       "saadparwaiz1/cmp_luasnip",     -- for autocompletion
       "rafamadriz/friendly-snippets", -- useful snippets
       "onsails/lspkind.nvim",         -- vs-code like pictograms
-      "zbirenbaum/copilot-cmp",
-      "zbirenbaum/copilot.lua"
+      -- "zbirenbaum/copilot-cmp",
+      -- "zbirenbaum/copilot.lua"
     },
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
       local lspkind = require("lspkind")
-      require("copilot_cmp").setup()
+      -- require("copilot_cmp").setup()
 
       -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
       require("luasnip.loaders.from_vscode").lazy_load()
@@ -435,7 +441,7 @@ require("lazy").setup({
         }),
         -- sources for autocompletion
         sources = cmp.config.sources({
-          { name = "copilot" },
+          -- { name = "copilot" },
           { name = "nvim_lsp" },
           { name = "luasnip" }, -- snippets
           { name = "buffer" },  -- text within current buffer
@@ -446,7 +452,7 @@ require("lazy").setup({
           format = lspkind.cmp_format({
             maxwidth = 50,
             ellipsis_char = "...",
-            symbol_map = { Copilot = "" }
+            -- symbol_map = { Copilot = "" }
           }),
         },
       })
