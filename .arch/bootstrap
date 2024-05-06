@@ -60,7 +60,7 @@ go install golang.org/x/tools/gopls@latest
 dart pub global activate protoc_plugin &> /dev/null
 # rust
 rustup default stable &> /dev/null
-rustup component add rls rust-analysis rust-src &> /dev/null
+rustup component add rust-analyzer rust-src &> /dev/null
 rustup update &> /dev/null
 # nvm
 source /usr/share/nvm/init-nvm.sh
