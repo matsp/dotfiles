@@ -324,6 +324,12 @@ require("lazy").setup({
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
+      --configure rust server
+      lspconfig['rust_analyzer'].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
       --configure golang server
       lspconfig['gopls'].setup({
         capabilities = capabilities,
