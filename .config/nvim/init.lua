@@ -378,6 +378,12 @@ require("lazy").setup({
         on_attach = on_attach,
       })
 
+      -- configure json server
+      lspconfig["jsonls"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
       -- configure deno server
       vim.g.markdown_fenced_languages = {
         "ts=typescript"
