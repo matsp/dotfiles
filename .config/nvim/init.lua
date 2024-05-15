@@ -234,7 +234,7 @@ require("lazy").setup({
 
         format_on_save = {
           lsp_fallback = true,
-          async = true,
+          -- async = true,
           -- timeout_ms = 500,
         },
       })
