@@ -78,6 +78,11 @@ require("lazy").setup({
     opts = {}
   },
   {
+    "folke/neoconf.nvim",
+    -- lazy = false,
+    -- opts = {}
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
@@ -257,6 +262,9 @@ require("lazy").setup({
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
+      require("neoconf").setup({
+        -- override any of the default settings here
+      })
       -- import lspconfig plugin
       local lspconfig = require("lspconfig")
 
@@ -439,7 +447,8 @@ require("lazy").setup({
 
       cmp.setup({
         completion = {
-          completeopt = "menu,menuone,preview,noselect",
+          -- completeopt = "menu,menuone,preview,noselect",
+          completeopt = 'menu,menuone,preview,noinsert'
         },
         snippet = { -- configure how nvim-cmp interacts with snippet engine
           expand = function(args)
