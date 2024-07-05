@@ -140,6 +140,7 @@ yay -S --needed --noconfirm \
   noto-fonts-extra \
   ttf-nerd-fonts-symbols \
   ttf-nerd-fonst-symbols-mono \
+  flameshot \
   &> /dev/null
 
 # user pkgs

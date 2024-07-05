@@ -239,3 +239,4 @@ focus_follows_mouse no
 
 # exec --no-startup-id picom -b
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+bindsym $mod+p exec flameshot gui
