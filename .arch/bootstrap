@@ -140,7 +140,6 @@ yay -S --needed --noconfirm \
   noto-fonts-extra \
   ttf-nerd-fonts-symbols \
   ttf-nerd-fonst-symbols-mono \
-  flameshot \
   &> /dev/null
 
 # user pkgs
@@ -157,6 +156,9 @@ yay -S --needed --noconfirm \
   minikube \
   libvirt \
   qemu-base \
+  flameshot \
+  mupdf \
+  mupdf-tools \
   &> /dev/null
 
 echo 'enabling services \n'
