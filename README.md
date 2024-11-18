@@ -42,7 +42,7 @@ dotfiles submodule update --init --recursive
 
 ```
 docker build --build-arg USER=dev -t dotfiles .arch/container
-docker run -ti -h dev --name dev dotfiles
+docker run -ti -e DOTFILES_CONTAINER='1' -p 9090:9090 -h dev --name dev dotfiles
 ```
 
 ### github container registry (ghcr.io)
@@ -57,5 +57,5 @@ docker run -ti -h dev --name dev ghcr.io/matsp/dotfiles:main
 cd $HOME
 curl -s -o Dockerfile https://raw.githubusercontent.com/matsp/dotfiles/main/.arch/container/local/Dockerfile && docker build -t dev .
 docker volume create dev_projects
-docker run -ti -h dev --name dev -v dev_projects:/home/dev/projects dev
+docker run -ti -e DOTFILES_CONTAINER='1' -p 9090:9090 -h dev --name dev -v dev_projects:/home/dev/projects dev
 ```
