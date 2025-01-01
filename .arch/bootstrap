@@ -40,9 +40,9 @@ yay -S --needed --noconfirm \
   rustup \
   go \
   tinygo \
-  dart \
+  # dart \
   nvm \
-  deno \
+  # deno \
   python \
   python-pip \
   wasmer \
@@ -57,7 +57,7 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest &> /dev/null
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
 go install golang.org/x/tools/gopls@latest
 # dart
-dart pub global activate protoc_plugin &> /dev/null
+# dart pub global activate protoc_plugin &> /dev/null
 # rust
 rustup default stable &> /dev/null
 rustup component add rust-analyzer rust-src &> /dev/null
