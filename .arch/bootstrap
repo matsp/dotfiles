@@ -37,9 +37,9 @@ test ! -d $HOME/git/yay \
 # programming languages
 echo 'installing programming languages \n'
 yay -S --needed --noconfirm \
-  rustup \
+  # rustup \
   go \
-  tinygo \
+  # tinygo \
   # dart \
   nvm \
   # deno \
@@ -53,15 +53,15 @@ yay -S --needed --noconfirm \
 
 echo 'configuring programming languages \n'
 # go
-go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest &> /dev/null
-go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
+# go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest &> /dev/null
+# go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
 go install golang.org/x/tools/gopls@latest
 # dart
 # dart pub global activate protoc_plugin &> /dev/null
 # rust
-rustup default stable &> /dev/null
-rustup component add rust-analyzer rust-src &> /dev/null
-rustup update &> /dev/null
+# rustup default stable &> /dev/null
+# rustup component add rust-analyzer rust-src &> /dev/null
+# rustup update &> /dev/null
 # nvm
 source /usr/share/nvm/init-nvm.sh
 nvm install --lts &> /dev/null
@@ -95,6 +95,7 @@ npm install -g pyright &> /dev/null
 npm install -g tailwindcss-language-server &> /dev/null
 npm install -g vscode-langservers-extracted &> /dev/null
 npm install -g dockerfile-language-server-nodejs &> /dev/null
+npm install -g typescript-language-server typescript
 # prettier
 npm install -g prettier
 # neovim
