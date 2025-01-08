@@ -100,7 +100,7 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     opts = {
-      ensure_installed = { "lua", "vim", "vimdoc", "query", "javascript", "html", "dart", "go", "json", "markdown", "scss", "css" },
+      ensure_installed = { "lua", "vim", "vimdoc", "query", "javascript", "html", "go", "json", "markdown", "scss", "css" },
       sync_install = false,
       highlight = { enable = true },
       indent = { enable = true },
@@ -234,7 +234,7 @@ require("lazy").setup({
           markdown = { "prettier" },
           lua = { "stylua" },
           python = { "isort", "black" },
-          dart = { "dart_format" },
+          -- dart = { "dart_format" },
         },
 
         format_on_save = {
@@ -253,6 +253,29 @@ require("lazy").setup({
 
         })
       end, { desc = "Format file or range (in visual mode)" })
+    end,
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    event = "BufRead",
+    dependencies = { "kevinhwang91/promise-async" },
+    config = function()
+      vim.o.foldcolumn = "1"
+      vim.o.foldlevel = 99
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
+
+      require("ufo").setup()
     end,
   },
   {
@@ -333,10 +356,10 @@ require("lazy").setup({
       end
 
       --configure rust server
-      lspconfig['rust_analyzer'].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
+      -- lspconfig['rust_analyzer'].setup({
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      -- })
 
       --configure golang server
       lspconfig['gopls'].setup({
@@ -344,11 +367,17 @@ require("lazy").setup({
         on_attach = on_attach,
       })
 
-      --configure dart server
-      lspconfig['dartls'].setup({
+      --configure golang server
+      lspconfig['ts_ls'].setup({
         capabilities = capabilities,
         on_attach = on_attach,
       })
+
+      --configure dart server
+      -- lspconfig['dartls'].setup({
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      -- })
 
       -- configure html server
       lspconfig["html"].setup({
@@ -363,10 +392,10 @@ require("lazy").setup({
       })
 
       -- configure tailwindcss server
-      lspconfig["tailwindcss"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
+      -- lspconfig["tailwindcss"].setup({
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      -- })
 
       -- configure python server
       lspconfig["pyright"].setup({
@@ -393,13 +422,13 @@ require("lazy").setup({
       })
 
       -- configure deno server
-      vim.g.markdown_fenced_languages = {
-        "ts=typescript"
-      }
-      lspconfig["denols"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
+      -- vim.g.markdown_fenced_languages = {
+      --   "ts=typescript"
+      -- }
+      -- lspconfig["denols"].setup({
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      -- })
 
       -- configure lua server (with special settings)
       lspconfig["lua_ls"].setup({
