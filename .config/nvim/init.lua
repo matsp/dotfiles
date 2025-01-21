@@ -137,12 +137,12 @@ require("lazy").setup({
       }
     }
   },
-  {
-    "ellisonleao/glow.nvim",
-    -- config = true,
-    opts = {},
-    cmd = "Glow"
-  },
+  -- {
+  --   "ellisonleao/glow.nvim",
+  --   -- config = true,
+  --   opts = {},
+  --   cmd = "Glow"
+  -- },
   -- {
   --   'stevearc/aerial.nvim',
   --   event = { "BufReadPre", "BufNewFile" },
@@ -280,6 +280,7 @@ require("lazy").setup({
   },
   {
     "neovim/nvim-lspconfig",
+    version = "*",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
