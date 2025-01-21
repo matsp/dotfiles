@@ -45,9 +45,11 @@ yay -S --needed --noconfirm \
   # deno \
   python \
   python-pip \
-  wasmer \
-  protobuf \
+  # wasmer \
+  # protobuf \
   lua-language-server \
+  lua51 \
+  lua \
   marksman \
   &> /dev/null
 
@@ -76,13 +78,14 @@ yay -S --needed --noconfirm \
   ripgrep \
   k9s \
   kubectl \
-  aws-cli \
+  # aws-cli \
   helm \
   lazygit \
-  mqttui \
-  wireshark-cli \
+  # mqttui \
+  # wireshark-cli \
   qmk \
-  glow \
+  # glow \
+  luarocks \
   &> /dev/null
 
 echo 'configuring developer environment \n'
