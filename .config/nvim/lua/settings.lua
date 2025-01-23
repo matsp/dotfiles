@@ -97,3 +97,6 @@ opt.swapfile = false
 -- TODO: check later
 --" filetype
 --au BufRead,BufNewFile *.njk set filetype=html
+
+-- auto-session recommend
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
