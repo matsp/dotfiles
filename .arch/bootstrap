@@ -50,7 +50,7 @@ yay -S --needed --noconfirm \
   lua-language-server \
   lua51 \
   lua \
-  marksman \
+  # marksman \
   &> /dev/null
 
 echo 'configuring programming languages \n'
