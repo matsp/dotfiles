@@ -45,6 +45,7 @@ yay -S --needed --noconfirm \
   # deno \
   python \
   python-pip \
+  python-pipx \
   # wasmer \
   # protobuf \
   lua-language-server \
