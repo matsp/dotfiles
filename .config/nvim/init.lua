@@ -100,7 +100,7 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     opts = {
-      ensure_installed = { "lua", "vim", "vimdoc", "query", "javascript", "html", "go", "json", "markdown", "scss", "css" },
+      ensure_installed = { "lua", "vim", "vimdoc", "query", "javascript", "html", "go", "json", "markdown", "scss", "css", "yaml" },
       sync_install = false,
       highlight = { enable = true },
       indent = { enable = true },
@@ -185,15 +185,37 @@ require("lazy").setup({
     main = "ibl",
     opts = {}
   },
-  -- {
-  --   'zbirenbaum/copilot.lua',
-  --   cmd = { 'Copilot', 'CopilotAuth' },
-  --   event = "InsertEnter",
-  --   opts = {
-  --     suggestion = { enabled = false },
-  --     panel = { enabled = false },
-  --   }
-  -- },
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = { 'Copilot', 'CopilotAuth' },
+    -- event = "InsertEnter",
+    -- opts = {
+    --   suggestion = { enabled = false },
+    --   panel = { enabled = false },
+    -- }
+  },
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {
+      strategies = {
+        -- Change the default chat adapter
+        chat = {
+          adapter = "copilot",
+        },
+        inline = {
+          adapter = "copilot",
+        },
+      },
+      opts = {
+        -- Set debug logging
+        -- log_level = "DEBUG",
+      },
+    },
+  },
   {
     "kdheepak/lazygit.nvim",
     cmd = {
