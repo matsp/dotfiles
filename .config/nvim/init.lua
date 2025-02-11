@@ -125,7 +125,12 @@ require("lazy").setup({
         --component_separators = '',
       },
       sections = {
+        lualine_a = {},
         lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = {},
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' }
       },
       tabline = {
         lualine_a = { 'buffers' },
@@ -160,7 +165,18 @@ require("lazy").setup({
       'nvim-tree/nvim-web-devicons'
     },
     config = function()
-      require("telescope").setup()
+      local actions = require "telescope.actions"
+      require("telescope").setup({
+        pickers = {
+          buffers = {
+            mappings = {
+              i = {
+                ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+              }
+            }
+          }
+        }
+      })
     end,
     keys = {
       { '<leader>ff',  '<cmd>lua require("telescope.builtin").find_files()<cr>',   desc = 'TelescopeFindFiles' },
