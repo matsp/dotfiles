@@ -188,6 +188,9 @@ require("lazy").setup({
   {
     'zbirenbaum/copilot.lua',
     cmd = { 'Copilot', 'CopilotAuth' },
+    config = function()
+      require("copilot").setup({})
+    end,
     -- event = "InsertEnter",
     -- opts = {
     --   suggestion = { enabled = false },
