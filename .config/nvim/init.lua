@@ -274,7 +274,7 @@ require("lazy").setup({
           yaml = { "prettier" },
           markdown = { "prettier" },
           lua = { "stylua" },
-          python = { "isort", "black" },
+          python = { "prettier" },
           -- dart = { "dart_format" },
         },
 
