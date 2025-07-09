@@ -40,10 +40,14 @@ keymap.set("t", "<C-H>", "<C-W>h", { desc = "Switch to window left" })  -- switc
 --nmap <leader>hs :split<space>
 --" resize window
 --" vertical/horizontal 'i'ncrease / 'd'ecrease
---nmap <leader>vi :vertical resize +5<cr>
---nmap <leader>vd :vertical resize -5<cr>
---nmap <leader>hi :resize +5<cr>
---nmap <leader>hd :resize -5<cr>
+keymap.set("n", "<leader>vi", ":vertical resize +5<cr>")
+keymap.set("n", "<leader>vd", ":vertical resize -5<cr>")
+keymap.set("n", "<leader>hi", ":resize +5<cr>")
+keymap.set("n", "<leader>hd", ":resize -5<cr>")
+-- nmap <leader>vi :vertical resize +5<cr>
+-- nmap <leader>vd :vertical resize -5<cr>
+-- nmap <leader>hi :resize +5<cr>
+-- nmap <leader>hd :resize -5<cr>
 --tmap <leader>vi <c-w>:vertical resize +5<cr>
 --tmap <leader>vd <c-w>:vertical resize -5<cr>
 --tmap <leader>hi <c-w>:resize +5<cr>
