@@ -256,15 +256,15 @@ require("lazy").setup({
 					end,
 				},
 			},
-			-- strategies = {
-			-- 	-- Change the default chat adapter
-			-- 	chat = {
-			-- 		adapter = "copilot",
-			-- 	},
-			-- 	inline = {
-			-- 		adapter = "copilot",
-			-- 	},
-			-- },
+			strategies = {
+				-- Change the default chat adapter
+				chat = {
+					adapter = "claude_code",
+				},
+				inline = {
+					adapter = "claude_code",
+				},
+			},
 			opts = {
 				-- Set debug logging
 				-- log_level = "DEBUG",
