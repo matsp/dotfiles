@@ -107,6 +107,10 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/nvm/init-nvm.sh
 
 # User configuration
+#
+if [ -f ~/.zshenv.local ]; then
+    source ~/.zshenv.local
+fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
