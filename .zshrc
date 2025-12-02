@@ -19,6 +19,10 @@ test ! -d $HOME/.oh-my-zsh \
   && git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh &> /dev/null
 test ! -f $HOME/.arch/bootstrap_done && $HOME/.arch/bootstrap
 
+# add plugins
+test ! -d $ZSH_CUSTOM/plugins/autoswitch_virtualenv \
+  && git clone "https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv.git" "$ZSH_CUSTOM/plugins/autoswitch_virtualenv" &> /dev/null
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -86,7 +90,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autoupdate git git-auto-fetch zsh-autosuggestions zsh-syntax-highlighting dotenv tmux ssh-agent)
+plugins=(autoupdate git git-auto-fetch zsh-autosuggestions zsh-syntax-highlighting dotenv tmux ssh-agent autoswitch_virtualenv)
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
