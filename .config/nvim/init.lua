@@ -428,80 +428,15 @@ require("lazy").setup({
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 			end
 
-			--configure rust server
-			-- lspconfig['rust_analyzer'].setup({
-			--   capabilities = capabilities,
-			--   on_attach = on_attach,
-			-- })
-
-			--configure golang server
-			vim.lsp.config("gopls", {
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-
-			--configure typescript server
-			vim.lsp.config("ts_ls", {
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-
-			--configure dart server
-			-- lspconfig['dartls'].setup({
-			--   capabilities = capabilities,
-			--   on_attach = on_attach,
-			-- })
-
-			-- configure html server
-			vim.lsp.config("html", {
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-
-			-- configure css server
-			vim.lsp.config("cssls", {
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-
-			-- configure tailwindcss server
-			-- lspconfig["tailwindcss"].setup({
-			--   capabilities = capabilities,
-			--   on_attach = on_attach,
-			-- })
-
-			-- configure python server
-			vim.lsp.config("pyright", {
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-
-			-- configure markdown server
-			vim.lsp.config("marksman", {
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-
-			-- configure docker server
-			vim.lsp.config("dockerls", {
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-
-			-- configure json server
-			vim.lsp.config("jsonls", {
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-
-			-- configure deno server
-			-- vim.g.markdown_fenced_languages = {
-			--   "ts=typescript"
-			-- }
-			-- lspconfig["denols"].setup({
-			--   capabilities = capabilities,
-			--   on_attach = on_attach,
-			-- })
+			vim.lsp.enable("gopls")
+			vim.lsp.enable("ts_ls")
+			vim.lsp.enable("dartls")
+			vim.lsp.enable("html")
+			vim.lsp.enable("cssls")
+			vim.lsp.enable("pyright")
+			vim.lsp.enable("marksman")
+			vim.lsp.enable("dockerls")
+			vim.lsp.enable("jsonls")
 
 			-- configure lua server (with special settings)
 			vim.lsp.config("lua_ls", {
@@ -523,6 +458,7 @@ require("lazy").setup({
 					},
 				},
 			})
+			vim.lsp.enable("lua_ls")
 		end,
 	},
 	{
