@@ -16,12 +16,9 @@ function tmux_settings {
 # if no oh-my-zsh distribution is installed we will first bootstrap this arch system
 
 test ! -d $HOME/.oh-my-zsh \
-  && git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh &> /dev/null
-test ! -f $HOME/.arch/bootstrap_done && $HOME/.arch/bootstrap
-
-# add plugins
-test ! -d $ZSH_CUSTOM/plugins/autoswitch_virtualenv \
+  && git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh &> /dev/null \
   && git clone "https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv.git" "$ZSH_CUSTOM/plugins/autoswitch_virtualenv" &> /dev/null
+test ! -f $HOME/.arch/bootstrap_done && $HOME/.arch/bootstrap
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
