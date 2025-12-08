@@ -11,6 +11,10 @@ RUN sudo chmod 644 ~/.ssh/authorized_keys; exit 0
 RUN sudo chmod 644 ~/.ssh/known_hosts; exit 0
 RUN sudo chmod 644 ~/.ssh/config; exit 0
 
+# api keys in zshenv.local
+COPY .zshenv.local .zshenv.local
+RUN sudo chown dev:dev .zshenv.local; exit 0
+
 # aws & kube auth. tokens
 # COPY .aws .aws
 # COPY .kube .kube
