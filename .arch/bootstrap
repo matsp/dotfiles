@@ -37,36 +37,20 @@ test ! -d $HOME/git/yay \
 # programming languages
 echo 'installing programming languages \n'
 yay -S --needed --noconfirm \
-  # rustup \
   go \
-  # tinygo \
-  # dart \
   nvm \
-  # deno \
   python \
   python-pip \
-  # python-pipx \
-  # wasmer \
-  # protobuf \
   lua-language-server \
   lua51 \
   lua \
   stylua \
-  # marksman \
   &> /dev/null
 
 echo 'configuring programming languages \n'
 # go
-# go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest &> /dev/null
-# go install google.golang.org/protobuf/cmd/protoc-gen-go@latest &> /dev/null
 go install golang.org/x/tools/gopls@latest
-# dart
-# dart pub global activate protoc_plugin &> /dev/null
-# rust
-# rustup default stable &> /dev/null
-# rustup component add rust-analyzer rust-src &> /dev/null
-# rustup update &> /dev/null
-# nvm
+# nvm (node version manager)
 source /usr/share/nvm/init-nvm.sh
 nvm install --lts &> /dev/null
 
@@ -80,13 +64,9 @@ yay -S --needed --noconfirm \
   ripgrep \
   k9s \
   kubectl \
-  # aws-cli \
   helm \
   lazygit \
-  # mqttui \
-  # wireshark-cli \
   qmk \
-  # glow \
   luarocks \
   &> /dev/null
 
