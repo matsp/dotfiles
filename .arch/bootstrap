@@ -38,6 +38,7 @@ test ! -d $HOME/git/yay \
 echo 'installing programming languages \n'
 yay -S --needed --noconfirm \
   go \
+  binaryen \
   nvm \
   python \
   python-pip \
