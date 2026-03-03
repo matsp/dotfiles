@@ -70,6 +70,7 @@ yay -S --needed --noconfirm \
   lazygit \
   qmk \
   luarocks \
+  jq \
   &> /dev/null
 
 echo 'configuring developer environment \n'
