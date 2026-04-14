@@ -72,6 +72,7 @@ yay -S --needed --noconfirm \
   luarocks \
   jq \
   opencode \
+  ollama \
   &> /dev/null
 
 echo 'configuring developer environment \n'
