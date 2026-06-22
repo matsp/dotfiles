@@ -118,6 +118,7 @@ fi
 echo 'installing window manager & system pkgs \n'
 yay -S --needed --noconfirm \
   i3-wm \
+  picom \
   hsetroot \
   alacritty \
   pulseaudio \
