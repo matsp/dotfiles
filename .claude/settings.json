@@ -8,7 +8,29 @@
     "ask": [],
     "defaultMode": "bypassPermissions"
   },
-  "model": "sonnet",
+  "model": "opus",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash|PowerShell|Grep|Glob|Read|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "repowise-augment",
+            "timeout": 10,
+            "statusMessage": "Checking codebase context..."
+          }
+        ]
+      }
+    ]
+  },
+  "worktree": {
+    "baseRef": "head"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "python3 /home/dev/.claude/statusline.py"
+  },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
@@ -19,7 +41,12 @@
     "superpowers@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": false,
     "andrej-karpathy-skills@karpathy-skills": true,
-    "caveman@caveman": true
+    "caveman@caveman": true,
+    "coding@matsp": true,
+    "coding-jira@matsp": true,
+    "gitlab-mr@matsp": true,
+    "prompt-master@matsp": true,
+    "repowise@repowise": true
   },
   "extraKnownMarketplaces": {
     "caveman": {
@@ -33,8 +60,33 @@
         "source": "github",
         "repo": "forrestchang/andrej-karpathy-skills"
       }
+    },
+    "matsp": {
+      "source": {
+        "source": "github",
+        "repo": "matsp/skills"
+      },
+      "autoUpdate": true
+    },
+    "repowise": {
+      "source": {
+        "source": "github",
+        "repo": "repowise-dev/repowise"
+      }
     }
   },
   "effortLevel": "high",
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "mcpServers": {
+    "repowise": {
+      "command": "/home/dev/projects/layout-transformation/.venv/bin/repowise",
+      "args": [
+        "mcp",
+        "/home/dev/projects/layout-transformation",
+        "--transport",
+        "stdio"
+      ],
+      "description": "repowise: codebase intelligence — docs, graph, git signals, dead code, decisions"
+    }
+  }
 }
