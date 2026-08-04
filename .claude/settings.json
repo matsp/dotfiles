@@ -9,21 +9,6 @@
     "defaultMode": "bypassPermissions"
   },
   "model": "opus",
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Bash|PowerShell|Grep|Glob|Read|Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "repowise-augment",
-            "timeout": 10,
-            "statusMessage": "Checking codebase context..."
-          }
-        ]
-      }
-    ]
-  },
   "worktree": {
     "baseRef": "head"
   },
@@ -45,21 +30,22 @@
     "coding@matsp": true,
     "coding-jira@matsp": true,
     "gitlab-mr@matsp": true,
-    "prompt-master@matsp": true,
-    "repowise@repowise": true
+    "prompt-master@matsp": true
   },
   "extraKnownMarketplaces": {
     "caveman": {
       "source": {
         "source": "github",
         "repo": "JuliusBrussee/caveman"
-      }
+      },
+      "autoUpdate": true
     },
     "karpathy-skills": {
       "source": {
         "source": "github",
         "repo": "forrestchang/andrej-karpathy-skills"
-      }
+      },
+      "autoUpdate": true
     },
     "matsp": {
       "source": {
@@ -67,26 +53,10 @@
         "repo": "matsp/skills"
       },
       "autoUpdate": true
-    },
-    "repowise": {
-      "source": {
-        "source": "github",
-        "repo": "repowise-dev/repowise"
-      }
     }
   },
   "effortLevel": "high",
+  "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
-  "mcpServers": {
-    "repowise": {
-      "command": "/home/dev/projects/layout-transformation/.venv/bin/repowise",
-      "args": [
-        "mcp",
-        "/home/dev/projects/layout-transformation",
-        "--transport",
-        "stdio"
-      ],
-      "description": "repowise: codebase intelligence — docs, graph, git signals, dead code, decisions"
-    }
-  }
+  "theme": "dark"
 }
