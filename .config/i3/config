@@ -191,6 +191,7 @@ bindsym $mod+Tab workspace back_and_forth
 ## start browser
 bindsym $mod+c exec --no-startup-id google-chrome-stable
 bindsym $mod+x exec --no-startup-id virtualbox
+bindsym $mod+o exec --no-startup-id obsidian
 
 
 ## Screen brightness controls
